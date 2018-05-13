@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class calculator {
 	public static void main(String[] args) {
-		System.out.printf("Welcome to the calculator.\nEnter operator: ");
+		System.out.printf("Welcome to the calculator. Options: add, sub, mul, div, mod\nEnter operator: ");
 		Scanner inp = new Scanner(System.in);
 		String op = inp.nextLine();
 		System.out.printf("Enter firstnum: ");
@@ -19,6 +19,8 @@ public class calculator {
 			System.out.println(x * y);
 		}else if (op.equalsIgnoreCase("div")) {
 			System.out.println(x / y);
+		}else if (op.equalsIgnoreCase("mod")) {
+			System.out.println(x % y);
 		}else {
 			System.out.println("Invalid operator");
 		}
