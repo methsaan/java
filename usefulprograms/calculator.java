@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class calculator {
 	public static void main(String[] args) {
-		System.out.printf("Welcome to the calculator. Options: add, sub, mul, div, mod\nEnter operator: ");
+		System.out.print("Welcome to the calculator. Options: add, sub, mul, div, mod\nEnter operator: ");
 		Scanner inp = new Scanner(System.in);
 		String op = inp.nextLine();
 		System.out.printf("Enter firstnum: ");
@@ -24,5 +24,6 @@ public class calculator {
 		}else {
 			System.out.println("Invalid operator");
 		}
+		System.out.printf("Your operator is %s", op);
 	}
 }
