@@ -24,6 +24,5 @@ public class calculator {
 		}else {
 			System.out.println("Invalid operator");
 		}
-		System.out.printf("Your operator is %s", op);
 	}
 }
