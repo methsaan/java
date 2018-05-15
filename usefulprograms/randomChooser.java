@@ -6,15 +6,14 @@ public class randomChooser {
 		System.out.print("Welcome to the random chooser.\nEnter number of items (max: 5): ");
 		Scanner numOfItms = new Scanner(System.in);
 		numberOfItems = numOfItms.nextInt();
-		ArrayList < String > itemArray = new ArrayList < String >(numberOfItems);
+		String[] itemArray = new String[numberOfItems];
 		for (int x = 0; x > numberOfItems; x++){
 			System.out.println("Enter Item " + x + ": ");
 			Scanner nextItem = new Scanner(System.in);
-			itemArray.add(1, nextItem.nextLine());
+			itemArray[x] = nextItem.nexLine();
 		}
 		Random randClass1 = new Random();
 		int randChoice = randClass1.nextInt(numberOfItems);
-		System.out.println("The chosen item is: " + itemArray.get(randChoice));
-		
+		System.out.println("The chosen item is: " + itemArray[randChoice]);
 	}
 }
