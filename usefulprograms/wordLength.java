@@ -5,7 +5,11 @@ public class wordLength{
 		System.out.print("Enter a word: ");
 		Scanner word = new Scanner(System.in);
 		String word2 = word.nextLine();
-		String lengthf = word2.length();
-		System.out.println("Your word is " + lengthf + " characters long.");
+		int len = word2.length();
+		String char1 = "characters";
+		if (len == 1) {
+			char1 = "character";
+		}
+		System.out.println("Your word is " + len + " " + char1 + " long.");
 	}
 }
