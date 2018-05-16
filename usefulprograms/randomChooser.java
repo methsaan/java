@@ -10,7 +10,7 @@ public class randomChooser {
 		for (int x = 0; x > numberOfItems; x++){
 			System.out.println("Enter Item " + x + ": ");
 			Scanner nextItem = new Scanner(System.in);
-			itemArray[x] = nextItem.nexLine();
+			itemArray[x] = nextItem.nextLine();
 		}
 		Random randClass1 = new Random();
 		int randChoice = randClass1.nextInt(numberOfItems);
