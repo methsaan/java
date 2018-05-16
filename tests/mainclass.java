@@ -1,6 +1,7 @@
+import java.util.*;
+
 public class mainclass{
 	public static void main(String[] args) {
-		class1.print("Hello ");
-		class1.printl("world");
+		Scanner x = class1.input("Enter an integer: ");
 	}
 }
