@@ -21,6 +21,6 @@ public class unknownSpot {
 		System.out.println("Score: " + points);
 		System.out.print((points/16.00)*100);
 		System.out.println("%");
-		System.out.println("Credits: Designer: Methuki Laknara Wickramasinghe, Creator: Methsaan Dinakara Wickramasinghe, Dedicated to: Pamini Wickramasinghe");
+		System.out.println("Credits: Designer: Methuki Laknara Wickramasinghe, Creator: Methsaan Dinakara Wickramasinghe, Dedicated to: Pamini Wickramasinghe, HAPPY B'DAY!");
 	}
 }
