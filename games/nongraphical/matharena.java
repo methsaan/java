@@ -4,7 +4,12 @@ import java.util.Arrays;
 
 public class matharena {
 	public static void main(String[] args) {
-		
+		random randobj = new random();
+		int x = randobj.randrange(5, 8);
+		print(x);
+		String[] y = new String[] {"a", "b", "c", "d"};
+		String z = randobj.randchoice(y);
+		print(z);
 	}
 	public static void print(Object arg0){
 		System.out.println(arg0);
@@ -27,12 +32,5 @@ public class matharena {
 		String x = Double.toString(whatToConvert);
 		return x;
 	}
-	public static int randrange(int start, int end){
-		Random randObj = new Random();
-		int low = start;
-		int high = end;
-		int result = randObj.nextInt(high-low) + low;
-		return result;
-	}
-	public static int randChoice(
+
 }
