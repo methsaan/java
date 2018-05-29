@@ -1,10 +1,10 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.util.Arrays;
 
 public class matharena {
 	public static void main(String[] args) {
-		int f = randrange(50, 100);
-		print(f);
+		
 	}
 	public static void print(Object arg0){
 		System.out.println(arg0);
@@ -29,7 +29,10 @@ public class matharena {
 	}
 	public static int randrange(int start, int end){
 		Random randObj = new Random();
-		int x = randObj.nextInt(end) + start;
-		return x;
+		int low = start;
+		int high = end;
+		int result = randObj.nextInt(high-low) + low;
+		return result;
 	}
+	public static int randChoice(
 }
