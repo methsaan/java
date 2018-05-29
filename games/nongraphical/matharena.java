@@ -4,12 +4,16 @@ import java.util.Arrays;
 
 public class matharena {
 	public static void main(String[] args) {
-		random randobj = new random();
-		int x = randobj.randrange(5, 8);
-		print(x);
-		String[] y = new String[] {"a", "b", "c", "d"};
-		String z = randobj.randchoice(y);
-		print(z);
+		print("Welcome to the math arena");
+		random rand = new random();
+		int x = rand.randrange(1, 99);
+		int y = rand.randrange(1, 99);
+		String user1 = Int(input("What is " + str(x) + " + " + str(y)));
+		if (user1 == x+y){
+			print("correct");
+		}else {
+			print("incorrect");
+		}
 	}
 	public static void print(Object arg0){
 		System.out.println(arg0);
