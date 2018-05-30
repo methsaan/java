@@ -11,18 +11,18 @@ public class matharena {
 		int score = 0;
 		int score2 = 0;
 		for (int cnt = 0; cnt < 5; cnt++){
-       			int x = Int(str(rand.randrange(1, 99)));
-		       	int y = Int(str(rand.randrange(1, 99)));
-	       		int user1 = Int(input("What is " + str(x) + " + " + str(y) + ":" + "(" + name + ") "));
+       			int x = rand.randrange(1, 99);
+		       	int y = rand.randrange(1, 99);
+	       		double user1 = Float(input("What is " + str(x) + " + " + str(y) + ":" + "(" + name + ") "));
 	       		if (user1 == x+y){
 	       			print("correct\n");
 	       			score += 1;
 	       		}else {
 	       			print("incorrect\n");
 	       		}
-	       		int x2 = Int(str(rand.randrange(1, 99)));
-			int y2 = Int(str(rand.randrange(1, 99)));
-	       	      	int user2 = Int(input("What is " + str(x2) + " + " + str(y2) + ":" + "(" + name2 + ") "));
+	       		int x2 = rand.randrange(1, 99);
+			int y2 = rand.randrange(1, 99);
+	       	      	double user2 = Float(input("What is " + str(x2) + " + " + str(y2) + ":" + "(" + name2 + ") "));
 	       	      	if (user2 == x2+y2){
 	       	      		print("correct\n");
 	       	      		score2 += 1;
@@ -51,16 +51,16 @@ public class matharena {
 		String whatTheyEntered = scanObj.nextLine();
 		return whatTheyEntered;
 	}
-	public static int Int(String whatToConvert) {
-		int x = Integer.parseInt(whatToConvert);
+	public static int Int(String f) {
+		int x = Integer.parseInt(f);
 		return x;
 	}
-	public static double Float(String whatToConvert){
-		double x = Double.parseDouble(whatToConvert);
+	public static double Float(String i){
+		double x = Double.parseDouble(i);
 		return x;
 	}
-	public static String str(double whatToConvert){
-		String x = Double.toString(whatToConvert);
+	public static String str(int o){
+		String x = Double.toString(o);
 		return x;
 	}
 }
