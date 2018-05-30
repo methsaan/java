@@ -11,8 +11,8 @@ public class matharena {
 		int score = 0;
 		int score2 = 0;
 		for (int cnt = 0; cnt < 5; cnt++){
-       			int x = rand.randrange(1, 99);
-		       	int y = rand.randrange(1, 99);
+       			int x = Int(str(rand.randrange(1, 99)));
+		       	int y = Int(str(rand.randrange(1, 99)));
 	       		int user1 = Int(input("What is " + str(x) + " + " + str(y) + ":" + "(" + name + ") "));
 	       		if (user1 == x+y){
 	       			print("correct\n");
@@ -20,8 +20,8 @@ public class matharena {
 	       		}else {
 	       			print("incorrect\n");
 	       		}
-	       		int x2 = rand.randrange(1, 99);
-			int y2 = rand.randrange(1, 99);
+	       		int x2 = Int(str(rand.randrange(1, 99)));
+			int y2 = Int(str(rand.randrange(1, 99)));
 	       	      	int user2 = Int(input("What is " + str(x2) + " + " + str(y2) + ":" + "(" + name2 + ") "));
 	       	      	if (user2 == x2+y2){
 	       	      		print("correct\n");
