@@ -38,6 +38,14 @@ public class matharena {
 		}else {
 			winner = name2;
 		}
+		print(name);
+		print(" score: ");
+		print(str(score));
+		print("\n");
+		print(name2);
+		print(" score: ");
+		print(str(score2));
+		print("\n");
 		print("The winner is: ");
 		print(winner);
 		print("\n");
