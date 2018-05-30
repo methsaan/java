@@ -33,6 +33,8 @@ public class matharena {
 		String winner = name;
 		if (score > score2){
 			winner = name;
+		}else if (score == score2){
+			winner = "TIE!!";
 		}else {
 			winner = name2;
 		}
