@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class SnakesAndLadders {
+public class DiceRoller{
 	public static void main(String[] args) {
 		Dice dice = new Dice(6);
 		Dice dice2 = new Dice(6);
