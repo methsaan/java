@@ -4,11 +4,11 @@ import java.util.Arrays;
 public class sentenceBuilder {
 	public static void main(String[] args) {
 		String[] SingularArticles = {"A", "The", "Any", "Every"};
-		String[] SingularArticles2 = {"a", "the", "that", "this"};
-		String[] SingularArticles3 = {"a", "the", "any", "every"};
+		String[] SingularArticles2 = {"a", "the", "that", "this", "their", "our"};
+		String[] SingularArticles3 = {"a", "the", "my", "your", "his", "her"};
 		String[] SingularArticles4 = {"A", "The", "That", "This"};
 		String[] AnimateNoun = {"man", "person", "woman", "boy", "girl", "dog", "cat", "monkey", "pig", "wolf"};
-		String[] VerbsAnimatePresent = {"wants", "has", "likes", "throws", "dislikes", "sees", "approaches", "hears", "rejects"};
+		String[] VerbsAnimatePresent = {"wants", "has", "likes", "throws", "dislikes", "sees", "is", "hears", "rejects"};
 		String[] InanimateAdjectives = {"bad", "good", "rejected", "big", "small", "boring", "funny", "foolish", "horrible", "awesome", "mean"};
 		String[] InanimateNoun = {"book", "banana", "bag", "pancake", "computer", "piano"};
 		Random random = new Random();
