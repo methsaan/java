@@ -6,21 +6,29 @@ public class hangman {
 	public static void main(String[] args) {
 		String[] words = {"fifteen", "numbers", "markets", "garbage", "rejects", "illness", "caption", "bullies", "english"};
 		Random random = new Random();
-		char[] userProgress = {'_', '_', '_', '_', '_', '_', '_'};
+		String[] userProgress = {"_", "_", "_", "_", "_", "_", "_"};
 		Scanner scanner = new Scanner(System.in);
 		while (true) {
 			String randWord = words[random.nextInt(9)];
-			System.out.print("Guess a letter: ");
-			String userWord = scanner.next();
-			if (randWord.contains(userWord)) {
-				System.out.println("Yup. Correct");
-			}else {
-				System.out.println("Nop. wrong.");
+			while (Arrays.asList(userProgress).contains("_")){
+				System.out.print("Guess a letter: ");
+				String userWord = scanner.nextLine();
+				if (randWord.contains(userWord)) {
+					System.out.println("Yup. Correct");
+					userProgress[randWord.indexOf(userWord)] = userWord;
+				}else {
+					System.out.println("Nop. wrong.");
+				}
+				printarray(userProgress);
 			}
-			printarray(userProgress);
+			System.out.println(userProgress);
+			for (int x = 0; x>userProgress.length; x++){
+				userProgress[x] = "_";
+			}
+			System.out.println(userProgress);
 		}
 	}
-	public static void printarray(char[] array){
+	public static void printarray(String[] array){
 		for (int x = 0; x < array.length; x++) {
 			System.out.print(array[x] + " ");
 			if (x == array.length-1) {
