@@ -23,8 +23,10 @@ public class hangman {
 			}
 			for (int x = 0; x>userProgress.length; x++){
 				userProgress[x] = "_";
+				System.out.println(x);
+				System.out.println(userProgress[x]);
 			}
-			System.out.println(userProgress[6]);
+			break;
 		}
 	}
 	public static void printarray(String[] arrayf){
