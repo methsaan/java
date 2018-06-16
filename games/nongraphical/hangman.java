@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class hangman {
 	public static void main(String[] args) {
-		String[] words = {"weights", "numbers", "markets", "marcher", "parting", "winters", "caption", "oranges", "english", "striker", "puberty", "pythons", "disturb", "farting", "blaming", "escaped", "program", "spoiler", "capital", "imports", "export", "excited", "knights", "gymnast", "foreign", "directs", "arduino", "poverty", "problem", "foaming"};
+		String[] words = {"weights", "numbers", "markets", "marcher", "parting", "winters", "caption", "oranges", "english", "striker", "puberty", "pythons", "disturb", "farting", "blaming", "escaped", "program", "spoiler", "capital", "imports", "exports", "excited", "knights", "gymnast", "foreign", "directs", "arduino", "poverty", "problem", "foaming"};
 		Random random = new Random();
 		String[] userProgress = {"_", "_", "_", "_", "_", "_", "_"};
 		Scanner scanner = new Scanner(System.in);
