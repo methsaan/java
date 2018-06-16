@@ -24,13 +24,13 @@ public class hangman {
 			for (int x = 0; x>userProgress.length; x++){
 				userProgress[x] = "_";
 			}
-			printarray(userProgress);
+			printarray({"ad", "afd", "aff"});
 		}
 	}
-	public static void printarray(String[] array){
-		for (int x = 0; x < array.length; x++) {
-			System.out.print(array[x] + " ");
-			if (x == array.length-1) {
+	public static void printarray(String[] arrayf){
+		for (int x = 0; x < arrayf.length; x++) {
+			System.out.print(arrayf[x] + " ");
+			if (x == arrayf.length-1) {
 				System.out.println();
 			}
 		}
