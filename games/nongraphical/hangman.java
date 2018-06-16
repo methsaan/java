@@ -24,7 +24,7 @@ public class hangman {
 			for (int x = 0; x>userProgress.length; x++){
 				userProgress[x] = "_";
 			}
-			printarray({"ad", "afd", "aff"});
+			System.out.println(userProgress[6]);
 		}
 	}
 	public static void printarray(String[] arrayf){
