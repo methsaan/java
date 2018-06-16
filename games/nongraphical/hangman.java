@@ -4,12 +4,12 @@ import java.util.Arrays;
 
 public class hangman {
 	public static void main(String[] args) {
-		String[] words = {"fifteen", "numbers", "markets", "garbage", "rejects", "illness", "caption", "bullies", "english"};
+		String[] words = {"weights", "numbers", "markets", "marcher", "parting", "winters", "caption", "oranges", "english", "striker", "puberty", "pythons", "disturb", "farting", "blaming"};
 		Random random = new Random();
 		String[] userProgress = {"_", "_", "_", "_", "_", "_", "_"};
 		Scanner scanner = new Scanner(System.in);
 		while (true) {
-			String randWord = words[random.nextInt(9)];
+			String randWord = words[random.nextInt(15)];
 			while (Arrays.asList(userProgress).contains("_")){
 				System.out.print("Guess a letter: ");
 				String userWord = scanner.nextLine();
