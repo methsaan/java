@@ -15,15 +15,14 @@ public class hangman {
 			String players = scanner.nextLine();
 			int strike = 0;
 			String[] strikes = {"[", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "]"};
-			radnWord = "";
+			randWord = "";
 			if (players.equals("one")) {
 				randWord = words[random.nextInt(30)];
 			}else if (players.equals("two")){
-				while (randWord.length != 7){
+				while (randWord.length() != 7){
 					System.out.println("Enter a seven letter word (make sure the other player isn't looking): ");
 					randWord = scanner.nextLine();
-					System.out.println(randWord.length);
-					if (randWord.length != 7){
+					if (randWord.length() != 7){
 						System.out.println("Sorry. Your word must be seven letters long");
 					}
 				}
