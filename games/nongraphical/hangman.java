@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.io.IOException;
 
 public class hangman {
@@ -17,7 +17,13 @@ public class hangman {
 			    strikes.add(".");
 		    }
 		    strikes.add("}");
-		    System.out.println(strikes);
+		    printArrayList(strikes);
 		}
+	}
+	public static void printArrayList(ArrayList<String> arraylistf){
+		for (int x = 0; x < arraylistf.size(); x++){
+			System.out.print(arraylistf.get(x));
+		}
+		System.out.println();
 	}
 }
