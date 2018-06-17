@@ -21,12 +21,10 @@ public class hangman {
 				}
 				printarray(userProgress);
 			}
-			for (int x = 0; x>userProgress.length; x++){
+			for (int x = 0; x<userProgress.length; x++){
 				userProgress[x] = "_";
-				System.out.println(x);
-				System.out.println(userProgress[x]);
 			}
-			break;
+			printarray(userProgress);
 		}
 	}
 	public static void printarray(String[] arrayf){
