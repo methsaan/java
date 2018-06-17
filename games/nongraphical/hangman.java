@@ -15,11 +15,18 @@ public class hangman {
 			String players = scanner.nextLine();
 			int strike = 0;
 			String[] strikes = {"[", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "]"};
+			radnWord = "";
 			if (players.equals("one")) {
 				randWord = words[random.nextInt(30)];
 			}else if (players.equals("two")){
-				System.out.println("Enter a seven letter word (make sure the other player isn't looking): ");
-				randWord = scanner.nextLine();
+				while (randWord.length != 7){
+					System.out.println("Enter a seven letter word (make sure the other player isn't looking): ");
+					randWord = scanner.nextLine();
+					if (randWord.length != 7){
+						System.out.println("Sorry. Your word must be seven letters long");
+					}
+					System.out.print("\033[H\033[2J");
+				}
 			}
 			while (Arrays.asList(userProgress).contains("_")){
 				System.out.print("Guess a letter: ");
