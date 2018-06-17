@@ -8,18 +8,26 @@ public class hangman {
 		String[] words = {"weights", "numbers", "markets", "marcher", "parting", "winters", "caption", "oranges", "english", "smarten", "puberty", "pythons", "disturb", "farting", "blaming", "transit", "injects", "spoiler", "hexagon", "imports", "exports", "informs", "knights", "gymnast", "foreign", "directs", "arduino", "poverty", "problem", "foaming"};
 		Random random = new Random();
 		String[] userProgress = {"_", "_", "_", "_", "_", "_", "_"};
-		String[] strikes = {"{", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "}"}
 		Scanner scanner = new Scanner(System.in);
+		String randWord;
 		while (true) {
+			System.out.println("2 players or 1 player? (two/one)");
+			String players = scanner.nextLine();
 			int strike = 0;
-			String randWord = words[random.nextInt(30)];
+			String[] strikes = {"[", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "]"};
+			if (players.equals("one")) {
+				randWord = words[random.nextInt(30)];
+			}else if (players.equals("two")){
+				System.out.println("Enter a seven letter word (make sure the other player isn't looking): ");
+				randWord = scanner.nextLine();
+			}
 			while (Arrays.asList(userProgress).contains("_")){
 				System.out.print("Guess a letter: ");
 				String userWord = scanner.nextLine();
 				if (randWord.contains(userWord)) {
 					System.out.println("Yup.");
 					userProgress[randWord.indexOf(userWord)] = userWord;
-					if (!userProgress.contains("_")){
+					if (!Arrays.asList(userProgress).contains("_")){
 						System.out.println("YOU WIN");
 						System.out.println("Word: " + randWord);
 					}
@@ -27,8 +35,8 @@ public class hangman {
 					System.out.println("Nope.");
 					strike += 1;
 					strikes[strike] = "#";
-					printarray(strikes);
-					if (strikes == {"{", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "}"}){
+					printarray(strikes, "");
+					if (strike == 10){
 						System.out.println("GAME OVER");
 						System.out.println("Word: " + randWord);
 						break;
