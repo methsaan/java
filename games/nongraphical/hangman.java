@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 import java.util.Arrays;
+import java.io.IOException;
 
 public class hangman {
 	public static void main(String[] args) {
@@ -19,17 +20,17 @@ public class hangman {
 				}else {
 					System.out.println("Nop. wrong.");
 				}
-				printarray(userProgress);
+				printarray(userProgress, "");
 			}
 			for (int x = 0; x<userProgress.length; x++){
 				userProgress[x] = "_";
 			}
-			printarray(userProgress);
+			printarray(userProgress, "");
 		}
 	}
-	public static void printarray(String[] arrayf){
+	public static void printarray(String[] arrayf, String separator){
 		for (int x = 0; x < arrayf.length; x++) {
-			System.out.print(arrayf[x] + " ");
+			System.out.print(arrayf[x] + separator);
 			if (x == arrayf.length-1) {
 				System.out.println();
 			}
