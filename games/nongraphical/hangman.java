@@ -22,12 +22,13 @@ public class hangman {
 				while (randWord.length != 7){
 					System.out.println("Enter a seven letter word (make sure the other player isn't looking): ");
 					randWord = scanner.nextLine();
+					System.out.println(randWord.length);
 					if (randWord.length != 7){
 						System.out.println("Sorry. Your word must be seven letters long");
 					}
-					System.out.print("\033[H\033[2J");
 				}
 			}
+			System.out.print("\033[H\033[2J");
 			while (Arrays.asList(userProgress).contains("_")){
 				System.out.print("Guess a letter: ");
 				String userWord = scanner.nextLine();
