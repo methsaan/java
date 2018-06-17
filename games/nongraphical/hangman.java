@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class hangman {
 	public static void main(String[] args) {
-		String[] words = {"weights", "numbers", "markets", "marcher", "parting", "winters", "caption", "oranges", "english", "smarten", "puberty", "pythons", "disturb", "farting", "blaming", "transit", "injects", "spoiler", "hexagon", "imports", "exports", "informs", "knights", "gymnast", "foreign", "directs", "arduino", "poverty", "problem", "foaming"};
+		String[] words = {"weights", "numbers", "markets", "marcher", "parting", "winters", "caption", "oranges", "english", "smarten", "puberty", "pythons", "disturb", "farting", "blaming", "transit", "injects", "spoiler", "hexagon", "imports", "exports", "informs", "knights", "gymnast", "foreign", "directs", "arduino", "poverty", "problem", "foaming", "guitars", "brokers", "hardest", "marking", "failure", "teaming", "busters", "bothers", "simpler", "planets", "pistols", "printed"};
 		Random random = new Random();
 		String[] userProgress = {"_", "_", "_", "_", "_", "_", "_"};
 		Scanner scanner = new Scanner(System.in);
@@ -17,7 +17,7 @@ public class hangman {
 			String[] strikes = {"[", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "]"};
 			randWord = "";
 			if (players.equals("one")) {
-				randWord = words[random.nextInt(30)];
+				randWord = words[random.nextInt(42)];
 			}else if (players.equals("two")){
 				while (randWord.length() != 7){
 					System.out.println("Enter a seven letter word (make sure the other player isn't looking): ");
