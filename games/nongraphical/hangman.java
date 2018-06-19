@@ -6,28 +6,28 @@ import java.io.IOException;
 public class hangman {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		String randWord;
+		String randWord = "";
+		int strike = 0;
                 while (true) {
-                    int strike = 0;
-                    System.out.println("Enter a word (make sure the other player isn't looking): ");
-                    randWord = scanner.nextLine();
-		    ArrayList<String> strikes = new ArrayList<String>();
-		    strikes.add("{");
-		    for (int x = 0; x < randWord.length(); x++){
-			    strikes.add(".");
-		    }
-		    strikes.add("}");
-		    String input = "";
+		    System.out.println("Enter a word (make sure the other player isn't looking): ");
+		    randWord = scanner.nextLine();
+                    ArrayList<String> strikes = new ArrayList<String>();
+                    strikes.add("{");
+                    for (int x = 0; x < randWord.length(); x++){
+                            strikes.add(".");
+                    }
+                    strikes.add("}");
+                    String input = "";
+                    ArrayList<String> userProgress = new ArrayList<String>();
+                    for (int x = 0; x < randWord.length(); x++){
+                            userProgress.add("_");
+                    }
 		    System.out.print("\033[H\033[2J");
-		    ArrayList<String> userProgress = new ArrayList<String>();
-		    for (int x = 0; x < randWord.length(); x++){
-			    userProgress.add("_");
-		    }
 		    while (userProgress.contains("_")){
 			    System.out.print("Guess a letter: ");
 			    input = scanner.nextLine();
 			    if (randWord.contains(input)){
-				    userProgress.get(randWord.indexOf(input)) = input;
+				    userProgress.add(randWord.indexOf(input), input);
 				    if (!userProgress.contains("_")){
 					    System.out.println("YOU WIN");
 					    System.out.println("Word: " + randWord);
@@ -35,7 +35,7 @@ public class hangman {
 			    }else {
 				    System.out.println("Nope.");
 				    strike += 1;
-				    strikes.get(strike) = "#";
+				    strikes.add(strike, "#");
 				    printArrayList(strikes, "");
 				    if (strike == 10){
 					    System.out.println("GAME OVER");
