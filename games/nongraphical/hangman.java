@@ -27,7 +27,9 @@ public class hangman {
 			    System.out.print("Guess a letter: ");
 			    input = scanner.nextLine();
 			    if (randWord.contains(input)){
-				    userProgress.set(randWord.indexOf(input), input);
+				    for (int x = 0; x < randWord.size(); x++){
+				        userProgress.set(randWord.indexOf(input), input);
+				    }
 				    if (!userProgress.contains("_")){
 					    System.out.println("YOU WIN");
 					    System.out.println("Word: " + randWord);
