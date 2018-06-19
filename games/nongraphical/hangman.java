@@ -27,7 +27,7 @@ public class hangman {
 			    System.out.print("Guess a letter: ");
 			    input = scanner.nextLine();
 			    if (randWord.contains(input)){
-				    userProgress.add(randWord.indexOf(input), input);
+				    userProgress.set(randWord.indexOf(input), input);
 				    if (!userProgress.contains("_")){
 					    System.out.println("YOU WIN");
 					    System.out.println("Word: " + randWord);
@@ -35,7 +35,7 @@ public class hangman {
 			    }else {
 				    System.out.println("Nope.");
 				    strike += 1;
-				    strikes.add(strike, "#");
+				    strikes.set(strike, "#");
 				    printArrayList(strikes, "");
 				    if (strike == 10){
 					    System.out.println("GAME OVER");
