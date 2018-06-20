@@ -9,14 +9,18 @@ public class hangman {
 		String randWord = "";
 		int strike = 0;
                 while (true) {
-		    System.out.println("Enter a word (make sure the other player isn't looking): ");
-		    randWord = scanner.nextLine();
+		    System.out.println("Enter word length: ");
+		    ArrayList<Character> wordChar = new ArrayList<Character>();
+		    for (int x = 1; x < scanner.nextInt()+1; x++){
+			    System.out.print("Enter letter " + x + ": ");
+			    wordChar.add(scanner.next().charAt(0));
+		    }
+		    randWord = join(wordChar);
                     ArrayList<String> strikes = new ArrayList<String>();
                     strikes.add("{");
                     for (int x = 0; x < 10; x++){
                             strikes.add(".");
                     }
-
                     strikes.add("}");
                     String input = "";
                     ArrayList<String> userProgress = new ArrayList<String>();
@@ -28,7 +32,7 @@ public class hangman {
 			    System.out.print("Guess a letter: ");
 			    input = scanner.nextLine();
 			    if (randWord.contains(input)){
-				    for (int x = 0; x < randWord.size(); x++){
+				    for (int x = 0; x < randWord.length(); x++){
 				        userProgress.set(randWord.indexOf(input), input);
 				    }
 				    if (!userProgress.contains("_")){
@@ -55,5 +59,12 @@ public class hangman {
 			System.out.print(arraylistf.get(x));
 		}
 		System.out.println();
+	}
+	public static String Join(ArrayList<Character> list){
+		StringBuilder builder = new StringBuilder(list.size());
+		for (Character ch: list){
+			builder.append(ch);
+		}
+		return builder.toString();
 	}
 }
