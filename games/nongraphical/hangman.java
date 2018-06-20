@@ -13,9 +13,10 @@ public class hangman {
 		    randWord = scanner.nextLine();
                     ArrayList<String> strikes = new ArrayList<String>();
                     strikes.add("{");
-                    for (int x = 0; x < randWord.length(); x++){
+                    for (int x = 0; x < 10; x++){
                             strikes.add(".");
                     }
+
                     strikes.add("}");
                     String input = "";
                     ArrayList<String> userProgress = new ArrayList<String>();
