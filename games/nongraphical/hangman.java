@@ -11,11 +11,11 @@ public class hangman {
                 while (true) {
 		    System.out.println("Enter word length: ");
 		    ArrayList<Character> wordChar = new ArrayList<Character>();
-		    for (int x = 1; x < scanner.nextInt()+1; x++){
+		    for (int x = 0; x < scanner.nextInt(); x++){
 			    System.out.print("Enter letter " + x + ": ");
 			    wordChar.add(scanner.next().charAt(0));
 		    }
-		    randWord = join(wordChar);
+		    randWord = Join(wordChar);
                     ArrayList<String> strikes = new ArrayList<String>();
                     strikes.add("{");
                     for (int x = 0; x < 10; x++){
