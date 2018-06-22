@@ -2,18 +2,20 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
 import java.io.IOException;
+import java.lang.StringBuilder;
 
 public class hangman {
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
+		Scanner scanno = new Scanner(System.in);
 		String randWord = "";
 		int strike = 0;
                 while (true) {
 		    System.out.println("Enter word length: ");
+		    int len = scanno.nextInt();
 		    ArrayList<Character> wordChar = new ArrayList<Character>();
-		    for (int x = 0; x < scanner.nextInt(); x++){
+		    for (int x = 0; x < len; x++){
 			    System.out.print("Enter letter " + x + ": ");
-			    wordChar.add(scanner.next().charAt(0));
+			    wordChar.add(scanner.findInLine(".").charAt(0));
 		    }
 		    randWord = Join(wordChar);
                     ArrayList<String> strikes = new ArrayList<String>();
@@ -61,10 +63,10 @@ public class hangman {
 		System.out.println();
 	}
 	public static String Join(ArrayList<Character> list){
-		StringBuilder builder = new StringBuilder(list.size());
+		StringBuilder buildo = new StringBuilder(list.size());
 		for (Character ch: list){
-			builder.append(ch);
+			buildo.append(ch);
 		}
-		return builder.toString();
+		return buildo.toString();
 	}
 }
