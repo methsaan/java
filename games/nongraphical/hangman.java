@@ -9,13 +9,11 @@ public class hangman {
 		String randWord = "";
 		int strike = 0;
                 while (true) {
-		    System.out.println("Enter word length: ");
-		    int len = scanno.nextInt();
-		    ArrayList<Character> wordChar = new ArrayList<Character>();
-		    randWord = Join(wordChar);
+		    System.out.println("Enter word: ");
+		    randWord = scanno.nextLine()
                     ArrayList<String> strikes = new ArrayList<String>();
                     strikes.add("{");
-                    for (int x = 0; x < 10; x++){
+                    for (int x = 0; x < randWord.length()+3; x++){
                             strikes.add(".");
                     }
                     strikes.add("}");
