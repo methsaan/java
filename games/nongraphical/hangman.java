@@ -10,7 +10,7 @@ public class hangman {
 		int strike = 0;
                 while (true) {
 		    System.out.println("Enter word: ");
-		    randWord = scanno.nextLine()
+		    randWord = scanno.nextLine();
                     ArrayList<String> strikes = new ArrayList<String>();
                     strikes.add("{");
                     for (int x = 0; x < randWord.length()+3; x++){
