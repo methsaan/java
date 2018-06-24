@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
 import java.io.IOException;
-import java.lang.StringBuilder;
 
 public class hangman {
 	public static void main(String[] args) {
@@ -13,10 +12,6 @@ public class hangman {
 		    System.out.println("Enter word length: ");
 		    int len = scanno.nextInt();
 		    ArrayList<Character> wordChar = new ArrayList<Character>();
-		    for (int x = 0; x < len; x++){
-			    System.out.print("Enter letter " + x + ": ");
-			    wordChar.add(scanner.findInLine(".").charAt(0));
-		    }
 		    randWord = Join(wordChar);
                     ArrayList<String> strikes = new ArrayList<String>();
                     strikes.add("{");
@@ -32,7 +27,7 @@ public class hangman {
 		    System.out.print("\033[H\033[2J");
 		    while (userProgress.contains("_")){
 			    System.out.print("Guess a letter: ");
-			    input = scanner.nextLine();
+			    input = scanno.nextLine();
 			    if (randWord.contains(input)){
 				    for (int x = 0; x < randWord.length(); x++){
 				        userProgress.set(randWord.indexOf(input), input);
@@ -61,12 +56,5 @@ public class hangman {
 			System.out.print(arraylistf.get(x));
 		}
 		System.out.println();
-	}
-	public static String Join(ArrayList<Character> list){
-		StringBuilder buildo = new StringBuilder(list.size());
-		for (Character ch: list){
-			buildo.append(ch);
-		}
-		return buildo.toString();
 	}
 }
