@@ -47,11 +47,12 @@ public class hangman {
 			    }
 			    printArrayList(userProgress, " ");
 		    }
+		    strike = 0;
 		}
 	}
 	public static void printArrayList(ArrayList<String> arraylistf, String separator){
 		for (int x = 0; x < arraylistf.size(); x++){
-			System.out.print(arraylistf.get(x));
+			System.out.print(arraylistf.get(x) + separator);
 		}
 		System.out.println();
 	}
