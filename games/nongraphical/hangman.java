@@ -39,7 +39,7 @@ public class hangman {
 				    strike += 1;
 				    strikes.set(strike, "#");
 				    printArrayList(strikes, "");
-				    if (strike == 10){
+				    if (strike == randWord.length()+3){
 					    System.out.println("GAME OVER");
 					    System.out.println("Word: " + randWord);
 					    break;
