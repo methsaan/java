@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class hangman {
+public class hangman3 {
 	public static void main(String[] args) {
 		Scanner scanno = new Scanner(System.in);
 		String randWord = "";
@@ -12,7 +12,7 @@ public class hangman {
                 while (true) {
 		    System.out.println("Enter word: ");
 		    randWord = scanno.nextLine();
-                    ArrayList<String> strikes = new ArrayList<String>();
+                    ArrayList<String> strikes = new ArrayList<>(Arrays.asList(randWord.split("")));
 		    ArrayList<String> word = new ArrayList<String>();
                     strikes.add("{");
                     for (int x = 0; x < randWord.length()+3; x++){
@@ -32,16 +32,15 @@ public class hangman {
 			    System.out.print("Guess a letter: ");
 			    userWord = scanno.nextLine();
 			    String temp = in;
-			    if (userWord == wordArray[loop]){
-				    wordArray.set(loop, "1");
+			    if (userWord == word.get(loop)){
+				    word.set(loop, "1");
 			    }else {
-				    wordArray.set(loop, "0");
+				    word.set(loop, "0");
 			    }
-		    	    if (wordArray.contains("1")){
+		    	    if (word.contains("1")){
                             	System.out.println("Yup.");
-                            	userProgress.set(, userWord);
+                            	userProgress.set(loop, userWord);
 			    	printArrayList(userProgress, " ");
-
 			    	if (!userProgress.contains("_")){
 					    System.out.println("YOU WIN");
 					    System.out.println("Word: " + randWord);
@@ -59,6 +58,7 @@ public class hangman {
 		            }
 	             }
 		    strike = 0;
+		  }
 		   // while (userProgress.contains("_")){
 		//	    System.out.print("Guess a letter: ");
 		//	    input = scanno.nextLine();
