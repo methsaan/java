@@ -27,17 +27,38 @@ public class hangman {
 		    System.out.print("\033[H\033[2J______________\n");
 		    int loop = 0;
 		    String userWord = "";
-		    boolean in = true;
+		    String in = "1";
 		    while (loop < word.size()){
 			    System.out.print("Guess a letter: ");
 			    userWord = scanno.nextLine();
 			    String temp = in;
 			    if (userWord == wordArray[loop]){
-				    wordArray.set(loop, true)
+				    wordArray.set(loop, "1");
 			    }else {
-				    
+				    wordArray.set(loop, "0");
 			    }
-		    }
+		    	    if (wordArray.contains("1")){
+                            	System.out.println("Yup.");
+                            	userProgress.set(, userWord);
+			    	printArrayList(userProgress, " ");
+
+			    	if (!userProgress.contains("_")){
+					    System.out.println("YOU WIN");
+					    System.out.println("Word: " + randWord);
+				}
+                    	    }else {
+				System.out.println("Nope.");
+				strike += 1;
+				strikes.set(strike, "#");
+				printArrayList(strikes, "");
+				if (!strikes.contains(".")){
+					System.out.println("GAME OVER");
+					System.out.println("Word: " + randWord);
+					break;
+				}
+		            }
+	             }
+		    strike = 0;
 		   // while (userProgress.contains("_")){
 		//	    System.out.print("Guess a letter: ");
 		//	    input = scanno.nextLine();
