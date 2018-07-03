@@ -12,8 +12,8 @@ public class hangman3 {
                 while (true) {
 		    System.out.println("Enter word: ");
 		    randWord = scanno.nextLine();
-                    ArrayList<String> strikes = new ArrayList<>(Arrays.asList(randWord.split("")));
-		    ArrayList<String> word = new ArrayList<String>();
+                    ArrayList<String> strikes = new ArrayList<String>();
+		    ArrayList<String> word = new ArrayList<>(Arrays.asList(randWord.split("")));
                     strikes.add("{");
                     for (int x = 0; x < randWord.length()+3; x++){
                             strikes.add(".");
@@ -24,20 +24,18 @@ public class hangman3 {
                     for (int x = 0; x < randWord.length(); x++){
                             userProgress.add("_");
                     }
-		    System.out.print("\033[H\033[2J______________\n");
+		    System.out.print("\033[H\033[2J");
 		    int loop = 0;
 		    String userWord = "";
 		    String in = "1";
-		    while (loop < word.size()){
+		    System.out.println(loop);
+		    printArrayList(word, ", ");
+		    System.out.println(word.size());
+		    while (userProgress.contains("_")){
 			    System.out.print("Guess a letter: ");
 			    userWord = scanno.nextLine();
 			    String temp = in;
-			    if (userWord == word.get(loop)){
-				    word.set(loop, "1");
-			    }else {
-				    word.set(loop, "0");
-			    }
-		    	    if (word.contains("1")){
+		    	    if (word.contains(userWord)){
                             	System.out.println("Yup.");
                             	userProgress.set(loop, userWord);
 			    	printArrayList(userProgress, " ");
