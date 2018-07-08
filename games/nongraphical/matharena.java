@@ -8,21 +8,25 @@ public class matharena {
 		random rand = new random();
 		String name = input("What is player 1's name? ");
 		String name2 = input("What is player 2's name? ");
-		int score = 0.0;
-		int score2 = 0.0;
-		for (int cnt = 0; cnt < 5; cnt++){
+		int score = 0;
+		int score2 = 0;
+		for (int cnt = 0; cnt < 6; cnt++){
        			int x = rand.randrange(1, 99);
 		       	int y = rand.randrange(1, 99);
-	       		double user1 = Float(input("What is " + str(Int(x)) + " + " + str(Int(y)) + ":" + "(" + name + ") "));
-	       		if (user1 == x+y){
+	       		double user1 = Float(input("What is " + Int(str(x)) + " x " + Int(str(y)) + ":" + "(" + name + ") "));
+	       		if (user1 == x*y){
 	       			score += 1;
 	       		}else {
-				score -= 0.5;
+				if (score > 0){
+					score -= 1;
+				}else {
+					score -= 0;
+				}
 	       		}
 	       		int x2 = rand.randrange(1, 99);
 			int y2 = rand.randrange(1, 99);
-	       	      	double user2 = Float(input("What is " + str(Int(x2)) + " + " + str(Int(y2)) + ":" + "(" + name2 + ") "));
-	       	      	if (user2 == x2+y2){
+	       	      	double user2 = Float(input("What is " + Int(str(x2)) + " x " + Int(str(x)) + ":" + "(" + name2 + ") "));
+	       	      	if (user2 == x2*y2){
 	       	      		print("correct\n");
 	       	      		score2 += 1;
 	       	      	}else {
