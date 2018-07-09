@@ -13,7 +13,7 @@ public class matharena {
 		for (int cnt = 0; cnt < 6; cnt++){
        			int x = rand.randrange(1, 99);
 		       	int y = rand.randrange(1, 99);
-	       		double user1 = Float(input("What is " + Int(str(x)) + " x " + Int(str(y)) + ":" + "(" + name + ") "));
+	       		double user1 = Float(input("What is " + Float(str(x)) + " x " + Float(str(y)) + ":" + "(" + name + ") "));
 	       		if (user1 == x*y){
 	       			score += 1;
 	       		}else {
@@ -25,12 +25,15 @@ public class matharena {
 	       		}
 	       		int x2 = rand.randrange(1, 99);
 			int y2 = rand.randrange(1, 99);
-	       	      	double user2 = Float(input("What is " + Int(str(x2)) + " x " + Int(str(x)) + ":" + "(" + name2 + ") "));
+	       	      	double user2 = Float(input("What is " + Float(str(x2)) + " x " + Float(str(y2)) + ":" + "(" + name2 + ") "));
 	       	      	if (user2 == x2*y2){
-	       	      		print("correct\n");
 	       	      		score2 += 1;
 	       	      	}else {
-	         		print("incorrect\n");
+	         		if (score > 0){
+					score -= 1;
+				}else {
+					score -= 0;
+				}
 	               	}
 		}
 		String winner = name;
