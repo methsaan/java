@@ -35,14 +35,16 @@ public class hangman3 {
 			    System.out.print("Guess a letter: ");
 			    userWord = scan.nextLine();
 			    int corrects = 0;
+			    int clocation;
 			    for (int x = 0; x < randWord.length(); x++){
 				    if (userWord.charAt(x) == randWord.charAt(x)){
 					    corrects++;
 				    }
+				    clocation = x;
 			    }
 			    if (corrects < 0){
 				    System.out.println("Yup");
-				    if (userWord.get())
+				    if (userWord.get(clocation) == /*queq quok quac*/)
 			    }else {
 				    System.out.println("Nope");
 			    }
