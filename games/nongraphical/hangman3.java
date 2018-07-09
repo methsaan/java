@@ -6,12 +6,12 @@ import java.util.Arrays;
 
 public class hangman3 {
 	public static void main(String[] args) {
-		Scanner scanno = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);
 		String randWord = "";
 		int strike = 0;
                 while (true) {
 		    System.out.println("Enter word: ");
-		    randWord = scanno.nextLine();
+		    randWord = scan.nextLine();
                     ArrayList<String> strikes = new ArrayList<String>();
 		    ArrayList<String> word = new ArrayList<>(Arrays.asList(randWord.split("")));
                     strikes.add("{");
@@ -33,33 +33,26 @@ public class hangman3 {
 		    System.out.println(word.size());
 		    while (userProgress.contains("_")){
 			    System.out.print("Guess a letter: ");
-			    userWord = scanno.nextLine();
-			    String temp = in;
-		    	    if (word.contains(userWord)){
-                            	System.out.println("Yup.");
-                            	userProgress.set(loop, userWord);
-			    	printArrayList(userProgress, " ");
-			    	if (!userProgress.contains("_")){
-					    System.out.println("YOU WIN");
-					    System.out.println("Word: " + randWord);
-				}
-                    	    }else {
-				System.out.println("Nope.");
-				strike += 1;
-				strikes.set(strike, "#");
-				printArrayList(strikes, "");
-				if (!strikes.contains(".")){
-					System.out.println("GAME OVER");
-					System.out.println("Word: " + randWord);
-					break;
-				}
-		            }
+			    userWord = scan.nextLine();
+			    int corrects = 0;
+			    for (int x = 0; x < randWord.length(); x++){
+				    if (userWord.charAt(x) == randWord.charAt(x)){
+					    corrects++;
+				    }
+			    }
+			    if (corrects < 0){
+				    System.out.println("Yup");
+				    if (userWord.get())
+			    }else {
+				    System.out.println("Nope");
+			    }
+			    printArrayList(userProgress);
 	             }
 		    strike = 0;
 		  }
 		   // while (userProgress.contains("_")){
 		//	    System.out.print("Guess a letter: ");
-		//	    input = scanno.nextLine();
+		//	    input = scan.nextLine();
 			    //if (randWord.contains(input)){
 				//    for (int x = 0; x < randWord.length(); x++){
 				  //      userProgress.set(randWord.indexOf(input), input);
