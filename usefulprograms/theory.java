@@ -30,6 +30,14 @@ public class theory {
 			System.out.println(clefs[new Random().nextInt(2)] + flats[2] + flats[3] + "          | " + "      |       |       |       |");
 			System.out.println("      " + flats[4] + flats[5] + "      " + inter2 + "  |  " + inter4 + "  |  " + inter6 + "  |  " + inter8 + "  |  " + inter10 + "  |");
 		}
-		//rhythm
+		//rhythm rests
+		//scale dictation
+		//transposition
+		//chord dictation
+		//chord identification
+		//key and time signature identification
+		//composition
+		//history and music terms
+		//analysis
 	}
 }
