@@ -45,7 +45,7 @@ public class theory {
 		//rhythm rests
 		//scale dictation
 		String[] majscale = {"C ", "Db", "D ", "Eb", "E ", "F ", "Gb", "G ", "Ab", "A ", "Bb", "B "};
-		String[] minscale = {"A ", "Bb", "B ", "C ", "C#", "D ", "Db", "E ", "F ", "F#", "G ", "G#"};
+		String[] minscale = {"A ", "Bb", "B ", "C ", "C#", "D ", "Eb", "E ", "F ", "F#", "G ", "G#"};
 		String[] directions = {"ascending", "descending", "ascending and descending"};
 		String scale = new Random().nextBoolean() ? majscale[new Random().nextInt(12)] + " Major": minscale[new Random().nextInt(12)] + " Minor";
 		System.out.println("3. Write the following scales " + directions[2] + ", using the correct key signature for each. Use whole notes.");
@@ -61,13 +61,48 @@ public class theory {
 		//transposition
 		//chord dictation
 		String chordClef = clefs[new Random().nextInt(2)];
+		String[] quality = {"minor", "major"};
+		String[] minDegrees = {"tonic triad", "subdominant triad", "dominant triad", "relative major triad", "dominant 7th chord", "parrallel major triad", "leading tone diminished 7th"};
+		String[] majDegrees = {"supertonic triad", "relative minor triad", "dominant 7th chord", "parrallel minor triad"};
+		String[] positions = {"root position", "1st inversion", "2nd inversion"};
+		String[] minRoots = {"C", "C#", "D", "Eb", "E", "F", "F#", "G", "G#", "A", "Bb", "B"};
+		String[] majRoots = {"C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"};
+		String a="a", b="b", c="c", d="d", e="e";
+		if (quality[new Random().nextInt(2)].equals("major")){
+			a = "the " + majDegrees[new Random().nextInt(4)] + " of " + majRoots[new Random().nextInt(12)] + " major in " + positions[new Random().nextInt(3)];
+		}else {
+                	a = "the " + minDegrees[new Random().nextInt(4)] + " of " + minRoots[new Random().nextInt(12)] + " minor in " + positions[new Random().nextInt(3)];
+                }
+		if (quality[new Random().nextInt(2)].equals("major")){
+			b = "the " + majDegrees[new Random().nextInt(4)] + " of " + majRoots[new Random().nextInt(12)] + " major in " + positions[new Random().nextInt(3)];
+		}else {
+                	b = "the " + minDegrees[new Random().nextInt(4)] + " of " + minRoots[new Random().nextInt(12)] + " minor in " + positions[new Random().nextInt(3)];
+                }
+		if (quality[new Random().nextInt(2)].equals("major")){
+                	c = "the " + majDegrees[new Random().nextInt(4)] + " of " + majRoots[new Random().nextInt(12)] + " major in " + positions[new Random().nextInt(3)];
+                }else {
+                       	c = "the " + minDegrees[new Random().nextInt(4)] + " of " + minRoots[new Random().nextInt(12)] + " minor in " + positions[new Random().nextInt(3)];
+                }
+		if (quality[new Random().nextInt(2)].equals("major")){
+                	d = "the " + majDegrees[new Random().nextInt(4)] + " of " + majRoots[new Random().nextInt(12)] + " major in " + positions[new Random().nextInt(3)];
+                }else {
+	        	d = "the " + minDegrees[new Random().nextInt(4)] + " of " + minRoots[new Random().nextInt(12)] + " minor in " + positions[new Random().nextInt(3)];
+	        }
+		if (quality[new Random().nextInt(2)].equals("major")){
+			e = "the " + majDegrees[new Random().nextInt(4)] + " of " + majRoots[new Random().nextInt(12)] + " major in " + positions[new Random().nextInt(3)];
+		}else {
+			e = "the " + minDegrees[new Random().nextInt(4)] + " of " + minRoots[new Random().nextInt(12)] + " minor in " + positions[new Random().nextInt(3)];
+		}
 		System.out.println("5. Write the following chords in the " + chordClef + " using the correct key signature and any necessary accidentals.");
+		System.out.println("  a)" + a);
+		System.out.println("  b)" + b);
+		System.out.println("  c)" + c);
+		System.out.println("  d)" + d);
+		System.out.println("  e)" + e);
 		System.out.println("   a)       b)       c)       d)       e)    ");
 		System.out.println("___________________________________________________________________");
 		System.out.println("|       " + "         ||         ||         ||         ||         ||");
-		System.out.println("|       " + "         ||         ||         ||         ||         ||");
 		System.out.println("|" + chordClef + "         ||         ||         ||         ||         ||");
-		System.out.println("|       " + "         ||         ||         ||         ||         ||");
 		System.out.println("|       " + "         ||         ||         ||         ||         ||");
 		System.out.println("|_______" + "_________||_________||_________||_________||_________||");
 		//chord identification
