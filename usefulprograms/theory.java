@@ -7,11 +7,11 @@ public class theory {
 		//intervals
 		System.out.println("1.");
 		System.out.println("  a) Name the following intervals.");
-		String[] enharminics = {"Cbb", "CX ", "Dbb", "DX ", "Ebb", "EX ", "Fbb", "FX ", "Gbb", "GX ", "Abb", "AX ", "Bbb", "BX "};
-		String[] wholes = {"C", "D", "E", "F", "G", "A", "B"}
+		String[] enharmonics = {"Cbb", "CX ", "Dbb", "DX ", "Ebb", "EX ", "Fbb", "FX ", "Gbb", "GX ", "Abb", "AX ", "Bbb", "BX "};
+		String[] wholes = {"C  ", "D  ", "E  ", "F  ", "G  ", "A  ", "B  "};
 		String inter1 = enharmonics[new Random().nextInt(14)];
 		String inter2 = wholes[new Random().nextInt(7)];
-		String inter3 = enharminics[new Random().nextInt(14)];
+		String inter3 = enharmonics[new Random().nextInt(14)];
 		String inter4 = wholes[new Random().nextInt(7)];
 		String inter5 = enharmonics[new Random().nextInt(14)];
 		String inter6 = wholes[new Random().nextInt(7)];
@@ -26,21 +26,21 @@ public class theory {
 		if (new Random().nextBoolean() == true){
 			System.out.println("      " + sharps[0] + sharps[1] + "      " + inter1 + "  |  " + inter3 + "  |  " + inter5 + "  |  " + inter7 + "  |  " + inter9 + "  |");
 			System.out.println(clef + sharps[2] + sharps[3] + "          | " + "      |       |       |       |");
-			System.out.println("      " + sharps[4] + sharps[5] + "      " + inter2 + "  |  " + inter4 + "  |  " + inter6 + "  |  " + inter8 + "  |  " + inter10 + "  |");
+			System.out.println("      " + sharps[4] + sharps[5] + "    | " + inter2 + "  |  " + inter4 + "  |  " + inter6 + "  |  " + inter8 + "  |  " + inter10 + "  |");
 		}else {
 			System.out.println("      " + flats[0] + flats[1] + "      " + inter1 + "  |  " + inter3 + "  |  " + inter5 + "  |  " + inter7 + "  |  " + inter9 + "  |");
 			System.out.println(clef + flats[2] + flats[3] + "          | " + "      |       |       |       |");
-			System.out.println("      " + flats[4] + flats[5] + "      " + inter2 + "  |  " + inter4 + "  |  " + inter6 + "  |  " + inter8 + "  |  " + inter10 + "  |");
+			System.out.println("      " + flats[4] + flats[5] + "      | " + inter2 + "  |  " + inter4 + "  |  " + inter6 + "  |  " + inter8 + "  |  " + inter10 + "  |");
 		}
 		System.out.println("  b) Change the upper note of each interval enharmonically. Rename each interval.");
 		if (new Random().nextBoolean() == true){
-                	System.out.println("      " + sharps[0] + sharps[1] + "       " + inter1 + "  |  " + inter3 +  "  |  " + inter5 + "  |  " + inter7 + "  |  " + inter9 + "  |");
+                	System.out.println("      " + sharps[0] + sharps[1] + "      " + inter1 + "  |  " + inter3 +  "  |  " + inter5 + "  |  " + inter7 + "  |  " + inter9 + "  |");
                 	System.out.println(clef + sharps[2] + sharps[3] + "          | " + "      |       |       |       |");
-                	System.out.println("      " + sharps[4] + sharps[5] + "      " + inter2 + "  |  " + inter4 + "  |  " + inter6 + "  |  " + inter8 + "  |  " + inter10 + "  |");
+                	System.out.println("      " + sharps[4] + sharps[5] + "    | " + inter2 + "  |  " + inter4 + "  |  " + inter6 + "  |  " + inter8 + "  |  " + inter10 + "  |");
                 }else {
-                	System.out.println("      " + flats[0] + flats[1] + "      " + inter1 + "  |  " + inter3 + "  |  " + inter5 + "  |  " + inter7 + "  |  " + inter9 + "  |");
+                	System.out.println("      " + flats[0] + flats[1] + "     " + inter1 + "  |  " + inter3 + "  |  " + inter5 + "  |  " + inter7 + "  |  " + inter9 + "  |");
                 	System.out.println(clef + flats[2] + flats[3] + "          | " + "      |       |       |       |");
-                	System.out.println("      " + flats[4] + flats[5] + "      " + inter2 + "  |  " + inter4 + "  |  " + inter6 + "  |  " + inter8 + "  |  " + inter10 + "  |");
+                	System.out.println("      " + flats[4] + flats[5] + "    | " + inter2 + "  |  " + inter4 + "  |  " + inter6 + "  |  " + inter8 + "  |  " + inter10 + "  |");
                 }
 		//rhythm rests
 		//scale dictation
@@ -60,6 +60,16 @@ public class theory {
 		System.out.println("  e) " + scale + " in the " + clefs[new Random().nextInt(2)] + " clef");
 		//transposition
 		//chord dictation
+		String chordClef = clefs[new Random().nextInt(2)];
+		System.out.println("5. Write the following chords in the " + chordClef + " using the correct key signature and any necessary accidentals.");
+		System.out.println("   a)       b)       c)       d)       e)    ");
+		System.out.println("___________________________________________________________________");
+		System.out.println("|       " + "         ||         ||         ||         ||         ||");
+		System.out.println("|       " + "         ||         ||         ||         ||         ||");
+		System.out.println("|" + chordClef + "         ||         ||         ||         ||         ||");
+		System.out.println("|       " + "         ||         ||         ||         ||         ||");
+		System.out.println("|       " + "         ||         ||         ||         ||         ||");
+		System.out.println("|_______" + "_________||_________||_________||_________||_________||");
 		//chord identification
 		//key and time signature identification
 		//composition
