@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Arrays;
 
-public class sentenceBuilder {
+public class Triolingo {
 	public static void main(String[] args) {
 		String[] SingularArticles = {"A", "The", "Any", "Every"};
 		String[] SingularArticles2 = {"a", "the", "that", "this", "their", "our"};
