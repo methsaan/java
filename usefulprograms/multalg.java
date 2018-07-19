@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class multalg{
 	public static void main(String[] args){
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter first number (2 digits): ");
+		System.out.print("Enter first number (2 digits): ");
 		int f = scan.nextInt();
-		System.out.println("Enter second number (2 digits): ");
+		System.out.print("Enter second number (2 digits): ");
 		int s = scan.nextInt();
 		System.out.println("     " + f);
 		System.out.println("     " + s);
@@ -15,6 +15,6 @@ public class multalg{
 		System.out.println("     " + prod1);
 		System.out.println("    " + prod2);
 		System.out.println(" +_____");
-		System.out.println("   " + (prod1+prod2*10));
+		System.out.println("    " + (prod1+prod2*10));
 	}
 }
