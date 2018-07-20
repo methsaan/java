@@ -11,6 +11,7 @@ public class Triolingo {
 		String[] AnimateNoun = {"man", "person", "woman", "boy", "girl", "dog", "cat", "monkey", "pig", "wolf"};
 		String[] VerbsAnimatePresent = {"wants", "has", "likes", "throws", "dislikes", "sees", "is", "hears", "rejects"};
 		String[] InanimateAdjectives = {"bad", "good", "rejected", "big", "small", "boring", "funny", "foolish", "horrible", "awesome", "mean"};
+		String[] Adverbs = {"happily", "easily", "hardly", "never", "well", "foolishly", "evily", "boringly", "sadly", "unfortunately", "luckily", "darkly", "softly", "deeply", "hardly", "surprisingly"};
 		String[] InanimateNoun = {"book", "banana", "bag", "pancake", "computer", "piano"};
 		Random random = new Random();
 		for (int x = 0; x < 10; x++){
@@ -23,8 +24,9 @@ public class Triolingo {
 			String IN = InanimateNoun[random.nextInt(6)];
 			String Adj = InanimateAdjectives[random.nextInt(11)];
 			String Adj2 = InanimateAdjectives[random.nextInt(11)];
+			String RandAdv = Adverbs[random.nextInt(16)];
 			System.out.println("Translate this text to sinhala and french:");
-			System.out.println(randCaptSA1 + " " +  Adj + " " + AN + " " + VAP + " " + randSimpSA2 + " " + Adj2 + " " + IN + ".");
+			System.out.println(randCaptSA1 + " " +  Adj + " " + AN + " " + RandAdv + " " + VAP + " " + randSimpSA2 + " " + Adj2 + " " + IN + ".");
 		}
 		System.out.println("translate this french sentence to sinhala and english");
 		String[] SingularArticles12 = {"Un", "Ton", "Son"};
