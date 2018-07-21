@@ -13,6 +13,6 @@ public class addalg {
 		System.out.println("   " + f);
 		System.out.println("   " + s);
 		System.out.println(" +____");
-		System.out.println("  " + (f+s));
+		System.out.println("   " + (f+s));
 	}
 }
