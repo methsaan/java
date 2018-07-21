@@ -1,5 +1,5 @@
-import java.util.*
-import java.lang.*
+import java.util.*;
+import java.lang.*;
 
 public class addalg {
 	public static void main(String[] args){
@@ -10,9 +10,9 @@ public class addalg {
 		int s = scan.nextInt();
 		String remStr = "         ";
 		System.out.println(remStr);
-		System.out.println("  " + f);
-		System.out.println("  " + s);
-		System.out.println("  +____");
-		System.out.println("  " + f+s)
+		System.out.println("   " + f);
+		System.out.println("   " + s);
+		System.out.println(" +____");
+		System.out.println("  " + (f+s));
 	}
 }
