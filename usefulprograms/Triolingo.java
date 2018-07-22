@@ -30,8 +30,8 @@ public class Triolingo {
 		}
 		System.out.println("translate this french sentence to sinhala and english");
 		String[] SingularArticles12 = {"Un", "Ton", "Son"};
-                String[] SingularArticles22 = {"Mon", "Leur", "Ce"};
-                String[] SingularArticles32 = {"Le", "Cela", "Ceci"};
+                String[] SingularArticles22 = {"mon", "leur", "ce"};
+                String[] SingularArticles32 = {"le", "leur", "son"};
                 String[] SingularArticles42 = {"Votre", "Notre", "Du"};
                 String[] AnimateNoun2 = {"pere", "garcon", "chien", "chat", "singe", "frere", "cochon", "grandpere", "loup", "amie"};
                 String[] VerbsAnimatePresent2 = {"veut", "a", "aime", "lance", "n'aime pas", "voit", "est", "entend", "prend", "donne", "mange", "boit"};
