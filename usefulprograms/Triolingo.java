@@ -25,7 +25,6 @@ public class Triolingo {
 			String Adj = InanimateAdjectives[random.nextInt(11)];
 			String Adj2 = InanimateAdjectives[random.nextInt(11)];
 			String RandAdv = Adverbs[random.nextInt(16)];
-			System.out.println("Translate this text to sinhala and french:");
 			System.out.println(randCaptSA1 + " " +  Adj + " " + AN + " " + RandAdv + " " + VAP + " " + randSimpSA2 + " " + Adj2 + " " + IN + ".");
 		}
 		System.out.println("translate this french sentence to sinhala and english");
@@ -47,7 +46,6 @@ public class Triolingo {
                 	String INf = InanimateNoun2[random.nextInt(6)];
                 	String Adjf = InanimateAdjectives2[random.nextInt(14)];
                 	String Adj2f = InanimateAdjectives2[random.nextInt(14)];
-                	System.out.println("Translate this text to sinhala and french:");
                 	System.out.println(randCaptSA1f + " " +  Adjf + " " + ANf + " " + VAPf + " " + randSimpSA2f + " " + Adj2f + " " + INf + ".");
                 }
 
