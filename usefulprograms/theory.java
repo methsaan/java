@@ -122,12 +122,14 @@ public class theory {
 			String[] composers = {"Johann Sebastian Bach", "Wolfgang Amadeus Mozart"};
 			System.out.println("Time period of " + composers[new Random().nextInt(2)] + ". ________________________________");
 		}
-		else if (randType.equals("vocab")){
-			String[] words = {"polyphonic texture", "invention", "motive", "imitation", "sequence", "concerto grosso", "ritornello", "chamber music", "homophonic texture", "sonata form", "exposition", "development", "recapulation"};
-			System.out.println("Definition of " + words[new Random().nextInt(13)] + ". ________________________________");
-
-		}else {
-			System.out.println("Coming soon");
+		for (int x = 0; x < 10; x++){
+			else if (randType.equals("vocab")){
+				String[] words = {"polyphonic texture", "invention", "motive", "imitation", "sequence", "concerto grosso", "ritornello", "chamber music", "homophonic texture", "sonata form", "exposition", "development", "recapulation"};
+				System.out.println("Definition of " + words[new Random().nextInt(13)] + ". ________________________________");
+	
+			}else {
+				System.out.println("Coming soon");
+			}
 		}
 		//analysis
 	}
