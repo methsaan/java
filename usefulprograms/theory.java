@@ -44,8 +44,8 @@ public class theory {
                 }
 		//rhythm rests
 		//scale dictation
-		String[] majscale = {"C ", "Db", "D ", "Eb", "E ", "F ", "Gb", "G ", "Ab", "A ", "Bb", "B ", "C#", "D#", "F#", "G#", "A#"};
-		String[] minscale = {"A ", "Bb", "B ", "C ", "C#", "D ", "Eb", "E ", "F ", "F#", "G ", "G#", "Db", "Eb", "Gb", "Ab", "A#"};
+		String[] majscale = {"C ", "G ", "D ", "A ", "E ", "B ", "Gb", "Db", "Ab", "Eb", "Bb", "F ", "F#", "Cb", "C#"};
+		String[] minscale = {"A ", "E ", "B ", "F#", "C#", "G#", "Eb", "Bb", "F ", "C ", "G ", "D ", "D#", "Eb", "A#"};
 		String[] directions = {"ascending", "descending", "ascending and descending"};
 		String scale = new Random().nextBoolean() ? majscale[new Random().nextInt(17)] + " Major": minscale[new Random().nextInt(12)] + " Minor";
 		System.out.println("3. Write the following scales " + directions[2] + ", using the correct key signature for each. Use whole notes.");
@@ -115,6 +115,7 @@ public class theory {
 		System.out.println("9.\n  a)");
 		String[] types = {"vocab", "time periods", "translations", "b info"};
 		String randType = types[new Random().nextInt(4)];
+		for (int x = 0; x < 10; x++){
 		if (randType.equals("time periods")){
 			String[] eras = {"baroque", "classical"};
 			String era = eras[new Random().nextInt(2)];
@@ -122,7 +123,6 @@ public class theory {
 			String[] composers = {"Johann Sebastian Bach", "Wolfgang Amadeus Mozart"};
 			System.out.println("Time period of " + composers[new Random().nextInt(2)] + ". ________________________________");
 		}
-		for (int x = 0; x < 10; x++){
 			else if (randType.equals("vocab")){
 				String[] words = {"polyphonic texture", "invention", "motive", "imitation", "sequence", "concerto grosso", "ritornello", "chamber music", "homophonic texture", "sonata form", "exposition", "development", "recapulation"};
 				System.out.println("Definition of " + words[new Random().nextInt(13)] + ". ________________________________");
