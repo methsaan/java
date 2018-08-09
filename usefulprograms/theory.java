@@ -47,16 +47,16 @@ public class theory {
 		String[] majscale = {"C ", "G ", "D ", "A ", "E ", "B ", "Gb", "Db", "Ab", "Eb", "Bb", "F ", "F#", "Cb", "C#"};
 		String[] minscale = {"A ", "E ", "B ", "F#", "C#", "G#", "Eb", "Bb", "F ", "C ", "G ", "D ", "D#", "Eb", "A#"};
 		String[] directions = {"ascending", "descending", "ascending and descending"};
-		String scale = new Random().nextBoolean() ? majscale[new Random().nextInt(17)] + " Major": minscale[new Random().nextInt(12)] + " Minor";
+		String scale = new Random().nextBoolean() ? majscale[new Random().nextInt(15)] + " Major": minscale[new Random().nextInt(15)] + " Minor";
 		System.out.println("3. Write the following scales " + directions[2] + ", using the correct key signature for each. Use whole notes.");
 		System.out.println("  a) " + scale + " in the " + clefs[new Random().nextInt(2)] + " clef");
-		scale = new Random().nextBoolean() ? majscale[new Random().nextInt(17)] + " Major": minscale[new Random().nextInt(12)] + " Minor";
+		scale = new Random().nextBoolean() ? majscale[new Random().nextInt(15)] + " Major": minscale[new Random().nextInt(15)] + " Minor";
 		System.out.println("  b) " + scale + " in the " + clefs[new Random().nextInt(2)] + " clef");
-		scale = new Random().nextBoolean() ? majscale[new Random().nextInt(17)] + " Major": minscale[new Random().nextInt(12)] + " Minor";
+		scale = new Random().nextBoolean() ? majscale[new Random().nextInt(15)] + " Major": minscale[new Random().nextInt(15)] + " Minor";
 		System.out.println("  c) " + scale + " in the " + clefs[new Random().nextInt(2)] + " clef");
-		scale = new Random().nextBoolean() ? majscale[new Random().nextInt(17)] + " Major": minscale[new Random().nextInt(12)] + " Minor";
+		scale = new Random().nextBoolean() ? majscale[new Random().nextInt(15)] + " Major": minscale[new Random().nextInt(15)] + " Minor";
 		System.out.println("  d) " + scale + " in the " + clefs[new Random().nextInt(2)] + " clef");
-		scale = new Random().nextBoolean() ? majscale[new Random().nextInt(17)] + " Major": minscale[new Random().nextInt(12)] + " Minor";
+		scale = new Random().nextBoolean() ? majscale[new Random().nextInt(15)] + " Major": minscale[new Random().nextInt(15)] + " Minor";
 		System.out.println("  e) " + scale + " in the " + clefs[new Random().nextInt(2)] + " clef");
 		//transposition
 		//chord dictation
