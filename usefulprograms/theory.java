@@ -113,20 +113,18 @@ public class theory {
 		//composition
 		//history and music terms
 		System.out.println("9.\n  a)");
-		String[] types = {"vocab", "time periods", "translations", "b info"};
-		String randType = types[new Random().nextInt(4)];
 		for (int x = 0; x < 10; x++){
-		if (randType.equals("time periods")){
-			String[] eras = {"baroque", "classical"};
-			String era = eras[new Random().nextInt(2)];
-			System.out.println("Time period of " + era + " era. _________________________________");
-			String[] composers = {"Johann Sebastian Bach", "Wolfgang Amadeus Mozart"};
-			System.out.println("Time period of " + composers[new Random().nextInt(2)] + ". ________________________________");
-		}
-			else if (randType.equals("vocab")){
+			String[] types = {"vocab", "time periods", "translations", "b info"};
+			String randType = types[new Random().nextInt(4)];
+			if (randType.equals("time periods")){
+				String[] eras = {"baroque", "classical"};
+				String era = eras[new Random().nextInt(2)];
+				System.out.println("Time period of " + era + " era. _________________________________");
+				String[] composers = {"Johann Sebastian Bach", "Wolfgang Amadeus Mozart"};
+				System.out.println("Time period of " + composers[new Random().nextInt(2)] + ". ________________________________");
+			}else if (randType.equals("vocab")){
 				String[] words = {"polyphonic texture", "invention", "motive", "imitation", "sequence", "concerto grosso", "ritornello", "chamber music", "homophonic texture", "sonata form", "exposition", "development", "recapulation"};
 				System.out.println("Definition of " + words[new Random().nextInt(13)] + ". ________________________________");
-	
 			}else {
 				System.out.println("Coming soon");
 			}
