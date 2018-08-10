@@ -12,12 +12,17 @@ public class addalg {
 		int t = scan.nextInt();
 		System.out.println("Enter fourth num: (enter 00 if 3 numbers are enough) ");
 		int fo = scan.nextInt();
-		if !((Integer.toString(t).equals("00")) || (Integer.toString(fo).equals("00"))){
-			int rem1 = Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(s).substring(1)) + Integer.parseInt(Integer.toString(f).substring(1)) + Integer.parseInt(Integer.toString(t).substring(1)) + Integer.parseInt(Integer.toString(fo).substring(1))));
-			int rem2 = Integer.parseInt(Integer.toString(rem1).substring(0, 1));
-		else if (Integer.toString(fo).equals("00")){
-			int rem1 = Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(s).substring(1)) + Integer.parseInt(Integer.toString(f).substring(1)) + Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(t)));
-			int rem2 = Integer.parseInt(Integer.toString(rem1).substring(0, 1));
+		int rem1;
+		int rem2;
+		if ((Integer.toString(f).equals("00")) && (Integer.toString(s).equals("00")) && (Integer.toString(t).equals("00")) && (Integer.toString(fo).equals("00"))) {
+			rem1 = Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(s).substring(1)) + Integer.parseInt(Integer.toString(f).substring(1)) + Integer.parseInt(Integer.toString(t).substring(1)) + Integer.parseInt(Integer.toString(fo).substring(1))));
+			rem2 = Integer.parseInt(Integer.toString(rem1).substring(0, 1));
+		}else if ((Integer.toString(t).equals("00")) && (Integer.toString(s).equals("00")) && (Integer.toString(f).equals("00"))) {
+			rem1 = Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(s).substring(1)) + Integer.parseInt(Integer.toString(f).substring(1)) + Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(t))))));
+			rem2 = Integer.parseInt(Integer.toString(rem1).substring(0, 1));
+		}else {
+			rem1 = Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(s).substring(1)) + Integer.parseInt(Integer.toString(f).substring(1))));
+			rem2 = Integer.parseInt(Integer.toString(rem1).substring(0, 1));
 		}
 		System.out.println("   " + rem2);
 		System.out.println("   " + f);
