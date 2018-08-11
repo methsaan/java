@@ -8,9 +8,6 @@ public class randomChooser {
 		System.out.println("Enter number of items: ");
 		Scanner scanTwo = new Scanner(System.in);
 		int numOfItems = scanTwo.nextInt();
-		System.out.println("What is it you are trying to do? ");
-		String info = scan.nextLine();
-		System.out.println("Wow, Interesting!");
 		String[] itemList = new String[numOfItems];
 		for (int x = 1; x <= numOfItems; x++) {
 			System.out.print("Enter item number " + x + ": ");
