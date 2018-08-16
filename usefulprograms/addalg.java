@@ -8,30 +8,27 @@ public class addalg {
 		int f = scan.nextInt();
 		System.out.println("Enter second num: ");
 		int s = scan.nextInt();
-		System.out.println("Enter third num: (enter 00 if 2 numbers are enough) ");
+		System.out.println("Enter third num: (enter 0 if 2 numbers are enough) ");
 		int t = scan.nextInt();
-		System.out.println("Enter fourth num: (enter 00 if 3 numbers are enough) ");
+		System.out.println("Enter fourth num: (enter 0 if " + (t == 0 ? "2" : "3") + " numbers are enough) ");
 		int fo = scan.nextInt();
 		int rem1;
 		int rem2;
-		if (!((Integer.toString(f).equals("00")) || (Integer.toString(s).equals("00")) || (Integer.toString(t).equals("00")) || (Integer.toString(fo).equals("00")))) {
+		if ((f > 0) && (s > 0) && (t > 0) && (fo > 0)) {
 			rem1 = Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(s).substring(1)) + Integer.parseInt(Integer.toString(f).substring(1)) + Integer.parseInt(Integer.toString(t).substring(1)) + Integer.parseInt(Integer.toString(fo).substring(1))));
 			rem2 = Integer.parseInt(Integer.toString(rem1).substring(0, 1));
-			System.out.println("All numbers are greater than 0.");
-		}else if (!((Integer.toString(t).equals("00")) || (Integer.toString(s).equals("00")) || (Integer.toString(f).equals("00")))) {
+		}else if ((f > 0) && (s > 0) && (t > 0)) {
 			rem1 = Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(s).substring(1)) + Integer.parseInt(Integer.toString(f).substring(1)) + Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(t))))));
 			rem2 = Integer.parseInt(Integer.toString(rem1).substring(0, 1));
-			System.out.println("3 numbers are greater than 0.");
 		}else {
 			rem1 = Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(s).substring(1)) + Integer.parseInt(Integer.toString(f).substring(1))));
 			rem2 = Integer.parseInt(Integer.toString(rem1).substring(0, 1));
-			System.out.println("2 numbers are greater than 0.");
 		}
 		System.out.println("   " + rem2);
 		System.out.println("   " + f);
 		System.out.println("   " + s);
-		System.out.println("   " + t);
-		System.out.println("   " + fo);
+		System.out.println(t != 0 ? "   " + t : "    " + t);
+		System.out.println(fo != 0 ? "   " + fo : "    " + fo);
 		System.out.println(" +____");
 		System.out.println((Integer.toString(f+s+t+fo).length() != 2 ? "  " : "   ") + (f+s+t+fo));
 	}
