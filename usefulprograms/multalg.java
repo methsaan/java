@@ -13,8 +13,13 @@ public class multalg{
 		int prod1 = Integer.parseInt(Integer.toString(s).substring(1))*f;
 		int prod2 = Integer.parseInt(Integer.toString(s).substring(0, 1))*f;
 		if (Integer.toString(prod1).length() == Integer.toString(prod2).length()){
-			System.out.println("    " + prod1);
-			System.out.println("   " + prod2);
+			if (Integer.toString(prod1).length() == 3) {
+				System.out.println("    " + prod1);
+				System.out.println("   " + prod2);
+			}else {
+				System.out.println("     " + prod1);
+				System.out.println("    " + prod2);
+			}
 		}else if (Integer.toString(prod1).length() < Integer.toString(prod2).length()){
 			System.out.println("     " + prod1);
 			System.out.println("   " + prod2);
