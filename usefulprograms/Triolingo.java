@@ -32,11 +32,12 @@ public class Triolingo {
                 String[] SingularArticles22 = {"mon", "leur", "ce"};
                 String[] SingularArticles32 = {"le", "leur", "son"};
                 String[] SingularArticles42 = {"Votre", "Notre", "Du"};
-                String[] AnimateNoun2 = {"pere", "garcon", "chien", "chat", "singe", "frere", "cochon", "grandpere", "loup", "amie"};
+                String[] AnimateNoun2 = {"pere", "garcon", "chien", "chat", "singe", "frere", "cochon", "grandpere", "loup", "amie", "gen", "espace"};
                 String[] VerbsAnimatePresent2 = {"veut", "a", "aime", "lance", "n'aime pas", "voit", "est", "entend", "prend", "donne", "mange", "boit"};
                 String[] InanimateAdjectives2 = {"mauvais", "bon", "pauvre", "propre", "petit", "legere", "amusant", "bete", "mechant", "genial", "dernier", "premier", "deuxieme", "troisieme"};
                 String[] InanimateNoun2 = {"livre", "sandwich", "sac", "gateau", "ordinateur", "vin"};
 		for (int x = 0; x < 10; x++){
+
                 	String[][] SAlistf = {SingularArticles12, SingularArticles42};
                 	String[][] SAlist2f = {SingularArticles32, SingularArticles22};
                 	String randCaptSA1f = SAlistf[random.nextInt(2)][random.nextInt(3)];
@@ -46,7 +47,11 @@ public class Triolingo {
                 	String INf = InanimateNoun2[random.nextInt(6)];
                 	String Adjf = InanimateAdjectives2[random.nextInt(14)];
                 	String Adj2f = InanimateAdjectives2[random.nextInt(14)];
-                	System.out.println(randCaptSA1f + " " +  Adjf + " " + ANf + " " + VAPf + " " + randSimpSA2f + " " + Adj2f + " " + INf + ".");
+			if (random.nextBoolean() == true){
+                		System.out.println(randCaptSA1f + " " +  Adjf + " " + ANf + " " + VAPf + " " + randSimpSA2f + " " + Adj2f + " " + INf + ".");
+			}else {
+				System.out.println("Il " + VAPf + " " + randSimpSA2f + " " + Adj2f + " " + INf + ".");
+			}
                 }
 
 
