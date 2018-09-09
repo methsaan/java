@@ -31,13 +31,12 @@ public class Triolingo {
 		String[] SingularArticles12 = {"Un", "Ton", "Son"};
                 String[] SingularArticles22 = {"mon", "leur", "ce"};
                 String[] SingularArticles32 = {"le", "leur", "son"};
-                String[] SingularArticles42 = {"Votre", "Notre", "Du"};
+                String[] SingularArticles42 = {"Votre", "Notre", "Du", "Auquel"};
                 String[] AnimateNoun2 = {"pere", "garcon", "chien", "chat", "singe", "frere", "cochon", "grandpere", "loup", "amie", "gen", "espace"};
                 String[] VerbsAnimatePresent2 = {"veut", "a", "aime", "lance", "n'aime pas", "voit", "est", "entend", "prend", "donne", "mange", "boit"};
                 String[] InanimateAdjectives2 = {"mauvais", "bon", "pauvre", "propre", "petit", "legere", "amusant", "bete", "mechant", "genial", "dernier", "premier", "deuxieme", "troisieme"};
                 String[] InanimateNoun2 = {"livre", "sandwich", "sac", "gateau", "ordinateur", "vin"};
 		for (int x = 0; x < 10; x++){
-
                 	String[][] SAlistf = {SingularArticles12, SingularArticles42};
                 	String[][] SAlist2f = {SingularArticles32, SingularArticles22};
                 	String randCaptSA1f = SAlistf[random.nextInt(2)][random.nextInt(3)];
