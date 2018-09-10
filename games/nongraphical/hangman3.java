@@ -13,8 +13,13 @@ public class hangman3 {
 		for (int x = 0; x < word.length(); x++){
 			wordArr[x] = word.charAt(x);
 		}
-		printArr("", wordArr, "", "\n");
+		char[] progress = new char[word.length()];
+		for (int x = 0; x < word.length();x++){
+			progress[x] = '_';
+		}
 		System.out.print("\033[H\033[2J");
+		printArr("wordArr: ", wordArr, ", ", "\n");
+		printArr("progress: ", progress, ", ", "\n");
 		System.out.print("Enter a character: ");
 		char a = scan.next().charAt(0);
 		System.out.println(isIn(word, a) ? a + " is in " + word : a + " is not in " + word);
@@ -23,6 +28,9 @@ public class hangman3 {
 		System.out.print(start);
 		for (int a = 0; a < x.length; a++){
 			System.out.print(x[a] + separator);
+		}
+		for (int b = 0; b < x.length; b++){
+			System.out.print("\b");
 		}
 		System.out.print(end);
 	}
