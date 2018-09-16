@@ -3,7 +3,7 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.io.IOException;
 
-public class hangman {
+public class hangman2 {
 	public static void main(String[] args) {
 		Scanner scanno = new Scanner(System.in);
 		String randWord = "";
