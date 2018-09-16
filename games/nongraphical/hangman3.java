@@ -29,20 +29,19 @@ public class hangman3 {
 		int strike = 0;
 		boolean won = true;
 		//System.out.print("\033[H\033[2J");
-		for (int x = 0; x < word.length()+3; x++){
+		for (;;){
 			System.out.print("Enter a character: ");
 			char a = scan.next().charAt(0);
 			if (isIn(word, a)){
-				System.out.println(a + " is in " + word);
 				points++;
-				if (points == pntmax){
+				progress[searchInArr(wordArr, a)] = a;
+				if (!(isInCharArr(progress, '_'))){
 					won = true;
 					break;
 				}
 			}else {
-				System.out.println(a + " is not in " + word);
 				strikes[++strike] = '#';
-				if (strike == strikemax){
+				if (strike == strikemax-1){
 					won = false;
 					break;
 				}
@@ -55,6 +54,7 @@ public class hangman3 {
 		}else {
 			System.out.println("You lose");
 		}
+		System.out.println("Word: " + word);
 	}
 	public static void printArr(String start, char[] x, String separator, String end){
 		System.out.print(start);
@@ -78,5 +78,28 @@ public class hangman3 {
 		}else{
 			return true;
 		}
+	}
+	public static boolean isInCharArr(char[] charArr, char charx){
+		int cnt = 0;
+		for (int x = 0; x < charArr.length; x++){
+			if (charArr[x] == charx){
+				cnt++;
+			}
+		}
+		if (cnt == 0){
+			return false;
+		}else{
+			return true;
+		}
+	}
+	public static int searchInArr(char[] arr, char toFind){
+		int Index = 0;
+		for (int x = 0; x < arr.length; x++){
+			if (arr[x] == toFind){
+				Index = x;
+				break;
+			}
+		}
+		return Index;
 	}
 }
