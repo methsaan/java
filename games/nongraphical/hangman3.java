@@ -28,7 +28,7 @@ public class hangman3 {
 		int points = 0;
 		int strike = 0;
 		boolean won = true;
-		//System.out.print("\033[H\033[2J");
+		System.out.print("\033[H\033[2J");
 		for (;;){
 			System.out.print("Enter a character: ");
 			char a = scan.next().charAt(0);
