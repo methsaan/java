@@ -34,7 +34,11 @@ public class hangman3 {
 			char a = scan.next().charAt(0);
 			if (isIn(word, a)){
 				points++;
-				progress[searchInArr(wordArr, a)] = a;
+				for (int x = 0; x < word.length(); x++){
+					if (wordArr[x] == a){
+						progress[x] = a;
+					}
+				}
 				if (!(isInCharArr(progress, '_'))){
 					won = true;
 					break;
