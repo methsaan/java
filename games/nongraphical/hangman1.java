@@ -3,7 +3,7 @@ import java.util.Random;
 import java.util.Arrays;
 import java.io.IOException;
 
-public class hangman7 {
+public class hangman1 {
 	public static void main(String[] args) {
 		String[] words = {"weights", "numbers", "markets", "marcher", "parting", "winters", "caption", "oranges", "english", "smarten", "puberty", "pythons", "disturb", "farting", "blaming", "transit", "injects", "spoiler", "hexagon", "imports", "exports", "informs", "knights", "gymnast", "foreign", "directs", "arduino", "poverty", "problem", "foaming", "guitars", "brokers", "hardest", "marking", "failure", "teaming", "busters", "bothers", "simpler", "planets", "pistols", "printed"};
 		Random random = new Random();
