@@ -12,8 +12,23 @@ public class tictactoe {
 		int vert = scan.nextInt();
 		if ((hori == 1) && (vert == 1)){
 			a = "X";b = " ";c = " ";d = " ";e = " ";f = " ";g = " ";h = " ";i = " ";
-		}else{
-			int fsa = 10;
+		}else if ((hori == 2) && (vert == 1)){
+			a = " ";b = "X";c = " ";d = " ";e = " ";f = " ";g = " ";h = " ";i = " ";
+		}else if ((hori == 3) && (vert == 1)){
+			a = " ";b = " ";c = "X";d = " ";e = " ";f = " ";g = " ";h = " ";i = " ";
+		}else if ((hori == 1) && (vert == 2)){	
+			a = " ";b = " ";c = " ";d = "X";e = " ";f = " ";g = " ";h = " ";i = " ";
+		}else if ((hori == 2) && (vert == 2)){	
+			a = " ";b = " ";c = " ";d = " ";e = "X";f = " ";g = " ";h = " ";i = " ";
+		}else if ((hori == 3) && (vert == 2)){	
+			a = " ";b = " ";c = " ";d = " ";e = " ";f = "X";g = " ";h = " ";i = " ";
+
+		}else if ((hori == 1) && (vert == 3)){	
+			a = " ";b = " ";c = " ";d = " ";e = " ";f = " ";g = "X";h = " ";i = " ";
+                }else if ((hori == 2) && (vert == 3)){
+			a = " ";b = " ";c = " ";d = " ";e = " ";f = " ";g = " ";h = "X";i = " ";
+		}else if ((hori == 3) && (vert == 3)){
+			a = " ";b = " ";c = " ";d = " ";e = " ";f = " ";g = " ";h = " ";i = "X";
 		}
 		printgrid(a, b, c, d, e, f, g, h, i);
 	}
