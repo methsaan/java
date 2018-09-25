@@ -12,22 +12,28 @@ public class divalg {
 		int dividTemp = dividend;
 		int numOfTimes = 0;
 		int block = 0;
-		//System.out.println("     " + quotient);
 		System.out.println("    _________");
 		System.out.println(divisor + " | " + dividend);
-		while (true){
-			block += divisor;
-			if (block < dividend){
-				numOfTimes += 1;
-			}else{
-				break;
+		for (int x = 0; x < 2; x++){
+			while (block == 0){
+				while (true){
+					block += divisor;
+					if (block < dividTemp){
+						numOfTimes += 1;
+					}else{
+						break;
+					}
+				}
+				if (block == 0){
+					dividTemp *= 10;
+				}
 			}
+			System.out.println("     " + numOfTimes*divisor);
+			System.out.println("    ___");
+			System.out.println("     " + (dividTemp-numOfTimes*divisor));
+			dividTemp -= numOfTimes*divisor;
+			numOfTimes = 0;
+			block = 0;
 		}
-		System.out.println("     " + numOfTimes*divisor);
-		System.out.println("    ___");
-		System.out.println("     " + (dividTemp-numOfTimes*divisor));
-		dividTemp -= numOfTimes*divisor;
-		numOfTimes = 0;
-		block = 0;
 	}
 }
