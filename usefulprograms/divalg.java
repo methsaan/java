@@ -12,20 +12,34 @@ public class divalg {
 		int dividTemp = dividend;
 		int dividTemp2;
 		int numOfTimes = 0;
+		int spaces = 3;
 		System.out.println(" \t    " + quotientFloat);
 		System.out.println(" \t " + "_________");
 		System.out.println(divisor + " \t | " + dividTemp);
 		for (int x = 0; x < 7; x++){
 			numOfTimes = (int)dividTemp/divisor;
 			ans = ans + Integer.toString(numOfTimes);
-			System.out.println(" \t   " + (divisor*numOfTimes));
-			System.out.println(" \t   ___");
+			System.out.print(" \t");
+			for (int a = 0; a < spaces; a++){
+				System.out.print(" ");
+			}
+		       	System.out.println((divisor*numOfTimes));
+			System.out.print(" \t");
+			for (int b = 0; b < spaces; b++){
+				System.out.print(" ");
+			}
+			System.out.println("___");
 			if (dividTemp-divisor*numOfTimes > divisor) {
 				dividTemp = (dividTemp-divisor*numOfTimes);
 			}else {
 				dividTemp = (dividTemp-divisor*numOfTimes) * 10;
 			}
-			System.out.println(" \t   " + dividTemp);
+			System.out.print(" \t");
+			for (int c = 0; c < spaces; c++){
+				System.out.print(" ");
+			}
+			System.out.println(dividTemp);
+			spaces++;
 		}
 		//
 		float answer = Float.parseFloat(ans)/1000000;
