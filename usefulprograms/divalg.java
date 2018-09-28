@@ -8,32 +8,20 @@ public class divalg {
 		int divisor = new Scanner(System.in).nextInt();
 		double quotientDouble = (double)dividend/(double)divisor;
 		float quotientFloat = (float)(quotientDouble);
-		String quotient = Float.toString(quotientFloat).substring(0, Float.toString(quotientFloat).length()-5);
+		String ans = "";
 		int dividTemp = dividend;
+		int dividTemp2;
 		int numOfTimes = 0;
-		int block = 0;
-		System.out.println("    _________");
-		System.out.println(divisor + " | " + dividend);
-		for (int x = 0; x < 2; x++){
-			while (block == 0){
-				while (true){
-					block += divisor;
-					if (block < dividTemp){
-						numOfTimes += 1;
-					}else{
-						break;
-					}
-				}
-				if (block == 0){
-					dividTemp *= 10;
-				}
-			}
-			System.out.println("     " + numOfTimes*divisor);
-			System.out.println("    ___");
-			System.out.println("     " + (dividTemp-numOfTimes*divisor));
-			dividTemp -= numOfTimes*divisor;
-			numOfTimes = 0;
-			block = 0;
+		for (int x = 0; x < 3; x++){
+			numOfTimes = (int)dividTemp/divisor;
+			System.out.println(divisor + " goes to " + dividTemp + " " + numOfTimes + " times.");
+			System.out.println("The remainder is " + dividTemp%divisor);
+			ans = ans + dividTemp%divisor;
+			dividTemp2 = dividTemp;
+			dividTemp = divisor * numOfTimes;
+			System.out.println(divisor + " x " + numOfTimes + " = " + dividTemp);
+			System.out.println(dividTemp2 + " - " + dividTemp + " = " + (dividTemp2-dividTemp));
+			System.out.println();
 		}
 	}
 }
