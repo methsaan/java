@@ -12,17 +12,24 @@ public class divalg {
 		int dividTemp = dividend;
 		int dividTemp2;
 		int numOfTimes = 0;
-		for (int x = 0; x < 3; x++){
+		System.out.println(" \t    " + quotientFloat);
+		System.out.println(" \t " + "_________");
+		System.out.println(divisor + " \t | " + dividTemp);
+		for (int x = 0; x < 7; x++){
 			numOfTimes = (int)dividTemp/divisor;
-			System.out.println(dividTemp + " / " + numOfTimes + " = " + divisor);
-			System.out.println("The remainder is " + dividTemp%divisor);
-			ans = ans + dividTemp%divisor;
-			dividTemp2 = dividTemp;
-			System.out.println(divisor + " x " + dividTemp%divisor + " = " + dividTemp);
-			System.out.println(dividTemp2 + " - " + dividTemp%divisor + " = " + (dividTemp2-numOfTimes));
-			System.out.println();
-			dividTemp2 = dividTemp;
-			dividTemp = divisor * numOfTimes;
+			//System.out.println(dividTemp + " / " + divisor + " = " + numOfTimes);
+			ans = ans + Integer.toString(numOfTimes);
+			//System.out.println(divisor + " x " + numOfTimes + " = " + (divisor * numOfTimes));
+			System.out.println(" \t   " + (divisor*numOfTimes));
+			System.out.println(" \t   ___");
+			//System.out.println(dividTemp + " - " + (divisor*numOfTimes) + " = " + (dividTemp-divisor*numOfTimes));
+			if (dividTemp-divisor*numOfTimes > divisor) {
+				dividTemp = (dividTemp-divisor*numOfTimes);
+			}else {
+				dividTemp = (dividTemp-divisor*numOfTimes) * 10;
+			}
+			System.out.println(" \t   " + dividTemp);
 		}
+		float answer = Float.parseFloat(ans)/1000000;
 	}
 }
