@@ -12,17 +12,17 @@ public class divalg {
 		int dividTemp = dividend;
 		int dividTemp2;
 		int numOfTimes = 0;
-		j'ai bu wowowow
 		for (int x = 0; x < 3; x++){
 			numOfTimes = (int)dividTemp/divisor;
-			System.out.println(divisor + " goes to " + dividTemp + " " + numOfTimes + " times.");
+			System.out.println(dividTemp + " / " + numOfTimes + " = " + divisor);
 			System.out.println("The remainder is " + dividTemp%divisor);
 			ans = ans + dividTemp%divisor;
 			dividTemp2 = dividTemp;
-			dividTemp = divisor * numOfTimes;
-			System.out.println(divisor + " x " + numOfTimes + " = " + dividTemp);
-			System.out.println(dividTemp2 + " - " + dividTemp + " = " + (dividTemp2-dividTemp));
+			System.out.println(divisor + " x " + dividTemp%divisor + " = " + dividTemp);
+			System.out.println(dividTemp2 + " - " + dividTemp%divisor + " = " + (dividTemp2-numOfTimes));
 			System.out.println();
+			dividTemp2 = dividTemp;
+			dividTemp = divisor * numOfTimes;
 		}
 	}
 }
