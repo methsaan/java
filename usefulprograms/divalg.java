@@ -12,6 +12,7 @@ public class divalg {
 		int dividTemp = dividend;
 		int dividTemp2;
 		int numOfTimes = 0;
+		j'ai bu wowowow
 		for (int x = 0; x < 3; x++){
 			numOfTimes = (int)dividTemp/divisor;
 			System.out.println(divisor + " goes to " + dividTemp + " " + numOfTimes + " times.");
