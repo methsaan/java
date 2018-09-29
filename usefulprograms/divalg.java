@@ -41,7 +41,5 @@ public class divalg {
 			System.out.println(dividTemp);
 			spaces++;
 		}
-		//
-		float answer = Float.parseFloat(ans)/1000000;
 	}
 }
