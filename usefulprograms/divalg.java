@@ -35,7 +35,7 @@ public class divalg {
 				dividTemp = (dividTemp-divisor*numOfTimes) * 10;
 			}
 			System.out.print(" \t");
-			for (int c = 0; c < spaces; c++){
+			for (int c = 0; c < spaces+1; c++){
 				System.out.print(" ");
 			}
 			System.out.println(dividTemp);
