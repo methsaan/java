@@ -50,9 +50,9 @@ public class divalg {
 			if (dividTemp == 0){
 				break;
 			}
-			if (x > accuracy){
+			if (x > 70){
 				System.out.println();
-				System.out.println("Irrational number. Approximate answer: " + ans);
+				System.out.println("Irrational number. Approximate answer: " + ans.substring(0, accuracy-1));
 				break;
 			}
 		}
