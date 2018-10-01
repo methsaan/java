@@ -52,7 +52,7 @@ public class divalg {
 			}
 			if (x > 90){
 				System.out.println();
-				System.out.println("Irrational number. Approximate answer: " + ans.substring(0, accuracy-1));
+				System.out.println("Irrational number. Approximate answer: " + ans.substring(0, accuracy+2));
 				break;
 			}
 		}
