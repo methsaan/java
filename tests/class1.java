@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class class1 {
 	public static int input(String x) {
 		System.out.println(x);
@@ -5,7 +7,9 @@ public class class1 {
 		int y = inp.nextInt();
 		return y;
 	}
-	public static void print(String y) {
-		System.out.print(y);
+	public static void print(String ... y) {
+		for (int x = 0; x < y.length; x++){
+			System.out.print(y[x]);
+		}
 	}
 }
