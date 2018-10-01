@@ -32,17 +32,33 @@ public class translator {
 				System.out.println(wordForm);
 			}
 		}else if (language.equalsIgnoreCase("french")){
-			String[] tens = {"vingt", "trente", "quarante", "cinquante", "soixante", "quatre-vingt"};
+			String[] tens = {"vingt", "trente", "quarante", "cinquante", "soixante", "sd", "quatre-vingt", "qvd"};
 			String[] oneToTwenty = {"un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"};
 			int modulus = num%10;
 			int tensIndex = ((num-modulus)/10)-2;
-			if (num == 0){
+			if ((num >= 70) && (num < 80)){
+				String wordForm = "soixante " + oneToTwenty[(num%20)-1];
+				System.out.println(wordForm);
+			}else if ((num >= 90) && (num < 100)){
+				String wordForm = "quatre-vingt " + oneToTwenty[(num%20)-1];
+				System.out.println(wordForm);
+			}else if (num == 0){
 				System.out.println("z\u00E9ro");
 			}else if (num == 100){
 				System.out.println("cent");
-			}else{
-				System.out.println("To be continued ...");
+			}else if ((modulus != 0) && (num > 20)){
+				String wordForm = tens[tensIndex] + " " + oneToTwenty[modulus-1];
+				System.out.println(wordForm);
+			}else if (num > 20){
+				String wordForm = tens[tensIndex];
+				System.out.println(wordForm);
+			}else {
+				modulus = num%20;
+				String wordForm = oneToTwenty[modulus-1];
+				System.out.println(wordForm);
 			}
+		}else if (language.equalsIgnoreCase("sinhalese")){
 		}
+
 	}
 }
