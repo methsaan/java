@@ -16,7 +16,9 @@ public class translator {
 			String[] oneToTwenty = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
 			int modulus = num%10;
 			int tensIndex = ((num-modulus)/10)-2;
-			if (num == 100){
+			if (num == 20){
+				System.out.println("twenty");
+			}else if (num == 100){
 				System.out.println("one hundred");
 			}else if (num == 0){
 				System.out.println("zero");
@@ -36,7 +38,9 @@ public class translator {
 			String[] oneToTwenty = {"un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"};
 			int modulus = num%10;
 			int tensIndex = ((num-modulus)/10)-2;
-			if ((num >= 70) && (num < 80)){
+			if (num == 20){
+				System.out.println("vingt");
+			}else if ((num >= 70) && (num < 80)){
 				String wordForm = "soixante " + oneToTwenty[(num%20)-1];
 				System.out.println(wordForm);
 			}else if ((num >= 90) && (num < 100)){
@@ -58,6 +62,9 @@ public class translator {
 				System.out.println(wordForm);
 			}
 		}else if (language.equalsIgnoreCase("sinhalese")){
+			String[] tens1 = {"thahaya", "vissa", "thiha", "hathaliya", "panaha", "hata", "hathaava", "asuva", "anuva", "seeya"};
+			String[] tens2 = {"", "vissi", "thiss", "hathalis", "panas", "hatta", "haththa", "asoo", "anoo"};
+			String[] ones = {"eca", "deca", "thuna", "hathara", "paha", "haya", "hatha", "atta", "namaya", "dahaya", "ecolaha", "dolaha", "dahathuna", "daahathara"};
 		}
 
 	}
