@@ -64,7 +64,12 @@ public class translator {
 		}else if (language.equalsIgnoreCase("sinhalese")){
 			String[] tens1 = {"thahaya", "vissa", "thiha", "hathaliya", "panaha", "hata", "hathaava", "asuva", "anuva", "seeya"};
 			String[] tens2 = {"", "vissi", "thiss", "hathalis", "panas", "hatta", "haththa", "asoo", "anoo"};
-			String[] ones = {"eca", "deca", "thuna", "hathara", "paha", "haya", "hatha", "atta", "namaya", "dahaya", "ecolaha", "dolaha", "dahathuna", "daahathara"};
+			String[] ones = {"eca", "deca", "thuna", "hathara", "paha", "haya", "hatha", "atta", "namaya", "dahaya", "ecolaha", "dolaha", "dahathuna", "daahathara", "pahalava", "dahaseya", "daahatha", "daha-atta", "dahanamaya"};
+			int modulus = num%10;
+			int tensIndex = ((num-modulus)/10)-2;
+			if (modulus == 0){
+				System.out.println(tens[tensIndex+1]);
+			}else if ((modulus != 0) && (num > 20)){}
 		}
 
 	}
