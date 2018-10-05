@@ -17,6 +17,7 @@ public class ArrayTestClass{
 		a.append(436);
 		aString = a.toString();
 		System.out.println("a is now: " + a);
+		System.out.println("b is now: " + b);
 		System.out.println("Length of a: " + a.size());
 	}
 }
