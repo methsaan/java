@@ -50,7 +50,7 @@ public class divalg {
 			if (dividTemp == 0){
 				break;
 			}
-			if (x > 90){
+			if (x > 600){
 				System.out.println();
 				System.out.println("Irrational number. Approximate answer: " + ans.substring(0, accuracy+2));
 				break;
