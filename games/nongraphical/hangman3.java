@@ -23,7 +23,7 @@ public class hangman3 {
 		}
 		char[] progress = new char[word.length()];
 		for (int x = 0; x < word.length();x++){
-			progress[x] = '_';
+			progress[x] = '~';
 		}
 		char[] strikes = new char[word.length()+2];
 		strikes[0] = '{';
@@ -47,7 +47,7 @@ public class hangman3 {
 						progress[x] = a;
 					}
 				}
-				if (!(isInCharArr(progress, '_'))){
+				if (!(isInCharArr(progress, '~'))){
 					won = true;
 					break;
 				}
