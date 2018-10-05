@@ -61,6 +61,7 @@ public class translator {
 				String wordForm = oneToTwenty[modulus-1];
 				System.out.println(wordForm);
 			}
+		/*
 		}else if (language.equalsIgnoreCase("sinhalese")){
 			String[] tens1 = {"thahaya", "vissa", "thiha", "hathaliya", "panaha", "hata", "hathaava", "asuva", "anuva", "seeya"};
 			String[] tens2 = {"", "vissi", "thiss", "hathalis", "panas", "hatta", "haththa", "asoo", "anoo"};
@@ -69,7 +70,7 @@ public class translator {
 			int tensIndex = ((num-modulus)/10)-2;
 			if (modulus == 0){
 				System.out.println(tens[tensIndex+1]);
-			}else if ((modulus != 0) && (num > 20)){}
+			}else if ((modulus != 0) && (num > 20)){}*/
 		}
 
 	}
