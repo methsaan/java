@@ -12,8 +12,8 @@ public class ArrayTestClass{
 		System.out.println("a.size(): " + size);
 		int eighthOfB = b.get(7);
 		System.out.println("Eighth element of b: " + eighthOfB);
-		int fifteenthOfA = a.get(15);
-		System.out.println("Sixteenth element of a: " + fifteenthOfA);
+		int sixteenthOfA = a.get(16);
+		System.out.println("Sixteenth element of a: " + sixteenthOfA);
 		a.append(436);
 		System.out.println("a is now: " + a);
 		System.out.println("b is now: " + b);

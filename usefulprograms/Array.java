@@ -27,7 +27,7 @@ public class Array{
 		if (x < len){
 			return array[x];
 		}else {
-			return -1;
+			return array[x%len];
 		}
 	}
 	public boolean equals(int[] anotherArr){
