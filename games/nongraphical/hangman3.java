@@ -27,7 +27,7 @@ public class hangman3 {
 		}
 		char[] strikes = new char[word.length()+2];
 		strikes[0] = '{';
-		for (int x = 1; x < strikes.length-2; x++){
+		for (int x = 1; x < word.length(); x++){
 			strikes[x] = '.';
 		}
 		strikes[strikes.length-1] = '}';
@@ -43,8 +43,12 @@ public class hangman3 {
 			if (isIn(word, a)){
 				points++;
 				for (int x = 0; x < word.length(); x++){
-					if (wordArr[x] == a){
-						progress[x] = a;
+					if (Character.toLowerCase(wordArr[x]) == Character.toLowerCase(a)){
+						if (Character.isUpperCase(wordArr[x])){
+							progress[x] = Character.toUpperCase(a);
+						}else {
+							progress[x] = Character.toLowerCase(a);
+						}
 					}
 				}
 				if (!(isInCharArr(progress, '~'))){
@@ -81,7 +85,7 @@ public class hangman3 {
 	public static boolean isIn(String str1, char charact){
 		int cnt = 0;
 		for (int x = 0; x < str1.length(); x++){
-			if (str1.charAt(x) == charact){
+			if (Character.toLowerCase(str1.charAt(x)) == Character.toLowerCase(charact)){
 				cnt++;
 			}
 		}

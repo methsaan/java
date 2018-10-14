@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class divalg {
 	public static void main(String[] args){
-		System.out.print("Enter first number: ");
+		System.out.print("Enter first number (simplify question first): ");
 		int dividend = new Scanner(System.in).nextInt();
 		System.out.print("Enter second number: ");
 		int divisor = new Scanner(System.in).nextInt();
