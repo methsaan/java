@@ -6,7 +6,7 @@ public class divalg {
 		int dividend = new Scanner(System.in).nextInt();
 		System.out.print("Enter second number: ");
 		int divisor = new Scanner(System.in).nextInt();
-		System.out.print("Accuracy for irrational numbers (not over 1000): ");
+		System.out.print("Accuracy for irrational numbers (not over 800): ");
 		int accuracy = new Scanner(System.in).nextInt();
 		double quotientDouble = (double)dividend/(double)divisor;
 		float quotientFloat = (float)(quotientDouble);
@@ -48,9 +48,12 @@ public class divalg {
 			System.out.println(dividTemp);
 			spaces++;
 			if (dividTemp == 0){
+				if (x >= 14){
+					System.out.println("Answer: " + ans);
+				}
 				break;
 			}
-			if (x > 1000){
+			if (x > 800){
 				System.out.println();
 				System.out.println("Irrational number. Approximate answer: " + ans.substring(0, accuracy+2));
 				break;
