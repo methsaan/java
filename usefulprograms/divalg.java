@@ -48,12 +48,12 @@ public class divalg {
 			System.out.println(dividTemp);
 			spaces++;
 			if (dividTemp == 0){
-				if (x >= 14){
+				if (x >= 16){
 					System.out.println("Answer: " + ans);
 				}
 				break;
 			}
-			if (x > 800){
+			if (x > 600){
 				System.out.println();
 				System.out.println("Irrational number. Approximate answer: " + ans.substring(0, accuracy+2));
 				break;
