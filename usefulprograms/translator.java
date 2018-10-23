@@ -61,16 +61,23 @@ public class translator {
 				String wordForm = oneToTwenty[modulus-1];
 				System.out.println(wordForm);
 			}
-		/*
 		}else if (language.equalsIgnoreCase("sinhalese")){
 			String[] tens1 = {"thahaya", "vissa", "thiha", "hathaliya", "panaha", "hata", "hathaava", "asuva", "anuva", "seeya"};
 			String[] tens2 = {"", "vissi", "thiss", "hathalis", "panas", "hatta", "haththa", "asoo", "anoo"};
 			String[] ones = {"eca", "deca", "thuna", "hathara", "paha", "haya", "hatha", "atta", "namaya", "dahaya", "ecolaha", "dolaha", "dahathuna", "daahathara", "pahalava", "dahaseya", "daahatha", "daha-atta", "dahanamaya"};
 			int modulus = num%10;
 			int tensIndex = ((num-modulus)/10)-2;
-			if (modulus == 0){
-				System.out.println(tens[tensIndex+1]);
-			}else if ((modulus != 0) && (num > 20)){}*/
+			if (num == 100){
+				System.out.println("seeya");
+			}else if (num == 0) {
+				System.out.println("binduva");
+			}else if (modulus == 0){
+				System.out.println(tens1[tensIndex+1]);
+			}else if ((modulus != 0) && (num < 20)){
+				System.out.println(ones[num-1]);
+			}else {
+				System.out.println(tens2[tensIndex+1] + " " + ones[modulus-1]);
+			}
 		}
 
 	}
