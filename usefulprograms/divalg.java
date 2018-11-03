@@ -6,7 +6,7 @@ public class divalg {
 		int dividend = new Scanner(System.in).nextInt();
 		System.out.print("Enter second number: ");
 		int divisor = new Scanner(System.in).nextInt();
-		System.out.print("Accuracy for irrational numbers (not over 800): ");
+		System.out.print("Accuracy for irrational numbers (not over 600): ");
 		int accuracy = new Scanner(System.in).nextInt();
 		double quotientDouble = (double)dividend/(double)divisor;
 		float quotientFloat = (float)(quotientDouble);
