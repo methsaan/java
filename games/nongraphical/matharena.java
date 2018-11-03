@@ -19,8 +19,6 @@ public class matharena {
 	       		}else {
 				if (score > 0){
 					score -= 1;
-				}else {
-					score -= 0;
 				}
 	       		}
 	       		int x2 = rand.randrange(1, 99);
@@ -31,8 +29,6 @@ public class matharena {
 	       	      	}else {
 	         		if (score > 0){
 					score -= 1;
-				}else {
-					score -= 0;
 				}
 	               	}
 		}
