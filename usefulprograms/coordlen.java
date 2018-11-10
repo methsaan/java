@@ -13,13 +13,13 @@ public class coordlen {
 		int asquared;
 		int bsquared;
 		double pythagorus;
-		System.out.print("Enter x coordinate of point \"a\": ");
+		System.out.print("Enter x coordinate of point a: ");
 		x = scan.nextInt();
-		System.out.print("Enter y coordinate of point \"a\": ");
+		System.out.print("Enter y coordinate of point a: ");
 		y = scan.nextInt();
-		System.out.print("Enter x coordinate of point \"b\": ");
+		System.out.print("Enter x coordinate of point b: ");
 		x2 = scan.nextInt();
-		System.out.print("Enter y coordinate of point \"b\": ");
+		System.out.print("Enter y coordinate of point b: ");
 		y2 = scan.nextInt();
 		a = Math.abs(x-x2);
 		b = Math.abs(y-y2);
