@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-public class sixtothree {
+public class mathtrick {
 	public static void main(String[] args){
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter a three digit number: ");
+		System.out.println("Enter a number: ");
 		double threeDigit = scan.nextInt();
 		double sixDigit = threeDigit*1000+threeDigit;
 		System.out.println((int)(sixDigit) + " \u00F7 7: " + (int)(sixDigit/7));
