@@ -13,31 +13,37 @@ public class evenOdd {
 		int[] odd = new int[intArray.length];
 		int evenlen = 0;
 		int oddlen = 0;
+		int evenIndex = 0;
+		int oddIndex = 0;
 		for (int x = 0; x < intArray.length; x++){
 			if (intArray[x]%2 == 0){
-				even[x] = intArray[x];
+				even[evenIndex] = intArray[x];
+				evenIndex++;
 			}else {
-				odd[x] = intArray[x];
+				odd[oddIndex] = intArray[x];
+				oddIndex++;
 			}
 		}
 		for (int x = 0; x < intArray.length; x++){
 			evenlen++;
-			oddlen++;
-			if (even[x] == null) {
+			if (even[x] == 0) {
 				break;
 			}
-			if (odd[x] == null){
+		}
+		for (int x = 0; x < intArray.length; x++){
+			oddlen++;
+			if (odd[x] == 0){
 				break;
 			}
 		}
 		System.out.print("Even numbers: ");
-		for (int x = 0; x < evenlen; x++){
-			System.out.print(even[x]);
+		for (int x = 0; x < evenlen-1; x++){
+			System.out.print(even[x] + " ");
 		}
 		System.out.println();
 		System.out.print("Odd numbers: ");
-		for (int x = 0; x < oddlen; x++) {
-			System.out.print(odd[x]);
+		for (int x = 0; x < oddlen-1; x++) {
+			System.out.print(odd[x] + " ");
 		}
 		System.out.println();
 	}
