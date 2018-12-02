@@ -8,10 +8,19 @@ public class wordjumble {
 		System.out.print("Enter a word: ");
 		String unjumbled = scan.nextLine();
 		String jumbled = "";
-		int[] index = new = int[unjumbled.length()];
+		int[] index = new int[unjumbled.length()];
 		for (int x = 0; x < index.length; x++) {
 			index[x] = x;
 		}
-		int numOf
+		int indexlen = index.length;
+		int randIndex = 12;
+		for (int x = 0; x < 10; x++){
+			do {
+				randIndex = rand.nextInt(indexlen);
+			} while (randIndex == 0);
+			jumbled += unjumbled.substring(randIndex, randIndex+1);
+			unjumbled.substring(randIndex, randIndex+1) = "";
+			indexlen--;
+		}
 	}
 }
