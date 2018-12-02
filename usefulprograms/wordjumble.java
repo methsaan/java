@@ -13,14 +13,21 @@ public class wordjumble {
 			index[x] = x;
 		}
 		int indexlen = index.length;
-		int randIndex = 12;
-		for (int x = 0; x < 10; x++){
+		int randIndex;
+		String charact;
+		for (int x = 0; x < unjumbled.length(); x++){
 			do {
 				randIndex = rand.nextInt(indexlen);
-			} while (randIndex == 0);
+				charact = unjumbled.substring(randIndex, randIndex+1);
+				if (!jumbled.contains(charact)) {
+					if (index[randIndex] != unjumbled.length()+100){
+						break;
+					}
+				}
+			} while (true);
 			jumbled += unjumbled.substring(randIndex, randIndex+1);
-			unjumbled.substring(randIndex, randIndex+1) = "";
-			indexlen--;
+			index[randIndex] = unjumbled.length()+100;
 		}
+		System.out.println(jumbled);
 	}
 }
