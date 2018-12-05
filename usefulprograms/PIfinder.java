@@ -18,7 +18,7 @@ public class PIfinder{
 		Scanner scan = new Scanner(System.in);
 		System.out.print("Enter number of PI approximations: ");
 		int numOfPIs = scan.nextInt();
-		double PI = 3.14159265358927;
+		double PI = 3.14159265358972;
 		double[][] PIfinderArray = new double[numOfPIs][3];
 		double[] accuracies = new double[numOfPIs];
 		int divisor = 1;
