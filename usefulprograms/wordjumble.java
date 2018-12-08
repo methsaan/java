@@ -17,6 +17,7 @@ public class wordjumble {
 		String charact;
 		String repeatedLetter = " ";
 		boolean hasRepeatedLetter = false;
+		int numOfRepeatedLetters = 0;
 		for (int x = 0; x < unjumbled.length(); x++){
 			for (int y = 0; y < unjumbled.length(); y++){
 				if ((x != y) && (unjumbled.substring(x, x+1).equals(unjumbled.substring(y, y+1)))){
@@ -26,6 +27,14 @@ public class wordjumble {
 				}
 			}
 		}
+		for (int x = 0; x < unjumbled.length(); x++){
+			for (int y = 0; y < unjumbled.length(); x++){
+				if ((x != y) && (unjumbled.substring(x, x+1).equals(unjumbled.substring(y, y+1)))){
+					numOfRepeatedLetters++;
+				}
+			}
+		}
+		System.out.println(numOfRepeatedLetters);
 		for (int x = 0; x < unjumbled.length(); x++){
 			do {
 				randIndex = rand.nextInt(indexlen);
@@ -37,9 +46,11 @@ public class wordjumble {
 				}
 			} while (true);
 			jumbled += unjumbled.substring(randIndex, randIndex+1);
-			System.out.println(jumbled);
-			System.out.println(hasRepeated
-			if ((hasRepeatedLetter) && (x == unjumbled.length()-1)) {
+			System.out.print("jumbled: " + jumbled + "\t\t\t");
+			System.out.print("hasRepeatedLetter: " + hasRepeatedLetter + "\t\t\t");
+			System.out.print("x: " + x + "\t\t\t");
+			System.out.println("unjumbled.length()-2: " + (unjumbled.length()-2));
+			if ((hasRepeatedLetter) && (x == unjumbled.length()-2)) {
 				jumbled += repeatedLetter;
 				System.out.println(jumbled);
 				break;
