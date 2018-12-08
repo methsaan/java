@@ -15,6 +15,17 @@ public class wordjumble {
 		int indexlen = index.length;
 		int randIndex;
 		String charact;
+		String repeatedLetter = " ";
+		boolean hasRepeatedLetter = false;
+		for (int x = 0; x < unjumbled.length(); x++){
+			for (int y = 0; y < unjumbled.length(); y++){
+				if ((x != y) && (unjumbled.substring(x, x+1).equals(unjumbled.substring(y, y+1)))){
+					hasRepeatedLetter = true;
+					repeatedLetter = unjumbled.substring(y, y+1);
+					break;
+				}
+			}
+		}
 		for (int x = 0; x < unjumbled.length(); x++){
 			do {
 				randIndex = rand.nextInt(indexlen);
@@ -26,6 +37,13 @@ public class wordjumble {
 				}
 			} while (true);
 			jumbled += unjumbled.substring(randIndex, randIndex+1);
+			System.out.println(jumbled);
+			System.out.println(hasRepeated
+			if ((hasRepeatedLetter) && (x == unjumbled.length()-1)) {
+				jumbled += repeatedLetter;
+				System.out.println(jumbled);
+				break;
+			}
 			index[randIndex] = unjumbled.length()+100;
 		}
 		System.out.println(jumbled);
