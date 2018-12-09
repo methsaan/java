@@ -18,9 +18,9 @@ public class ArrayTestClass{
 		System.out.println("a is now: " + a);
 		System.out.println("b is now: " + b);
 		System.out.println("Length of a: " + a.size());
-		//a.removeIndex(8);
-		//a.remove(32);
-		//System.out.println("a is now: " + a);
+		a.removeIndex(8);
+		a.remove(32);
+		System.out.println("a is now: " + a);
 		a.sort();
 		System.out.println("a after sorted: " + a);
 	}
