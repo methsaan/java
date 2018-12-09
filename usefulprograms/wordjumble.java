@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.util.ArrayList;
 
 public class wordjumble {
 	public static void main(String[] args){
@@ -15,22 +16,23 @@ public class wordjumble {
 		int indexlen = index.length;
 		int randIndex;
 		String charact;
-		String repeatedLetter = " ";
 		boolean hasRepeatedLetter = false;
 		int numOfRepeatedLetters = 0;
 		for (int x = 0; x < unjumbled.length(); x++){
 			for (int y = 0; y < unjumbled.length(); y++){
 				if ((x != y) && (unjumbled.substring(x, x+1).equals(unjumbled.substring(y, y+1)))){
 					hasRepeatedLetter = true;
-					repeatedLetter = unjumbled.substring(y, y+1);
 					break;
 				}
 			}
 		}
+		ArrayList<String> repeatedLetters = new ArrayList<String>();
 		for (int x = 0; x < unjumbled.length(); x++){
-			for (int y = 0; y < unjumbled.length(); x++){
+			for (int y = 0; y < unjumbled.length(); y++){
 				if ((x != y) && (unjumbled.substring(x, x+1).equals(unjumbled.substring(y, y+1)))){
 					numOfRepeatedLetters++;
+					System.out.println("Repeated letter found");
+					repeatedLetters.add(unjumbled.substring(x, x+1));
 				}
 			}
 		}
@@ -41,7 +43,11 @@ public class wordjumble {
 				charact = unjumbled.substring(randIndex, randIndex+1);
 				if (!jumbled.contains(charact)) {
 					if (index[randIndex] != unjumbled.length()+100){
-						break;
+						if (repeatedLetters.contains(charact)){
+							break;
+						}else {
+							break;
+						}
 					}
 				}
 			} while (true);
@@ -49,9 +55,9 @@ public class wordjumble {
 			System.out.print("jumbled: " + jumbled + "\t\t\t");
 			System.out.print("hasRepeatedLetter: " + hasRepeatedLetter + "\t\t\t");
 			System.out.print("x: " + x + "\t\t\t");
-			System.out.println("unjumbled.length()-2: " + (unjumbled.length()-2));
-			if ((hasRepeatedLetter) && (x == unjumbled.length()-2)) {
-				jumbled += repeatedLetter;
+			System.out.println("unjumbled.length()-" + numOfRepeatedLetters + ": " + (unjumbled.length()-numOfRepeatedLetters));
+			if ((hasRepeatedLetter) && (x == unjumbled.length()+1)) {
+				jumbled += repeatedLetters.get(x);
 				System.out.println(jumbled);
 				break;
 			}
