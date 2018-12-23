@@ -31,34 +31,26 @@ public class wordjumble {
 			for (int y = 0; y < unjumbled.length(); y++){
 				if ((x != y) && (unjumbled.substring(x, x+1).equals(unjumbled.substring(y, y+1)))){
 					numOfRepeatedLetters++;
-					System.out.println("Repeated letter found");
 					repeatedLetters.add(unjumbled.substring(x, x+1));
 				}
 			}
 		}
-		System.out.println(numOfRepeatedLetters);
 		for (int x = 0; x < unjumbled.length(); x++){
 			do {
 				randIndex = rand.nextInt(indexlen);
 				charact = unjumbled.substring(randIndex, randIndex+1);
 				if (!jumbled.contains(charact)) {
-					if (index[randIndex] != unjumbled.length()+100){
-						if (repeatedLetters.contains(charact)){
-							break;
-						}else {
-							break;
-						}
-					}
+				}
+				if (index[randIndex] != unjumbled.length()+100){
+					break;
+				}
+				if (repeatedLetters.contains(randIndex)){
+					break;
 				}
 			} while (true);
 			jumbled += unjumbled.substring(randIndex, randIndex+1);
-			System.out.print("jumbled: " + jumbled + "\t\t\t");
-			System.out.print("hasRepeatedLetter: " + hasRepeatedLetter + "\t\t\t");
-			System.out.print("x: " + x + "\t\t\t");
-			System.out.println("unjumbled.length()-" + numOfRepeatedLetters + ": " + (unjumbled.length()-numOfRepeatedLetters));
 			if ((hasRepeatedLetter) && (x == unjumbled.length()+1)) {
 				jumbled += repeatedLetters.get(x);
-				System.out.println(jumbled);
 				break;
 			}
 			index[randIndex] = unjumbled.length()+100;
