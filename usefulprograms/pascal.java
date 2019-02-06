@@ -17,21 +17,12 @@ public class pascal {
 			}
 		}
 		for (int x = 0; x < 15; x++){
-			//for (int i = 0; i < 90-x*5; i++) {
-			//	System.out.print(" ");
-			//}
-			//for (int y = 0; y < x; y++){
-			//	System.out.print(Triangle[x][y]);
-			//	for (int i = 0; i < 8; i++) {
-			//		System.out.print(" ");
-			//	}
-			//}
 			for (int i = 0; i < 90-x*5; i++) {
-				System.out.print("");
+				System.out.print(" ");
 			}
 			for (int y = 0; y < x; y++){
 				System.out.print(Triangle[x][y]);
-				for (int i = 0; i < 2; i++) {
+				for (int i = 0; i < 8; i++) {
 					System.out.print(" ");
 				}
 			}
