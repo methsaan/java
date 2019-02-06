@@ -4,20 +4,16 @@ public class logarithm {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter the base: ");
-		double base = scan.nextDouble();
+		int base = scan.nextInt();
 		System.out.println("Enter the number: ");
 		double number = scan.nextDouble();
-		System.out.println("Log" + base + " " + number + " = " + log(base, number));
+		System.out.println("Log" + base + "    " + number + "   =   " + log(base, number));
 	}
-	public static double log(double base, double number) {
-		double power = 0.1;
-		double diff = base-number;
-		if (diff < 0) {
-			diff = -diff;
-		}
-		while (diff > 0.1) {
+	public static double log(int base, double number) {
+		double power = 1;
+		while (base != (int)number) {
 			number /= base;
-			power += 0.1;
+			power++;
 		}
 		return power;
 	}
