@@ -16,7 +16,7 @@ public class matrix {
 		int matrix2[][] = new int[width2][height2];
 		System.out.println("Enter the values for matrix 1:");
 		for (int x = 0; x < height1; x++) {
-			for (int y = 0; x < width1; y++) {
+			for (int y = 0; y < width1; y++) {
 				matrix1[x][y] = input.nextInt();
 			}
 		}
