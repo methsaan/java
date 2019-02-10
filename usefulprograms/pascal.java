@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class pascal {
-	public static void main(String[] argq){
+	public static void main(String[] args){
 		int Triangle[][] = new int[100][15];
 		Triangle[0][0] = 0;
 		Triangle[1][0] = 0;
