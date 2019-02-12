@@ -14,6 +14,16 @@ public class matrix {
 		int width2 = operator.equals("x") ? height1 : width1;
 		int height2 = operator.equals("x") ? width1 : height1;
 		int matrix2[][] = new int[height2][width2];
+		int width3 = 0;
+		int height3 = 0;
+		if ((operator.equals("-")) || (operator.equals("+"))) {
+			width3 = width2;
+			height3 = height2;
+		}else {
+			width3 = height1;
+			height3 = width2;
+		}
+		System.out.println(width3 + "   X   " + height3);
 		System.out.println("Enter values for matrix 1:");
 		for (int x = 0; x < matrix1.length; x++) {
 			for (int y = 0; y < matrix1[0].length; y++) {
@@ -34,6 +44,9 @@ public class matrix {
 			System.out.println();
 			System.out.println();
 		}
+		System.out.println();
+		System.out.println();
+		System.out.println(operator);
 		System.out.println();
 		System.out.println();
 		for (int x = 0; x < matrix2.length; x++) {
