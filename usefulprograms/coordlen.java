@@ -13,13 +13,13 @@ public class coordlen {
 		int pt1_squared;
 		int pt2_squared;
 		double dist_pt1_2_pt2;
-		System.out.print("Enter x coordinate of point pt1: ");
+		System.out.print("Enter x coordinate of point a: ");
 		pt1_x = scan.nextInt();
-		System.out.print("Enter y coordinate of point pt1: ");
+		System.out.print("Enter y coordinate of point a: ");
 		pt1_y = scan.nextInt();
-		System.out.print("Enter x coordinate of point pt2: ");
+		System.out.print("Enter x coordinate of point b: ");
 		pt2_x = scan.nextInt();
-		System.out.print("Enter y coordinate of point pt2: ");
+		System.out.print("Enter y coordinate of point b: ");
 		pt2_y = scan.nextInt();
 		dist_x = Math.abs(pt1_x-pt2_x);
 		dist_y = Math.abs(pt1_y-pt2_y);

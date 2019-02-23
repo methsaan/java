@@ -62,13 +62,13 @@ public class translator {
 				System.out.println(wordForm);
 			}
 		}else if (language.equalsIgnoreCase("sinhalese")){
-			String[] tens1 = {"thahaya", "vissa", "thiha", "hathaliya", "panaha", "hata", "hathaava", "asuva", "anuva", "seeya"};
-			String[] tens2 = {"", "vissi", "thiss", "hathalis", "panas", "hatta", "haththa", "asoo", "anoo"};
-			String[] ones = {"eca", "deca", "thuna", "hathara", "paha", "haya", "hatha", "atta", "namaya", "dahaya", "ecolaha", "dolaha", "dahathuna", "daahathara", "pahalava", "dahaseya", "daahatha", "daha-atta", "dahanamaya"};
+			String[] tens1 = {"dahaya", "vissa", "thiha", "hathaliya", "panaha", "haththa", "haththaava", "asuwva", "anuwva", "seeyeh"};
+			String[] tens2 = {"", "vissi", "thiss", "hathaliss", "panas", "hatta", "haththa", "asoow", "anoow"};
+			String[] ones = {"ekka", "dekka", "thuna", "hathara", "paha", "haya", "hatha", "atta", "nameya", "dahayeh", "ecolaha", "dolaha", "dahathuna", "daahathara", "pahaleva", "dahaseya", "daahatha", "daha-atta", "dahanameya"};
 			int modulus = num%10;
 			int tensIndex = ((num-modulus)/10)-2;
 			if (num == 100){
-				System.out.println("seeya");
+				System.out.println("seeyeh");
 			}else if (num == 0) {
 				System.out.println("binduva");
 			}else if (modulus == 0){

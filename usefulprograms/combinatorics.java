@@ -4,11 +4,11 @@ import java.util.Scanner;
 public class combinatorics {
 	public static void main(String[] args){
 		Scanner input = new Scanner(System.in);
-		int Triangle[][] = new int[100][15];
+		long Triangle[][] = new long[100][100];
 		Triangle[0][0] = 0;
 		Triangle[1][0] = 0;
 		Triangle[1][1] = 0;
-		for (int x = 1; x < 15; x++) {
+		for (int x = 1; x < 100; x++) {
 			for (int y = 0; y < x; y++) {
 				if ((y == 0) || (y == x-1)){
 					Triangle[x][y] = 1;
@@ -18,10 +18,10 @@ public class combinatorics {
 			}
 		}
 		System.out.println("Enter the size of the group: ");
-		int sizeOfGroup = input.nextInt();
+		long sizeOfGroup = input.nextLong();
 		System.out.println("Enter the size of the arrangements: ");
-		int sizeOfArrangements = input.nextInt();
-		int numOfArrangements = Triangle[sizeOfGroup+1][sizeOfArrangements];
+		long sizeOfArrangements = input.nextLong();
+		long numOfArrangements = Triangle[(int)sizeOfGroup+1][(int)sizeOfArrangements];
 		System.out.println("Number of arrangements: " + numOfArrangements);
 	}
 }
