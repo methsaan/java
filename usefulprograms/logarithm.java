@@ -7,7 +7,7 @@ public class logarithm {
 		double base = scan.nextDouble();
 		System.out.println("Enter the number: ");
 		double number = scan.nextDouble();
-		System.out.println("Log" + base + "    " + number + "   =   " + log(base, number));
+		System.out.printf("Log%g   %g   =   %g\n", base, number, log(base, number));
 	}
 	public static double log(double base, double number) {
 		double power = 1;
