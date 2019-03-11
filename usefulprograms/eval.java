@@ -6,9 +6,10 @@ public class eval {
 	public static void main(String []args) throws Exception {
 		Scanner input = new Scanner(System.in);	
 		int lines = 10000;
-		String code;
-		while (true) {
-			System.out.print("Enter a value: ");
+		String code = "";
+		String exit = "Object val = q;";
+		while (!(code.equals(exit))) {
+			System.out.print("Enter a value (\"q\" to quit): ");
 			code = "Object val = " + input.nextLine() + ";";
 			BufferedWriter out = new BufferedWriter(new FileWriter("evalfile.java"));
 			ProcessBuilder shell = new ProcessBuilder();
@@ -22,11 +23,9 @@ public class eval {
 				out.write("\t\tSystem.out.println(val.toString());\n");
 				out.write("\t}\n");
 				out.write("}\n");
-			}
-			catch (IOException e) {
+			}catch (IOException e) {
     				System.out.println("Exception " + e);
-			}
-			finally {
+			}finally {
 				out.close();
 				System.out.print(executeCommand("javac evalfile.java"));
 				System.out.print(executeCommand("java evalfile"));
