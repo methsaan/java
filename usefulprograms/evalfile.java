@@ -3,9 +3,9 @@ import java.lang.*;
 import java.util.*;
 
 public class evalfile {;
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		try {
-			Object[] val = {13+2431};
+			Object[] val = {q()};
 			for (int x = 0; x < val.length; x++) {
 				System.out.println(val[x].toString());
 			}
@@ -13,16 +13,19 @@ public class evalfile {;
 			System.out.println(e.getMessage());
 		}
 	}
-	public static String eval_q() {
-		return "Error: running outside of eval.java";
+	public static String q() {
+		return "Error: running outside of eval";
 	}
-	public static String eval_clear() {
-		return "[H[2J";
+	public static void clear() {
+		System.out.print("\033[H\033[2J");
 	}
-	public static String eval_run(String x) throws IOException {
-		ProcessBuilder pb = new ProcessBuilder(x);
+	public static void run(String x) throws IOException {
+		BufferedWriter out = new BufferedWriter(new FileWriter("runscript"));
+		ProcessBuilder shell = new ProcessBuilder();
+		out.write(x);
+		out.close();
+		ProcessBuilder pb = new ProcessBuilder("./runscript");
 		pb.inheritIO();
 		pb.directory(new File("/home/test/programming/java/usefulprograms/"));		pb.start();
-		return "eval_run()";
 	}
 }
