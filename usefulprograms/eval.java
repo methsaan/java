@@ -102,6 +102,9 @@ public class eval {
 		pbquit.inheritIO();
 		pbquit.directory(new File("/home/test/programming/java/usefulprograms/"));
 		pbquit.start();
+		for (long x = 0; x < 360000000; x++) {
+			;
+		}
 	}
 	public static int numOfPipes(String str) {
 		int cnt = 0;
