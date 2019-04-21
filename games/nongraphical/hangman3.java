@@ -13,65 +13,67 @@ public class hangman3 {
 				;
 			}
 		}
-		System.out.println();
-		Scanner scan = new Scanner(System.in);
-		System.out.print("Enter a word: ");
-		String word = scan.nextLine();
-		char[] wordArr = new char[word.length()];
-		for (int x = 0; x < word.length(); x++){
-			wordArr[x] = word.charAt(x);
-		}
-		char[] progress = new char[word.length()];
-		for (int x = 0; x < word.length();x++){
-			progress[x] = '~';
-		}
-		char[] strikes = new char[word.length()+2];
-		strikes[0] = '{';
-		for (int x = 1; x < word.length(); x++){
-			strikes[x] = '.';
-		}
-		strikes[strikes.length-1] = '}';
-		int pntmax = word.length();
-		int strikemax = strikes.length-2;
-		int points = 0;
-		int strike = 0;
-		boolean won = true;
-		System.out.print("\033[H\033[2J");
-		for (;;){
-			System.out.print("Enter a character: ");
-			char a = scan.next().charAt(0);
-			if (isIn(word, a)){
-				points++;
-				for (int x = 0; x < word.length(); x++){
-					if (Character.toLowerCase(wordArr[x]) == Character.toLowerCase(a)){
-						if (Character.isUpperCase(wordArr[x])){
-							progress[x] = Character.toUpperCase(a);
-						}else {
-							progress[x] = Character.toLowerCase(a);
+		while (true) {
+			System.out.println();
+			Scanner scan = new Scanner(System.in);
+			System.out.print("Enter a word: ");
+			String word = scan.nextLine();
+			char[] wordArr = new char[word.length()];
+			for (int x = 0; x < word.length(); x++){
+				wordArr[x] = word.charAt(x);
+			}
+			char[] progress = new char[word.length()];
+			for (int x = 0; x < word.length();x++){
+				progress[x] = '~';
+			}
+			char[] strikes = new char[word.length()+2];
+			strikes[0] = '{';
+			for (int x = 1; x < word.length(); x++){
+				strikes[x] = '.';
+			}
+			strikes[strikes.length-1] = '}';
+			int pntmax = word.length();
+			int strikemax = strikes.length-2;
+			int points = 0;
+			int strike = 0;
+			boolean won = true;
+			System.out.print("\033[H\033[2J");
+			for (;;){
+				System.out.print("Enter a character: ");
+				char a = scan.next().charAt(0);
+				if (isIn(word, a)){
+					points++;
+					for (int x = 0; x < word.length(); x++){
+						if (Character.toLowerCase(wordArr[x]) == Character.toLowerCase(a)){
+							if (Character.isUpperCase(wordArr[x])){
+								progress[x] = Character.toUpperCase(a);
+							}else {
+								progress[x] = Character.toLowerCase(a);
+							}
 						}
 					}
+					if (!(isInCharArr(progress, '~'))){
+						won = true;
+						break;
+					}
+				}else {
+					strikes[++strike] = '#';
+					if (strike == strikemax-1){
+						won = false;
+						break;
+					}
 				}
-				if (!(isInCharArr(progress, '~'))){
-					won = true;
-					break;
-				}
-			}else {
-				strikes[++strike] = '#';
-				if (strike == strikemax-1){
-					won = false;
-					break;
-				}
+				printArr("Progress: ", progress, " ", "\n");
+				printArr("Strikes: ", strikes, "", "\n");
 			}
-			printArr("Progress: ", progress, " ", "\n");
-			printArr("Strikes: ", strikes, "", "\n");
+			if (won){
+				System.out.println("You win");
+			}else {
+				System.out.println("You lose");
+			}
+			System.out.println("Word: " + word);
 		}
-		if (won){
-			System.out.println("You win");
-		}else {
-			System.out.println("You lose");
-		}
-		System.out.println("Word: " + word);
-	}
+	}	
 	public static void printArr(String start, char[] x, String separator, String end){
 		System.out.print(start);
 		for (int a = 0; a < x.length; a++){
