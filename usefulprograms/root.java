@@ -11,7 +11,7 @@ public class root {
 		System.out.println((int)root + "        /     " + number + "        = " + root(number, root));
 		System.out.println("       \\/");
 	}
-	public static double root(double num, double root) {
-		return Math.pow(num, 1/root);
+	public static double root(double base, double root) {
+		return Math.pow(base, 1/root);
 	}
 }
