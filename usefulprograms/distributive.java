@@ -18,8 +18,8 @@ public class distributive {
 		for (int x = 0; x < distPolynomial.length; x++) {
 			distPolynomial[x].setCoefficient(polynomial[x].coefficient()*factor);
 		}
-		for (int x = 0; x < polynomial.length; x++) {
-			System.out.print(polynomial[x].variable() + " ");
+		for (int x = 0; x < distPolynomial.length; x++) {
+			System.out.print(distPolynomial[x].polarity() + Math.abs(distPolynomial[x].coefficient()) + distPolynomial[x].variable());
 		}
 		System.out.println();
 	}
