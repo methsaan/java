@@ -15,8 +15,12 @@ public class distributive {
 			System.out.print("Enter variable part: ");
 			polynomial[x].setVariable(input.nextLine());
 		}
+		for (int x = 0; x < polynomial.length; x++) {
+			System.out.print(polynomial[x].polarity() + Math.abs(distPolynomial[x].coefficient()) + distPolynomial[x].variable());
+		}
 		for (int x = 0; x < distPolynomial.length; x++) {
-			distPolynomial[x].setCoefficient(polynomial[x].coefficient()*factor);
+			distPolynomial[x].setCoefficient(polynomial[x].coefficient);
+			distPolynomial[x].setVariable(polynomial[x].variable);
 		}
 		for (int x = 0; x < distPolynomial.length; x++) {
 			System.out.print(distPolynomial[x].polarity() + Math.abs(distPolynomial[x].coefficient()) + distPolynomial[x].variable());
