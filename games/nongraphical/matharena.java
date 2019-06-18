@@ -11,21 +11,24 @@ public class matharena {
 		int score = 0;
 		int score2 = 0;
 		for (int cnt = 0; cnt < 6; cnt++){
-       			int x = rand.randrange(1, 99);
-		       	int y = rand.randrange(1, 99);
-	       		double user1 = Float(input("What is " + Float(str(x)) + " x " + Float(str(y)) + ":" + "(" + name + ") "));
-	       		if (user1 == x*y){
+       			int x = rand.randrange(1, 100000);
+		       	int y = rand.randrange(1, 10000);
+			String op = rand.randChoice("\u00d7", "+", "-", "\u00f7");
+	       		double user1 = Float(input("What is " + Float(str(x)) + " " + op + " " + Float(str(y)) + ": " + "(" + name + ") "));
+	       		if (Math.round(user1*1000)/1000.0 == (op.equals("\u00d7") ? Math.round(x*y) : (op.equals("+") ? Math.round(x+y) : (op.equals("-") ? Math.round(x-y) : (Math.round(x/y*1000)/1000.0))))) {
 	       			score += 1;
+				System.out.println("Correct");
 	       		}else {
 				if (score > 0){
 					score -= 1;
 				}
 	       		}
-	       		int x2 = rand.randrange(1, 99);
-			int y2 = rand.randrange(1, 99);
-	       	      	double user2 = Float(input("What is " + Float(str(x2)) + " x " + Float(str(y2)) + ":" + "(" + name2 + ") "));
-	       	      	if (user2 == x2*y2){
+	       		int x2 = rand.randrange(1, 100000);
+			int y2 = rand.randrange(1, 10000);
+	       	      	double user2 = Float(input("What is " + Float(str(x2)) + " " + rand.randChoice("\u00d7", "+", "-", "\u00f7") + " " + Float(str(y2)) + ":" + "(" + name2 + ") "));
+	       	      	if (Math.round(user2*1000)/1000.0 == (op.equals("\u00d7") ? Math.round(x2*y2) : (op.equals("+") ? Math.round(x2+y2) : (op.equals("-") ? Math.round(x2-y2) : (Math.round(x2/y2*1000)/1000.0))))) {
 	       	      		score2 += 1;
+				System.out.println("Correct");
 	       	      	}else {
 	         		if (score > 0){
 					score -= 1;
