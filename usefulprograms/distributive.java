@@ -4,30 +4,30 @@ public class distributive {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		System.out.print("Enter number of terms: ");
-		term[] polynomial = new term[input.nextInt()];
-		term[] distPolynomial = new term[polynomial.length];
+		int numOfTerms = input.nextInt();
 		System.out.print("Enter factor to distribute: ");
 		int factor = input.nextInt();
-		for (int x = 0; x < polynomial.length; x++) {
-			System.out.print("Enter coefficient: ");
-			polynomial[x].setCoefficient(input.nextInt());
-			polynomial[x].setPolarity(polynomial[x].coefficient() < 0 ? "-" : "+");
+		Object[][] group = new Object[numOfTerms][3];
+		Object[][] group2 = new Object[numOfTerms][3];
+		for (int i = 0; i < numOfTerms; i++) {
+			System.out.print("Coefficient: ");
+			int c = input.nextInt();
 			input.nextLine();
-			System.out.print("Enter variable part: ");
-			polynomial[x].setVariable(input.nextLine());
-			System.out.println(polynomial[x].polarity() + Math.abs(polynomial[x].coefficient()) + polynomial[x].variable());
+			System.out.print("Variable part: ");
+			String v = input.nextLine();
+			group[i][0] = c > 0 ? "+" : "-";
+			group[i][1] = c;
+			group[i][2] = v;
 		}
-		for (int i = 1; i < 2; i++) {
-			System.out.println(polynomial[i].polarity() + Math.abs(polynomial[i].coefficient()) + polynomial[i].variable());
+		for (int i = 0; i < numOfTerms; i++) {
+			group2[i][1] = (int)group[i][1] * factor;
+			group2[i][0] = (int)group2[i][1] > 0 ? "+" : "-";
+			group2[i][1] = Math.abs((int)group2[i][1]);
+			group2[i][2] = group[i][2];
 		}
 		System.out.println();
-		for (int x = 0; x < distPolynomial.length; x++) {
-			distPolynomial[x].setPolarity(polynomial[x].coefficient()*factor < 0 ? "-" : "+");
-			distPolynomial[x].setCoefficient(polynomial[x].coefficient()*factor);
-			distPolynomial[x].setVariable(polynomial[x].variable());
-		}
-		for (int x = 0; x < distPolynomial.length; x++) {
-			System.out.print(distPolynomial[x].polarity() + Math.abs(distPolynomial[x].coefficient()) + distPolynomial[x].variable() + " ");
+		for (int x = 0; x < numOfTerms; x++) {
+			System.out.print(group2[x][0].toString() + group2[x][1].toString() + group2[x][2].toString() + " ");
 		}
 		System.out.println();
 	}
