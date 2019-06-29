@@ -2,6 +2,11 @@ public class term {
 	private static int coefficient;
 	private static String variable;
 	private static String polarity;
+	public term(int c, String v) {
+		coefficient = c;
+		polarity = coefficient < 0 ? "-" : "+";
+		variable = v;
+	}
 	public static int coefficient() {
 		return coefficient;
 	}
