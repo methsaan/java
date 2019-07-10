@@ -4,7 +4,7 @@ import java.util.Arrays;
 public class chord {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		String[] notes = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
+		String[] notes = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C'", "C#'", "D'", "D#'", "E'", "F'", "F#'", "G'", "G#'", "A'", "A#'", "B'"};
 		int[] major = {0, 2, 4, 5, 7, 9, 11, 12};
 		int[] minorHarmonic = {0, 2, 3, 5, 7, 8, 11, 12};
 		int[] minorMelodic = {0, 2, 3, 5, 7, 9, 11, 12};
@@ -20,59 +20,50 @@ public class chord {
 		int[] augChord = {0, 4, 8};
 		System.out.print("Enter scale or chord: ");
 		String scaleChord = input.nextLine();
-		String note = scaleChord.split(" ")[0];
-		String type = scaleChord.split(" ")[1];
+		String note = scaleChord.split("-")[0];
+		String type = scaleChord.split("-")[1];
+		System.out.println(type);
 		int[] chosenScale = new int[13];
-		switch (type) {
-			case "Major Scale":
-				chosenScale = major.clone();
-				break;
-			case "Harmonic Minor Scale":
-				chosenScale = minorHarmonic.clone();
-				break;
-			case "Melodic Minor Scale":
-				chosenScale = minorMelodic.clone();
-				break;
-			case "Natural Minor Scale":
-				chosenScale = minorNatural.clone();
-				break;
-			case "Major Pentatonic Scale":
-				chosenScale = majorPentatonic.clone();
-				break;
-			case "Minor Pentatonic Scale":
-				chosenScale = minorPentatonic.clone();
-				break;
-			case "Octatonic Scale":
-				chosenScale = octatonic.clone();
-				break;
-			case "Chromatic Scale":
-				chosenScale = chromatic.clone();
-				break;
-			case "Blues Scale":
-				chosenScale = blues.clone();
-				break;
-			case "Major Chord":
-				chosenScale = majorChord.clone();
-				break;
-			case "Minor Chord":
-				chosenScale = minorChord.clone();
-				break;
-			case "Diminished Chord":
-				chosenScale = dimChord.clone();
-				break;
-			case "Augmented Chord":
-				chosenScale = augChord.clone();
-				break;
-			default:
-				chosenScale = major.clone();
+		if (type.equals("Major Scale")) {
+			chosenScale = major.clone();
+		}else if (type.equals("Harmonic Minor Scale")) {
+			chosenScale = minorHarmonic.clone();
+		}else if (type.equals("Melodic Minor Scale")) {
+			chosenScale = minorMelodic.clone();
+		}else if (type.equals("Natural Minor Scale")) {
+			chosenScale = minorNatural.clone();
+		}else if (type.equals("Major Pentatonic Scale")) {
+			chosenScale = majorPentatonic.clone();
+		}else if (type.equals("Minor Pentatonic Scale")) {
+			chosenScale = minorPentatonic.clone();
+		}else if (type.equals("Octatonic Scale")) {
+			chosenScale = octatonic.clone();
+		}else if (type.equals("Chromatic Scale")) {
+			chosenScale = chromatic.clone();
+		}else if (type.equals("Blues Scale")) {
+			chosenScale = blues.clone();
+		}else if (type.equals("Major Chord")) {
+			chosenScale = majorChord.clone();
+		}else if (type.equals("Minor Chord")) {
+			chosenScale = minorChord.clone();
+		}else if (type.equals("Diminished Chord")) {
+			chosenScale = dimChord.clone();
+		}else if (type.equals("Augmented Chord")) {
+			chosenScale = augChord.clone();
+		}else {
+			chosenScale = major.clone();
 		}
 		for (int x = 0; x < chosenScale.length; x++) {
-			System.out.print(notes[findIndex(notes, note)+chosenScale[x]] + " ");
+			System.out.print(notes[chosenScale[x]+findIndex(notes, note)] + " ");
 		}
 		System.out.println();
 	}
 	public static int findIndex(String arr[], String t) {
-		int index = Arrays.binarySearch(arr, t); 
-		return (index < 0) ? -1 : index; 
-	} 
+		for (int x = 0; x < arr.length; x++) {
+			if (arr[x].equals(t)) {
+				return x;
+			}
+		}
+		return 0;
+	}
 }
