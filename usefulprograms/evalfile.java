@@ -5,7 +5,7 @@ import java.util.*;
 public class evalfile {;
 	public static void main(String[] args) throws IOException {
 		try {
-			Object[] val = {q()};
+			Object[] val = {};
 			for (int x = 0; x < val.length; x++) {
 				System.out.println(val[x].toString());
 			}
