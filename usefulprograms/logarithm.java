@@ -22,10 +22,10 @@ public class logarithm {
 	}
 	public static int numOfDigits(double num) {
 		int decIndex = Double.toString(num).indexOf(".");
-		return Double.toString(num).substring(decIndex, Double.toString(num).length());
+		return Double.toString(num).substring(decIndex, Double.toString(num).length()).length();
 	}
 	public static String strmult(String str, int numOfTimes) {
-		String multstr;
+		String multstr = "";
 		for (int x = 0; x < numOfTimes; x++) {
 			multstr += str;
 		}
