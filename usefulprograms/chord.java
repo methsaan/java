@@ -56,9 +56,6 @@ public class chord {
 		String[] flatMinKeys = {"D", "G", "C", "F", "Bb", "Eb"};
 		boolean majCondition = scaleChord.contains("Major") && isIn(note, flatMajKeys);
 		boolean minCondition = scaleChord.contains("Minor") && isIn(note, flatMinKeys);
-		System.out.println(note);
-		System.out.println("Major flat key: " + majCondition);
-		System.out.println("Minor flat key: " + minCondition);
 		String a = (majCondition || minCondition) ? "Db" : "C#";
 		String b = (majCondition || minCondition) ? "Eb" : "D#";
 		String c = (majCondition || minCondition) ? "Gb" : "F#";
