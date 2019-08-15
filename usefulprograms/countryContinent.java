@@ -13,15 +13,9 @@ public class countryContinent {
 		String[] oceania = {"Australia", "Fiji", "Kiribati", "Marshall Islands", "Micronesia", "Nauru", "New Zealand", "Palau", "Papua New Guinea", "Samoa", "Solomon Islands", "Tonga", "Tuvalu", "Vanuatu"};
 		String[] southAmerica = {"Argentina", "Bolivia", "Brazil", "Chile", "Colombia", "Ecuador", "Guyana", "Paraguay", "Peru", "Suriname", "Uruguay", "Venezuela"};
 		String[][] earth = {africa, asia, europe, northAmerica, oceania, southAmerica};
-<<<<<<< HEAD
 		int numOfQuestions = Integer.parseInt(args[0]);
 		int score = 0;
-=======
-		System.out.print("Enter number of questions: ");
-		int numOfQuestions = input.nextInt();
-		int score = 0;
 		input.nextLine();
->>>>>>> c74dc4f9db273921415a3dcd98cb7bb9ec8d6d3d
 		for (int x = 0; x < numOfQuestions; x++) {
 			int contIndex = rand.nextInt(6);
 			int countryIndex = rand.nextInt(earth[contIndex].length);
@@ -38,13 +32,10 @@ public class countryContinent {
 				;
 			}
 		}
-<<<<<<< HEAD
 		if (args.length == 1) {
 			System.out.println((double)score/numOfQuestions*100 + "%");
 		}
-=======
 		System.out.println((double)score/numOfQuestions*100 + "%");
->>>>>>> c74dc4f9db273921415a3dcd98cb7bb9ec8d6d3d
 	}
 	public static int continentIndex(String continent) {
 		int returnVal = 0;
