@@ -5,10 +5,7 @@ import java.util.*;
 public class evalfile {;
 	public static void main(String[] args) throws IOException {
 		try {
-			Object[] val = {};
-			for (int x = 0; x < val.length; x++) {
-				System.out.println(val[x].toString());
-			}
+			run("echo aosdfiansoidfna");
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
