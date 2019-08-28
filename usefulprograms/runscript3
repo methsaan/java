@@ -1,0 +1,2 @@
+javac capitals.java
+java capitals 10 Full
