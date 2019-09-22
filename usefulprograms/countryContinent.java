@@ -3,7 +3,7 @@ import java.util.Random;
 import java.util.Arrays;
 
 public class countryContinent {
-	public static void main(String[] args) {
+	public static double quiz(int numOfQuest) {
 		Scanner input = new Scanner(System.in);
 		Random rand = new Random();
 		String[] africa = {"Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Cabo verde", "Cameroon", "Central African Republic", "Chad", "Comoros", "Democratic Republic of the Congo", "Congo", "Cote d'Ivoire", "Djibouti", "Egypt", "Equatorial Guinea", "Eritrea", "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali", "Mauritania", "Mauritius", "Morocco", "Mozambique", "Namibia", "Niger", "Nigeria", "Rwanda", "Sao Tome and Principe", "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa", "South Sudan", "Sudan", "Tanzania", "Togo", "Tunisia", "Uganda", "Zambia", "Zimbabwe"};
@@ -13,9 +13,8 @@ public class countryContinent {
 		String[] oceania = {"Australia", "Fiji", "Kiribati", "Marshall Islands", "Micronesia", "Nauru", "New Zealand", "Palau", "Papua New Guinea", "Samoa", "Solomon Islands", "Tonga", "Tuvalu", "Vanuatu"};
 		String[] southAmerica = {"Argentina", "Bolivia", "Brazil", "Chile", "Colombia", "Ecuador", "Guyana", "Paraguay", "Peru", "Suriname", "Uruguay", "Venezuela"};
 		String[][] earth = {africa, asia, europe, northAmerica, oceania, southAmerica};
-		int numOfQuestions = Integer.parseInt(args[0]);
+		int numOfQuestions = numOfQuest;
 		int score = 0;
-		input.nextLine();
 		for (int x = 0; x < numOfQuestions; x++) {
 			int contIndex = rand.nextInt(6);
 			int countryIndex = rand.nextInt(earth[contIndex].length);
@@ -32,10 +31,7 @@ public class countryContinent {
 				;
 			}
 		}
-		if (args.length == 1) {
-			System.out.println((double)score/numOfQuestions*100 + "%");
-		}
-		System.out.println((double)score/numOfQuestions*100 + "%");
+		return (double)score/numOfQuestions*100;
 	}
 	public static int continentIndex(String continent) {
 		int returnVal = 0;

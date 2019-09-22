@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class capitals {
-	public static void main(String[] args) {
+	public static double quiz(int numOfQuest) {
 		Map countryCapitals = new Hashtable();
 		Random rand = new Random();
 		Scanner input = new Scanner(System.in);
@@ -190,7 +190,7 @@ public class capitals {
 		// countryCapitals.get("Wales") = Cardiff
 		// getKeyFromValue(countryCapitals, "Port Vila") = Vanautu
 		int score = 0;
-		for (int x = 0; x < Integer.parseInt(args[0]); x++) {
+		for (int x = 0; x < numOfQuest; x++) {
 			String country = String.valueOf(countryCapitals.keySet().toArray()[rand.nextInt(countryCapitals.keySet().toArray().length)]);
 			System.out.print("\033[H\033[2J");
 			System.out.print((x+1) + ". What is the capital city of " + country + ": ");
@@ -201,13 +201,11 @@ public class capitals {
 			}else {
 				System.out.println("Answer: " + countryCapitals.get(country));
 			}
-			for (long y = 0; y < 200000000; y++) {
+			for (long i = 0; i < 150000000; i++) {
 				;
 			}
 		}
-		if (args.length == 1) {
-			System.out.println((score/Double.parseDouble(args[0])*100) + "%");
-		}
+		return score/(double)numOfQuest*100;
 	}
 	public static Object getKeyFromValue(Map hm, Object value) {
 		for (Object o : hm.keySet()) {
