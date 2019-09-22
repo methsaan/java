@@ -6,19 +6,16 @@ public class primeFactors {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter a composite number: ");
 		int number = input.nextInt();
-		ArrayList<Integer> factors = factors(number);
 		ArrayList<Integer> primeFactors = new ArrayList<Integer>();
-		ArrayList<Integer> tempFactors = factors(number);
-		for (int x = 0; x < factors.size(); x++) {
-			tempFactors = factors(factors.get(x));
-			for (int y = 0; y < tempFactors.size(); y++) {
-				if (isPrime(tempFactors.get(y))) {
-					primeFactors.add(tempFactors.get(y));
-				}else {
-				}
-			}
+		ArrayList<Integer> tempFactors = new ArrayList<Integer>();
+		ArrayList<Integer> factors = factors(number);
+		System.out.println(factors);
+		for (int x = 0; x < 1; x++) {
+			tempFactors.add(factors.get(0));
+			tempFactors.add(factors.get(factors.size()-1));
+			System.out.println(tempFactors.get(0));
+			System.out.println(tempFactors.get(1));
 		}
-		printList(primeFactors);
 	}
 	public static ArrayList<Integer> factors(int num) {
 		ArrayList<Integer> f = new ArrayList<Integer>();
