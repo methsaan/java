@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class matrix {
 	public static void main(String []args) {
+		System.out.print("\033[H\033[2J");
 		Scanner input = new Scanner(System.in);
 		System.out.print("Enter width of matrix 1: ");
 		int width1 = input.nextInt();
@@ -37,25 +38,6 @@ public class matrix {
 			}
 		}
 		System.out.println();
-		for (int x = 0; x < matrix1.length; x++) {
-			for (int y = 0; y < matrix1[0].length; y++) {
-				System.out.print(matrix1[x][y] + " \t ");
-			}
-			System.out.println();
-			System.out.println();
-		}
-		System.out.println();
-		System.out.println();
-		System.out.println(operator);
-		System.out.println();
-		System.out.println();
-		for (int x = 0; x < matrix2.length; x++) {
-			for (int y = 0; y < matrix2[0].length; y++) {
-				System.out.print(matrix2[x][y] + " \t ");
-			}
-			System.out.println();
-			System.out.println();
-		}
 		if (operator.equals("+") || operator.equals("-")) {
 			for (int x = 0; x < answer.length; x++) {
 				for (int y = 0; y < answer[0].length; y++) {
@@ -81,14 +63,53 @@ public class matrix {
 				}
 			}
 		}
-		System.out.print("\n\n=\n\n");
-		for (int x = 0; x < answer.length; x++) {
-			for (int y = 0; y < answer[0].length; y++) {
-				System.out.print(answer[x][y] + " \t ");
+		// 18
+		// \033[4;5Hc
+		if (operator.equals("+") || operator.equals("-")) {
+			int space = 6+matrix1.length*matrix1[0].length+matrix2.length*matrix2[0].length+1;
+			int i = 0;
+			int j = 0;
+			for (i = 0; i < matrix1[0].length; i++) {
+				for (j = 0; j < matrix1.length; j++) {
+					System.out.print("\033[" + Integer.toString(space + j*2) + ";" + Integer.toString((4*matrix1[0].length+matrix1[0].length) + i*5-10) + "H" + matrix1[j][i]);
+				}
 			}
+			System.out.print("\033[" + Integer.toString(space + (0+j*2)/2-1) + ";" + Integer.toString((((4*matrix1[0].length+matrix1[0].length) + (i-1)*5-10) + ((4*matrix1[0].length+matrix1[0].length)+10+(4*matrix2[0].length+matrix2[0].length)-10))/2) + "H" + operator);
+			int k = i;
+			int l = j;
+			for (int x = 0; x < matrix2[0].length; x++) {
+				for (int y = 0; y < matrix2.length; y++) {
+					System.out.print("\033[" + Integer.toString(space + y*2) + ";" + Integer.toString((4*matrix1[0].length+matrix1[0].length)+10+(4*matrix2[0].length+matrix2[0].length) + x*5-10) + "H" + matrix2[y][x]);
+					k++;
+				}
+				l++;
+			}
+			int x = 0;
+			int y = 0;
+			for (x = 0; x < answer.length; x++) {
+				for (y = 0; y < answer[0].length; y++) {
+					System.out.print("\033[" + Integer.toString(space + x*2) + ";" + Integer.toString((4*matrix1[0].length+matrix1[0].length)+10+(4*matrix2[0].length+matrix2[0].length)+10+(4*answer[0].length+answer[0].length)+ y*5-10) + "H" + answer[x][y]);
+				}
+			}
+			System.out.print("\033[" + Integer.toString(space + (0+j*2)/2-1) + ";" + Integer.toString((((4*matrix1[0].length+matrix1[0].length)+10+(4*matrix2[0].length+matrix2[0].length) + (matrix2[0].length-1)*5-10)+((4*matrix1[0].length+matrix1[0].length)+10+(4*matrix2[0].length+matrix2[0].length)+10+(4*answer[0].length+answer[0].length)-10))/2) + "H=");
 			System.out.println();
-			System.out.println();
+		}else {
+			int space = 6+matrix1.length*matrix1[0].length+matrix2.length*matrix2[0].length+1;
+			for (int x = 0; x < matrix2[0].length; x++) {
+                        	for (int y = 0; y < matrix2.length; y++) {
+                        		System.out.print("\033[" + Integer.toString(space + y*2) + ";" + Integer.toString(((4*matrix1[0].length+matrix1[0].length)+10+(4*matrix2[0].length+matrix2[0].length) + x*5-10) + ((4*matrix1[0].length+matrix1[0].length) + (matrix1[0].length-1)*5-10)) + "H" + matrix2[y][x]);
+                        	}
+                        }
+			int i = 0;
+			int j = 0;
+			for (i = 0; i < matrix1[0].length; i++) {
+				for (j = 0; j < matrix1.length; j++) {
+					System.out.print("\033[" + Integer.toString((space + (matrix2[0].length-1)*2) + j*2 + 6) + ";" + Integer.toString((4*matrix1[0].length+matrix1[0].length) + i*5-10) + "H" + matrix1[j][i]);
+				}
+			}
+
 		}
+		System.out.println();
 	}
 }
 //						(0, 0)		(0, 1)
