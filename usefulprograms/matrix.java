@@ -92,24 +92,41 @@ public class matrix {
 				}
 			}
 			System.out.print("\033[" + Integer.toString(space + (0+j*2)/2-1) + ";" + Integer.toString((((4*matrix1[0].length+matrix1[0].length)+10+(4*matrix2[0].length+matrix2[0].length) + (matrix2[0].length-1)*5-10)+((4*matrix1[0].length+matrix1[0].length)+10+(4*matrix2[0].length+matrix2[0].length)+10+(4*answer[0].length+answer[0].length)-10))/2) + "H=");
-			System.out.println();
-		}else {
-			int space = 6+matrix1.length*matrix1[0].length+matrix2.length*matrix2[0].length+1;
-			for (int x = 0; x < matrix2[0].length; x++) {
-                        	for (int y = 0; y < matrix2.length; y++) {
-                        		System.out.print("\033[" + Integer.toString(space + y*2) + ";" + Integer.toString(((4*matrix1[0].length+matrix1[0].length)+10+(4*matrix2[0].length+matrix2[0].length) + x*5-10) + ((4*matrix1[0].length+matrix1[0].length) + (matrix1[0].length-1)*5-10)) + "H" + matrix2[y][x]);
-                        	}
-                        }
-			int i = 0;
-			int j = 0;
-			for (i = 0; i < matrix1[0].length; i++) {
-				for (j = 0; j < matrix1.length; j++) {
-					System.out.print("\033[" + Integer.toString((space + (matrix2[0].length-1)*2) + j*2 + 6) + ";" + Integer.toString((4*matrix1[0].length+matrix1[0].length) + i*5-10) + "H" + matrix1[j][i]);
-				}
+			for (int a = 0; a < matrix1.length; a++) {
+				System.out.println();
 			}
-
+		}else {
+			for (int x = 0; x < matrix1.length; x++) {
+				for (int y = 0; y < matrix1[0].length; y++) {
+					System.out.print(matrix1[x][y] + strmult(" ", 5-Integer.toString(matrix1[x][y]).length()));
+				}
+				System.out.println();
+				System.out.println();
+			}
+			System.out.println("\n\nx\n\n");
+			for (int x = 0; x < matrix2.length; x++) {
+				for (int y = 0; y < matrix2[0].length; y++) {
+					System.out.print(matrix2[x][y] + strmult(" ", 5-Integer.toString(matrix2[x][y]).length()));
+				}
+				System.out.println();
+				System.out.println();
+			}
+			System.out.println("\n\n=\n\n");
+			for (int x = 0; x < answer.length; x++) {
+				for (int y = 0; y < answer.length; y++) {
+					System.out.print(answer[x][y] + strmult(" ", 5-Integer.toString(answer[x][y]).length()));
+				}
+				System.out.println();
+				System.out.println();
+			}
 		}
-		System.out.println();
+	}
+	public static String strmult(String str, int i) {
+		String result = "";
+		for (int x = 0; x < i; x++) {
+			result += str;
+		}
+		return result;
 	}
 }
 //						(0, 0)		(0, 1)
