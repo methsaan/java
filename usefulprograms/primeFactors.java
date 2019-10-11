@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class primeFactors {
 	public static void main(String[] args) {
@@ -8,13 +9,19 @@ public class primeFactors {
 		System.out.println("Enter a composite number: ");
 		int number = input.nextInt();
 		ArrayList<ArrayList<Integer>> factorTree = new ArrayList<ArrayList<Integer>>();
-		ArrayList<Integer> tempFactors = factors(number);
-		while (true) {
-			System.out.println(tempFactors);
-			tempFactors = compFactors(tempFactors);
-			if (tempFactors.size() == 0) {
-				break;
+		ArrayList<Integer> tempRow = new ArrayList<Integer>();
+		tempRow.add(number);
+		factorTree.add(tempRow);
+		for (int i = 0; i < 10; i++) {
+			ArrayList<Integer> currentRow = factorTree.get(factorTree.size()-1);
+			ArrayList<Integer> nextRow = new ArrayList<Integer>();
+			for (int x = 0; x < currentRow.size(); x++) {
+				System.out.println("(" + factors(currentRow.get(x)).size() + ")");
+				int randFactor = factors(currentRow.get(x)).get(new Random().nextInt(factors(currentRow.get(x)).size()));
+				nextRow.add(randFactor);
+				nextRow.add(currentRow.get(x)/randFactor);
 			}
+			factorTree.add(nextRow);
 		}
 	}
 	public static ArrayList<Integer> compFactors(ArrayList<Integer> factorsList) {
@@ -46,7 +53,7 @@ public class primeFactors {
 	public static boolean isPrime(int num) {
 		int numOfFactors = 0;
 		for (int x = 0; x < num; x++) {
-			if ((double)num/x == (double)num/(double)x) {
+			if ((double)(num/x) == (double)num/(double)x) {
 				numOfFactors++;
 			}
 		}
