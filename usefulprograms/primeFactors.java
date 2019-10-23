@@ -10,28 +10,37 @@ public class primeFactors {
 		int number = input.nextInt();
 		ArrayList<ArrayList<Integer>> factorTree = new ArrayList<ArrayList<Integer>>();
 		ArrayList<Integer> tempRow = new ArrayList<Integer>();
+		ArrayList<Integer> primeFactors = new ArrayList<Integer>();
 		tempRow.add(number);
 		factorTree.add(tempRow);
-		for (int i = 0; i < 10; i++) {
+		boolean isFactorized = false;
+		while (!isFactorized) {
 			ArrayList<Integer> currentRow = factorTree.get(factorTree.size()-1);
 			ArrayList<Integer> nextRow = new ArrayList<Integer>();
 			for (int x = 0; x < currentRow.size(); x++) {
-				System.out.println("(" + factors(currentRow.get(x)).size() + ")");
-				int randFactor = factors(currentRow.get(x)).get(new Random().nextInt(factors(currentRow.get(x)).size()));
-				nextRow.add(randFactor);
-				nextRow.add(currentRow.get(x)/randFactor);
+				if (!isPrime(currentRow.get(x))) {
+					int randFactor = factors(currentRow.get(x)).get(new Random().nextInt(factors(currentRow.get(x)).size()-1));
+					nextRow.add(randFactor);
+					nextRow.add(currentRow.get(x)/randFactor);
+				}else {
+					primeFactors.add(currentRow.get(x));
+					System.out.println(currentRow.get(x));
+				}
 			}
 			factorTree.add(nextRow);
-		}
-	}
-	public static ArrayList<Integer> compFactors(ArrayList<Integer> factorsList) {
-		ArrayList<Integer> result = new ArrayList<Integer>();
-		for (int x = 0; x < factorsList.size(); x++) {
-			if (isPrime(factorsList.get(x).intValue())) {
-				result.add(factorsList.get(x));
+			isFactorized = true;
+			for (int x = 0; x < nextRow.size(); x++) {
+				if (!isPrime(nextRow.get(x))) {
+					isFactorized = false;
+				}
 			}
 		}
-		return result;
+		System.out.println();
+		for (int x = 0; x < factorTree.size(); x++) {
+			System.out.println(factorTree.get(x));
+		}
+		System.out.print("Prime factors: ");
+		System.out.println(primeFactors);
 	}
 	public static ArrayList<Integer> factors(int num) {
 		ArrayList<Integer> f = new ArrayList<Integer>();
@@ -51,12 +60,6 @@ public class primeFactors {
 		System.out.println();
 	}
 	public static boolean isPrime(int num) {
-		int numOfFactors = 0;
-		for (int x = 0; x < num; x++) {
-			if ((double)(num/x) == (double)num/(double)x) {
-				numOfFactors++;
-			}
-		}
-		return numOfFactors <= 2 ? true : false;
+		return factors(num).size()+1 == 2;
 	}
 }
