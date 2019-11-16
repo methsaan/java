@@ -29,12 +29,15 @@ public class primeFactors {
 						nextRow.add(-1);
 						primeFactors.add(currentRow.get(x));
 					}
+				}else {
+					nextRow.add(-1);
+					nextRow.add(-1);
 				}
 			}
 			factorTree.add(nextRow);
 			isFactorized = true;
 			for (int x = 0; x < nextRow.size(); x++) {
-				if (!isPrime(nextRow.get(x))) {
+				if (!isPrime(nextRow.get(x)) && nextRow.get(x) != -1) {
 					isFactorized = false;
 				}
 			}
@@ -57,6 +60,16 @@ public class primeFactors {
 			ltogArraylist.add(leastToGreatest[x]);
 		}
 		System.out.println(" =\t\t" + ltogArraylist);
+		ArrayList<String> powerPrimes = new ArrayList<String>();
+		ArrayList<Integer> duplicatedNums = new ArrayList<Integer>();
+		for (int x = 0; x < primeFactors.size(); x++) {
+			int count = 0;
+			for (int y = 0; y < primeFactors.size(); y++) {
+				if (primeFactors.get(y) == primeFactors.get(x)) {
+					count++;
+				}
+			}
+		}
 	}
 	public static ArrayList<Integer> factors(int num) {
 		ArrayList<Integer> f = new ArrayList<Integer>();
