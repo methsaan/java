@@ -47,19 +47,12 @@ public class primeFactors {
 				primeFactors.add(factorTree.get(factorTree.size()-1).get(x));
 			}
 		}
-		System.out.println();
-		for (int x = 0; x < factorTree.size(); x++) {
-			System.out.println(factorTree.get(x));
-		}
-		System.out.print("Prime factors: ");
-		System.out.println("\t" + primeFactors);
 		int[] arraypf = primeFactors.stream().filter(t -> t != null).mapToInt(t -> t).toArray();
 		int[] leastToGreatest = sortInts(arraypf);
 		ArrayList<Integer> ltogArraylist = new ArrayList<Integer>();
 		for (int x = 0; x < leastToGreatest.length; x++) {
 			ltogArraylist.add(leastToGreatest[x]);
 		}
-		System.out.println(" =\t\t" + ltogArraylist);
 		ArrayList<String> powerPrimes = new ArrayList<String>();
 		ArrayList<Integer> duplicatedNums = new ArrayList<Integer>();
 		for (int x = 0; x < primeFactors.size(); x++) {
@@ -69,7 +62,51 @@ public class primeFactors {
 					count++;
 				}
 			}
+			if (!duplicatedNums.contains(primeFactors.get(x))) {
+				duplicatedNums.add(primeFactors.get(x));
+			}
 		}
+		int[] arraydn = duplicatedNums.stream().filter(t -> t != null).mapToInt(t -> t).toArray();
+		int[] leastToGreatest2 = sortInts(arraydn);
+		ArrayList<Integer> ltogArraylist2 = new ArrayList<Integer>();
+		for (int x = 0; x < leastToGreatest2.length; x++) {
+			ltogArraylist2.add(leastToGreatest2[x]);
+		}
+		for (int x = 0; x < ltogArraylist2.size(); x++) {
+			if (Integer.toString(ArrayListIntFreq(ltogArraylist2.get(x), primeFactors)).equals("1")) {
+				powerPrimes.add(Integer.toString(ltogArraylist2.get(x)));
+			}else {
+				powerPrimes.add(Integer.toString(ltogArraylist2.get(x)) + "^" + Integer.toString(ArrayListIntFreq(ltogArraylist2.get(x), primeFactors)));
+			}
+		}
+		ArrayList<ArrayList<Integer>> factorTreeCoords = new ArrayList<ArrayList<Integer>>();
+		ArrayList<Integer> tempTreeRow = new ArrayList<Integer>();
+		ArrayList<Integer> tempTreeRow2 = new ArrayList<Integer>();
+		ArrayList<Integer> tempTreeRow3 = new ArrayList<Integer>();
+		ArrayList<Integer> tempTreeRow4 = new ArrayList<Integer>();
+		ArrayList<Integer> tempTreeRow5 = new ArrayList<Integer>();
+		ArrayList<Integer> tempTreeRow6 = new ArrayList<Integer>();
+		tempTreeRow.add(80);factorTreeCoords.add(tempTreeRow);tempTreeRow2.add(60);tempTreeRow2.add(40);factorTreeCoords.add(tempTreeRow2);tempTreeRow3.add(52);tempTreeRow3.add(20);tempTreeRow3.add(20);tempTreeRow3.add(20);factorTreeCoords.add(tempTreeRow3);tempTreeRow4.add(46);tempTreeRow4.add(10);tempTreeRow4.add(8);tempTreeRow4.add(10);tempTreeRow4.add(8);tempTreeRow4.add(10);tempTreeRow4.add(8);tempTreeRow4.add(10);factorTreeCoords.add(tempTreeRow4);tempTreeRow5.add(42);tempTreeRow5.add(4);tempTreeRow5.add(4);tempTreeRow5.add(4);tempTreeRow5.add(1);tempTreeRow5.add(4);tempTreeRow5.add(1);tempTreeRow5.add(4);tempTreeRow5.add(4);tempTreeRow5.add(4);tempTreeRow5.add(4);tempTreeRow5.add(4);tempTreeRow5.add(4);tempTreeRow5.add(4);tempTreeRow5.add(4);tempTreeRow5.add(4);factorTreeCoords.add(tempTreeRow5);tempTreeRow6.add(38);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);tempTreeRow6.add(2);factorTreeCoords.add(tempTreeRow6);
+		for (int x = 0; x < factorTree.size(); x++) {
+			if (x == factorTree.size()-1) {
+				if (factorTree.size() > factorTreeCoords.size()) {
+					break;
+				}
+			}
+			for (int y = 0; y < factorTree.get(x).size(); y++) {
+				for (int z = 0; z < factorTreeCoords.get(x).get(y); z++) {
+					System.out.print(" ");
+				}
+				if (factorTree.get(x).get(y) != -1) {
+					System.out.print(factorTree.get(x).get(y));
+				}else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
+		}
+		System.out.println("Prime factors: \t\t" + ltogArraylist);
+		System.out.println(" \t\t=\t" + powerPrimes);
 	}
 	public static ArrayList<Integer> factors(int num) {
 		ArrayList<Integer> f = new ArrayList<Integer>();
@@ -110,5 +147,14 @@ public class primeFactors {
 			ret[i] = integers.get(i).intValue();
 		}
 		return ret;
+	}
+	public static int ArrayListIntFreq(int num, ArrayList<Integer> al) {
+		int count = 0;
+		for (int x = 0; x < al.size(); x++) {
+			if (al.get(x) == num) {
+				count++;
+			}
+		}
+		return count;
 	}
 }

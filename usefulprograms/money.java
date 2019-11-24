@@ -1,12 +1,15 @@
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class money {
-	private double value;
-	public money(double value) {
-		this.value = value;
+	private double dollars;
+	public money(double dollars) {
+		this.dollars = dollars;
 	}
-	public void setValue(double value) {
-		this.value = value;
+	public double getDollarValue() {
+		return dollars;
 	}
-	public double getValue() {
-		return value;
+	public String stringVal() {
+		return String.format("$%.2f", dollars);
 	}
 }

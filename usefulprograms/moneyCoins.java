@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class moneyCoins {
 	public static void main(String[] args) {
 		money nickel = new money(0.05);
-		money dime = new money(0.1);
+		money dime = new money(0.10);
 		money quarter = new money(0.25);
 		money dollar = new money(1);
 		money twoDollar = new money(2);
@@ -12,28 +12,29 @@ public class moneyCoins {
 		money tenDollar = new money(10);
 		money fiftyDollar = new money(50);
 		money hundredDollar = new money(100);
-		money []bills = {nickel, dime, quarter, dollar, twoDollar, fiveDollar, tenDollar, fiftyDollar, hundredDollar};
-		money []billsCoins = new money[30];
+		money []orderedBills = {nickel, dime, quarter, dollar, twoDollar, fiveDollar, tenDollar, fiftyDollar, hundredDollar, new money(0)};
+		ArrayList<String> billCoins = new ArrayList<String>();
 		Scanner input = new Scanner(System.in);
-		System.out.print("Enter value: ");
-		double value = Double.parseDouble(input.nextLine().substring(1));
-		money tempVal = new money(value);
-		int cnt = 0;
-		while (tempVal.getValue() != 0) {
-			double valueAdded = 0;
-			for (int x = 0; x < 9; x++) {
-				if (bills[x].getValue()*2 > tempVal.getValue()) {
-					billsCoins[cnt] = bills[x];
-					cnt++;
-					valueAdded = bills[x].getValue();
+		System.out.println("Enter a value in dollars: ");
+		double dollars = input.nextDouble();
+		dollars *= 20;
+		dollars = Math.ceil(dollars);
+		dollars /= 20;
+		double tempDollars = dollars;
+		money closestAmount = new money(0);
+		while (tempDollars > 0) {
+			for (int x = 0; x < orderedBills.length-1; x++) {
+				closestAmount = orderedBills[x];
+				if (orderedBills[x+1].getDollarValue() > tempDollars) {
 					break;
 				}
 			}
-			tempVal.setValue(tempVal.getValue()-valueAdded);
+			billCoins.add(closestAmount.stringVal());
+			tempDollars -= closestAmount.getDollarValue();
+			tempDollars *= 100;
+			tempDollars = Math.round(tempDollars);
+			tempDollars /= 100;
 		}
-		for (int x = 0; x < cnt; x++) {
-			System.out.print(billsCoins[x].getValue() + " ");
-		}
-		System.out.println();
+		System.out.println("Bills and coins to make " + new money(dollars).stringVal() + ": " + billCoins);
 	}
 }
