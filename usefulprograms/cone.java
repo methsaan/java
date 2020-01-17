@@ -4,12 +4,19 @@ public class cone {
 	public static double area;
 	public static double volume;
 	public cone(String r, String h, String a, String v) {
-		radius = r != "_" ? r : -1;
-		height = h != "_" ? h : -1;
-		area = a != "_" ? a : -1;
-		volume = v != "_" ? v : -1;
+		radius = !r.equals("_") ? Integer.parseInt(r) : -1;
+		height = !h.equals("_") ? Integer.parseInt(h) : -1;
+		area = !a.equals("_") ? Integer.parseInt(a) : -1;
+		volume = !v.equals("_") ? Integer.parseInt(v) : -1;
 	}
-	public static String area() {
-		return new coneMethod({"radius", "height"}, ((2*Math.pi)*r*h)/3);
+	public static void fillVolume() {
+		if (radius != -1 && height != -1) {
+			volume = ((2*Math.PI)*radius*height)/3;
+		}
+	}
+	public static void fillArea() {
+		if (radius != -1 && height != -1) {
+			area = Math.PI*radius*(radius+Math.sqrt(Math.pow(height, 2) + Math.pow(radius, 2)));
+		}
 	}
 }

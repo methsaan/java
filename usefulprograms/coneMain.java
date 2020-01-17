@@ -12,7 +12,6 @@ public class coneMain {
 			measurementVal.put(valueNames[x], values[x]);
 		}
 		System.out.println(measurementVal);
-		cone c = new cone(measurementVal.get("radius"), measurementVal.get("height"), measurementVal("area"), measurementVal("volume"));
-		
+		cone c = new cone(measurementVal.get("radius"), measurementVal.get("height"), measurementVal.get("area"), measurementVal.get("volume"));
 	}
 }
