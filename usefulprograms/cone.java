@@ -19,4 +19,9 @@ public class cone {
 			area = Math.PI*radius*(radius+Math.sqrt(Math.pow(height, 2) + Math.pow(radius, 2)));
 		}
 	}
+	public static void fillHeight() {
+		if (radius != -1 && volume != -1) {
+			area
+		}
+	}
 }
