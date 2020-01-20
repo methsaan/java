@@ -21,7 +21,15 @@ public class cone {
 	}
 	public static void fillHeight() {
 		if (radius != -1 && volume != -1) {
-			area
+			height = ((volume*3)/radius)/(2*Math.PI);
 		}
+	}
+	public static void fillRadius() {
+		if (height != -1 && volume != -1) {
+			radius = ((volume*3)/height)/(2*Math.PI);
+		}
+	}
+	public static void printValues() {
+		System.out.println("radius: " + radius + ", volume: " + volume + ", height: " + height + ", area: " + area);
 	}
 }
