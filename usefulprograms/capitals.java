@@ -201,7 +201,7 @@ public class capitals {
 			}else {
 				System.out.println("Answer: " + countryCapitals.get(country));
 			}
-			for (long i = 0; i < 250000000; i++) {
+			for (long i = 0; i < 450000000; i++) {
 				;
 			}
 		}
