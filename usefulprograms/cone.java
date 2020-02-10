@@ -1,3 +1,4 @@
+import java.util.Arrays;
 public class cone {
 	public static double radius;
 	public static double height;
@@ -21,7 +22,7 @@ public class cone {
 	}
 	public static void fillHeight() {
 		if (radius != -1 && volume != -1) {
-			height = ((volume*3)/radius)/(2*Math.PI);
+			height = (volume*3)/Math.pow(radius, 2)/Math.PI;
 		}
 	}
 	public static void fillRadius() {
@@ -31,5 +32,11 @@ public class cone {
 	}
 	public static void printValues() {
 		System.out.println("radius: " + radius + ", volume: " + volume + ", height: " + height + ", area: " + area);
+	}
+	public static boolean fullInit() {
+		if (radius != -1.0 && height != -1.0 && area != -1.0 && volume != -1.0) {
+			return true;
+		}
+		return false;
 	}
 }
