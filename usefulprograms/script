@@ -1,3 +1,0 @@
-javac evalfile.java
-java evalfile
-printf "evalfile.java # "
