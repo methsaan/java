@@ -1,1 +1,2 @@
 javac evalfile.java
+java evalfile
