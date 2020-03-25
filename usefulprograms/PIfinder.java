@@ -30,8 +30,12 @@ public class PIfinder{
 		}
 		for (int x = 0; x < PIfinderArray.length; x++){
 			System.out.print("|");
-			for (int y = 0; y < PIfinderArray[x].length; y++){
-				System.out.print(PIfinderArray[x][y]+ (y < PIfinderArray[x].length-1 ? "  " : ""));
+			for (int y = 0; y < PIfinderArray[x].length; y++) {
+				if (y < 2) {
+					System.out.print(((int)(PIfinderArray[x][y])) + (y < PIfinderArray[x].length-1 ? "  " : ""));
+				} else {
+					System.out.print((PIfinderArray[x][y]) + (y < PIfinderArray[x].length-1 ? "  " : ""));
+				}
 			}
 			System.out.print("|\t\t");
 			if (x%5 == 0){
