@@ -10,9 +10,10 @@ public class moneyCoins {
 		money twoDollar = new money(2);
 		money fiveDollar = new money(5);
 		money tenDollar = new money(10);
+		money twentyDollar = new money(20);
 		money fiftyDollar = new money(50);
 		money hundredDollar = new money(100);
-		money []orderedBills = {nickel, dime, quarter, dollar, twoDollar, fiveDollar, tenDollar, fiftyDollar, hundredDollar, new money(0)};
+		money []orderedBills = {nickel, dime, quarter, dollar, twoDollar, fiveDollar, tenDollar, twentyDollar, fiftyDollar, hundredDollar, new money(-1)};
 		ArrayList<String> billCoins = new ArrayList<String>();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter a value in dollars: ");
