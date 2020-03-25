@@ -15,7 +15,6 @@ public class pattern {
 			increments[x] = pattern[x+1]-pattern[x];
 		}
 		int incrementsInc = increments[1] - increments[0];
-		int incrementsInc2 = exponentialGrowth[1] - exponentialGrowth[0];
-		System.out.printf((increments[0] < 0 ? "Subtract" : "Add") + " %d" + (incrementsInc != 0 ? ", " + (increments[0] > 0 ? (incrementsInc < 0 ? "decrease" : "increase") : (incrementsInc < 0 ? "increase" : "decrease")) + " " + (increments[0] < 0 ? "decrement" : "increment") + " by %d each time\n" : "\n"), Math.abs(increments[0]), Math.abs(incrementsInc));
+		System.out.printf("Start at " + (pattern[0]) + ", " + (increments[0] < 0 ? "Subtract" : "Add") + " %d" + (incrementsInc != 0 ? ", " + (increments[0] > 0 ? (incrementsInc < 0 ? "decrease" : "increase") : (incrementsInc < 0 ? "increase" : "decrease")) + " " + (increments[0] < 0 ? "decrement" : "increment") + " by %d each time\n" : "\n"), Math.abs(increments[0]), Math.abs(incrementsInc));
 	}
 }
