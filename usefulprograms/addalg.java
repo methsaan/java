@@ -12,19 +12,19 @@ public class addalg {
 		int t = scan.nextInt();
 		System.out.println("Enter fourth num: (enter 0 if " + (t == 0 ? "2" : "3") + " numbers are enough) ");
 		int fo = scan.nextInt();
-		int rem1;
-		int rem2;
+		int rem1 = 0;
+		boolean rem2 = false;
 		if ((f > 0) && (s > 0) && (t > 0) && (fo > 0)) {
 			rem1 = Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(s).substring(1)) + Integer.parseInt(Integer.toString(f).substring(1)) + Integer.parseInt(Integer.toString(t).substring(1)) + Integer.parseInt(Integer.toString(fo).substring(1))));
-			rem2 = Integer.toString(rem1).length() != 1 ? Integer.parseInt(Integer.toString(rem1).substring(0, 1)) : 0;
-		}else if ((f > 0) && (s > 0) && (t > 0)) {
-			rem1 = Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(s).substring(1)) + Integer.parseInt(Integer.toString(f).substring(1)) + Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(t))))));
-			rem2 = Integer.toString(rem1).length() != 1 ? Integer.parseInt(Integer.toString(rem1).substring(0, 1)) : 0;
-		}else {
+			rem2 = rem1 < 10;
+		} else if ((f > 0) && (s > 0) && (t > 0)) {
+			rem1 = Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(s).substring(1)) + Integer.parseInt(Integer.toString(f).substring(1)) + Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(t).substring(1))))));
+			rem2 = rem1 < 10;
+		} else {
 			rem1 = Integer.parseInt(Integer.toString(Integer.parseInt(Integer.toString(s).substring(1)) + Integer.parseInt(Integer.toString(f).substring(1))));
-			rem2 = Integer.toString(rem1).length() != 1 ? Integer.parseInt(Integer.toString(rem1).substring(0, 1)) : 0;
+			rem2 = rem1 < 10;
 		}
-		System.out.print(rem2 != 0 ? ("   " + rem2 + "\n") : "");
+		System.out.print((!rem2 ? "   " + Integer.parseInt(Integer.toString(rem1).substring(0, 1)) + "\n" : ""));
 		System.out.println("   " + f);
 		System.out.println("   " + s);
 		System.out.println((t != 0 ? "   " : "    ") + t);
