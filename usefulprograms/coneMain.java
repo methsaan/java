@@ -13,11 +13,20 @@ public class coneMain {
 		}
 		System.out.println(measurementVal);
 		cone c = new cone(String.valueOf(measurementVal.get("radius")), String.valueOf(measurementVal.get("height")), String.valueOf(measurementVal.get("area")), String.valueOf(measurementVal.get("volume")));
+		c.printValues();
 		while (!c.fullInit()) {
 			c.fillRadius();
+			System.out.println("radius filled");
+			c.printValues();
 			c.fillHeight();
+			System.out.println("height filled");
+			c.printValues();
 			c.fillVolume();
+			System.out.println("volume filled");
+			c.printValues();
 			c.fillArea();
+			System.out.println("area filled");
+			c.printValues();
 		}
 		c.printValues();
 	}
