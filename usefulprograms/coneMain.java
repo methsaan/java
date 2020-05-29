@@ -16,17 +16,17 @@ public class coneMain {
 		c.printValues();
 		while (!c.fullInit()) {
 			c.fillRadius();
-			System.out.println("radius filled");
 			c.printValues();
+			System.out.println();
 			c.fillHeight();
-			System.out.println("height filled");
 			c.printValues();
+			System.out.println();
 			c.fillVolume();
-			System.out.println("volume filled");
 			c.printValues();
+			System.out.println();
 			c.fillArea();
-			System.out.println("area filled");
 			c.printValues();
+			System.out.println();
 		}
 		c.printValues();
 	}
