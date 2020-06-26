@@ -22,7 +22,7 @@ public class cone {
 		if (radius != -1 && height != -1) {
 			area = (Math.PI*Math.pow(radius, 2)) + (Math.PI*radius*(Math.sqrt(Math.pow(radius, 2) + Math.pow(height, 2))));
 			System.out.println("Calculating area");
-			System.out.printf("(PI*%f^2) + (PI*%f*(sqrt(radius^2 + height^2)))\n", radius, radius, radius, height);
+			System.out.printf("(PI*%f^2) + (PI*%f*(sqrt(%f^2 + %f^2)))\n", radius, radius, radius, height);
 		}
 	}
 	public static void fillHeight() {
