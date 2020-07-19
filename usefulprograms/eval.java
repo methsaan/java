@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class chopsticks {
+public class eval {
 	public static void main(String[] args) {
 	}
 }
