@@ -39,7 +39,7 @@ public class matharena {
 		if (score > score2){
 			winner = name;
 		}else if (score == score2){
-			winner = "TIE!!";
+			winner = "tie";
 		}else {
 			winner = name2;
 		}
