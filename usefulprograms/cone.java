@@ -12,30 +12,30 @@ public class cone {
 		volume = !v.equals("_") ? Integer.parseInt(v) : -1;
 	}
 	public static void fillVolume() {
+		System.out.println("Calculating volume (given radius, height)");
 		if (radius != -1 && height != -1) {
 			volume = Math.PI*Math.pow(radius, 2)*(height/3);
-			System.out.println("Calculating volume");
 			System.out.printf("PI*(%f^2)*(%f/3)\n", radius, height);
 		}
 	}
 	public static void fillArea() {
+		System.out.println("Calculating area (given radius, height)");
 		if (radius != -1 && height != -1) {
 			area = (Math.PI*Math.pow(radius, 2)) + (Math.PI*radius*(Math.sqrt(Math.pow(radius, 2) + Math.pow(height, 2))));
-			System.out.println("Calculating area");
 			System.out.printf("(PI*%f^2) + (PI*%f*(sqrt(%f^2 + %f^2)))\n", radius, radius, radius, height);
 		}
 	}
 	public static void fillHeight() {
+		System.out.println("Calculating height (given radius, volume)");
 		if (radius != -1 && volume != -1) {
 			height = (volume*3)/Math.pow(radius, 2)/Math.PI;
-			System.out.println("Calculating height");
 			System.out.printf("(%f*3)/%f^2/PI\n", volume, radius);
 		}
 	}
 	public static void fillRadius() {
+		System.out.println("Calculating radius (given height, volume)");
 		if (height != -1 && volume != -1) {
 			radius = ((volume*3)/height)/(2*Math.PI);
-			System.out.println("Calculating radius");
 			System.out.printf("((%d*3)/%d)/(2*PI)\n", volume, height);
 		}
 	}

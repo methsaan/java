@@ -14,19 +14,29 @@ public class coneMain {
 		System.out.println(measurementVal);
 		cone c = new cone(String.valueOf(measurementVal.get("radius")), String.valueOf(measurementVal.get("height")), String.valueOf(measurementVal.get("area")), String.valueOf(measurementVal.get("volume")));
 		c.printValues();
-		while (!c.fullInit()) {
+		for (int x = 0; x < 2; x++) /*while (!c.fullInit())*/ {
+			System.out.println();
+			System.out.println("--------------------------------------------");
 			c.fillRadius();
 			c.printValues();
+			System.out.println("--------------------------------------------");
 			System.out.println();
+			System.out.println("--------------------------------------------");
 			c.fillHeight();
 			c.printValues();
+			System.out.println("--------------------------------------------");
 			System.out.println();
+			System.out.println("--------------------------------------------");
 			c.fillVolume();
 			c.printValues();
+			System.out.println("--------------------------------------------");
 			System.out.println();
+			System.out.println("--------------------------------------------");
 			c.fillArea();
 			c.printValues();
+			System.out.println("--------------------------------------------");
 			System.out.println();
+			// add more arguments
 		}
 		c.printValues();
 	}
