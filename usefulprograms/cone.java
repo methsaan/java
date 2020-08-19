@@ -43,15 +43,23 @@ public class cone {
 	}
 	public boolean fullInit() {
 		if (radius != -1.0 && height != -1.0 && area != -1.0 && volume != -1.0) {
+			System.out.println("Worked");
 			return true;
 		} else if (this.getValuesSet() == 2) {
 			System.out.printf("Invalid arguments: Cannot calculate %s from %s\n", printList(radius != -1 ? "" : "radius", height != -1 ? "" : "height", area != -1 ? "" : "area", volume != -1 ? "" : "volume"), printList(radius == -1 ? "" : "radius", height == -1 ? "" : "height", area == -1 ? "" : "area", volume == -1 ? "" : "volume"));
 			return true;
+		} else {
+			System.out.println("Running");
 		}
 		return false;
 	}
-	private static String printList(String... items) {
+	private static String printList(String... itemsTot) {
 		String result = "";
+		int[] items = new int[itemsTot.length];
+		System.arraycopy(itemsTot, 0, items, 0, itemsTot.length);
+		//##############################################################################################################
+		// remove empty strings
+		for (int x = 0; x < items.length;
 		for (int x = 0; x < items.length; x++) {
 			result += x == items.length-1 ? ("and " + items[x]) : ((items[x] == "" || x == items.length-2) ? items[x] : (items[x] + ", "));
 		}
