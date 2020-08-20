@@ -11,7 +11,6 @@ public class coneMain {
 			String[] valueNames = {"radius", "height", "area", "volume"};
 			measurementVal.put(valueNames[x], values[x]);
 		}
-		System.out.println(measurementVal);
 		cone c = new cone(String.valueOf(measurementVal.get("radius")), String.valueOf(measurementVal.get("height")), String.valueOf(measurementVal.get("area")), String.valueOf(measurementVal.get("volume")));
 		while (!c.fullInit()) {
 			c.fillRadius();

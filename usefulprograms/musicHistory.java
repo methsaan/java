@@ -23,19 +23,19 @@ public class musicHistory {
 				int randSong = new Random().nextInt(5);
 				if (randSong == 0){
 					String[] info = {"Era", "Composer", "Genre", "Preforming forces", "Language", "Summary of play", "Texture", "Compositional devices"};
-					System.out.println(info[new Random().nextInt(4)] + " of Ordo Virtutum.\n________________________________________");
+					System.out.println(info[new Random().nextInt(8)] + " of Ordo Virtutum.\n________________________________________");
 				}else if (randSong == 1){
 					String[] info = {"Era", "Composer", "Genre", "Texture", "Preforming forces"};
-					System.out.println(info[new Random().nextInt(4)] + " of Sumer Is Icumen In.\n________________________________________");
+					System.out.println(info[new Random().nextInt(5)] + " of Sumer Is Icumen In.\n________________________________________");
 				}else if (randSong == 2) {
 					String[] info = {"Era", "Composer", "Genre", "Texture", "Tempo", "Structure", "Preforming forces", "Language"};
-					System.out.println(info[new Random().nextInt(4)] + " of El grillo.\n________________________________________");
+					System.out.println(info[new Random().nextInt(8)] + " of El grillo.\n________________________________________");
 				}else if (randSong == 3){
 					String[] info = {"Genre", "Instruments used"};
-					System.out.println(info[new Random().nextInt(4)] + " of Kaboran.\n________________________________________");
+					System.out.println(info[new Random().nextInt(2)] + " of Kaboran.\n________________________________________");
 				}else if (randSong == 4){
 					String[] info = {"Genre", "Composer"};
-					System.out.println(info[new Random().nextInt(4)] + " of Pagodes.\n________________________________________");
+					System.out.println(info[new Random().nextInt(2)] + " of Pagodes.\n________________________________________");
 				}else {
 					String[] info = {"Genre", "Composer", "Instruments used"};
 					System.out.println(info[new Random().nextInt(5)] + " of El grillo.\n________________________________________");
