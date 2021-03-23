@@ -18,6 +18,9 @@ public class eval {
 					commandFile.write(command + System.getProperty("line.separator"));
 				}
 				commandFile.close();
+
+				// file not found error
+
 				Process process = processBuilder.start();
 				StringBuilder output = new StringBuilder();
 				BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
