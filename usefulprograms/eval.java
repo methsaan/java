@@ -3,9 +3,6 @@ import java.io.*;
 
 public class eval {
 	public static void main(String[] args) {
-		ProcessBuilder processBuilder = new ProcessBuilder();
-		processBuilder.command("./hello.sh");
-
 		try {
 			Scanner input = new Scanner(System.in);
 			String command = "";
@@ -21,19 +18,25 @@ public class eval {
 
 				// file not found error
 
-				Process process = processBuilder.start();
-				StringBuilder output = new StringBuilder();
-				BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-				String line;
-				while ((line = reader.readLine()) != null) {
-					output.append(line + "\n");
-				}
-				int exitVal = process.waitFor();
-				if (exitVal == 0) {
-					System.out.println(output);
-				}else {
-					System.out.println("Error");
-				}
+				//ProcessBuilder processBuilder = new ProcessBuilder();
+				//processBuilder.command("./hello.sh");
+				//Process process = processBuilder.start();
+				//StringBuilder output = new StringBuilder();
+				//BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+				//String line;
+				//while ((line = reader.readLine()) != null) {
+				//	output.append(line + "\n");
+				//}
+				//int exitVal = process.waitFor();
+				//if (exitVal == 0) {
+				//	System.out.println(output);
+				//}else {
+				//	System.out.println("Error");
+				//}
+
+				String[] env = {"PATH=/bin:/usr/bin/"};
+				String cmd = "./hello.sh";
+				Process process = Runtime.getRuntime().exec(cmd, env);
 			}
 		}catch (Exception e) {
 			System.out.println(e);
