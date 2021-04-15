@@ -2,6 +2,23 @@ import java.util.Scanner;
 import java.io.*;
 
 public class eval {
+	public static String executeCommand(String command) {
+		StringBuffer output = new StringBuffer();
+
+		Process p;
+		try {
+			p = Runtime.getRuntime().exec(command);
+			p.waitFor();
+			BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			String line = "";
+			while ((line = reader.readLine()) != null) {
+				output.append(line + "\n");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return output.toString();
+	}
 	public static void main(String[] args) {
 		try {
 			Scanner input = new Scanner(System.in);
@@ -34,11 +51,9 @@ public class eval {
 				//	System.out.println("Error");
 				//}
 
-				String[] env = {"PATH=/bin:/usr/bin/"};
-				String cmd = "./hello.sh";
-				Process process = Runtime.getRuntime().exec(cmd, env);
+				System.out.println(executeCommand("./hello.sh"));
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
