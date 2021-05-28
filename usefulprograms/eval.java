@@ -24,13 +24,17 @@ public class eval {
 			Scanner input = new Scanner(System.in);
 			String command = "";
 			while (!command.equals("return 0; // FINISHED")) {
-				FileWriter commandFile = new FileWriter("evalrun.java");
+				FileWriter commandFile = new FileWriter("evalfile.java");
 				command = "";
+				commandFile.write("public class evalfile {" + System.getProperty("line.separator"));
+				commandFile.write("public static void run() {" + System.getProperty("line.separator"));
 				while (!command.startsWith("return 0;")) {
 					System.out.print("Enter command: ");
 					command = input.nextLine();
 					commandFile.write(command + System.getProperty("line.separator"));
 				}
+				commandFile.write("}" + System.getProperty("line.separator"));
+				commandFile.write("}" + System.getProperty("line.separator"));
 				commandFile.close();
 
 				// file not found error
@@ -51,7 +55,8 @@ public class eval {
 				//	System.out.println("Error");
 				//}
 
-				System.out.println(executeCommand("./hello.sh"));
+				//System.out.println(executeCommand("./hello.sh"));
+				evalfile.run();
 			}
 		} catch (Exception e) {
 			System.out.println(e);
