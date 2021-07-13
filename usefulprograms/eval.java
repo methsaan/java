@@ -27,7 +27,7 @@ public class eval {
 				FileWriter commandFile = new FileWriter("evalfile.java");
 				command = "";
 				commandFile.write("public class evalfile {" + System.getProperty("line.separator"));
-				commandFile.write("public static void run() {" + System.getProperty("line.separator"));
+				commandFile.write("public static void main(String[] args) {" + System.getProperty("line.separator"));
 				while (!command.startsWith("return 0;")) {
 					System.out.print("Enter command: ");
 					command = input.nextLine();
@@ -55,8 +55,8 @@ public class eval {
 				//	System.out.println("Error");
 				//}
 
-				//System.out.println(executeCommand("./hello.sh"));
-				evalfile.run();
+				System.out.println(executeCommand("./hello.sh"));
+				//evalfile.main(args);
 			}
 		} catch (Exception e) {
 			System.out.println(e);
