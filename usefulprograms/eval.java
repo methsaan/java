@@ -2,6 +2,13 @@ import java.util.Scanner;
 import java.io.*;
 
 public class eval {
+	public static void printResults(Process process) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String line = "";
+		while ((line = reader.readLine()) != null) {
+			System.out.println(line);
+		}
+	}
 	public static String executeCommand(String command) {
 		StringBuffer output = new StringBuffer();
 
@@ -19,7 +26,7 @@ public class eval {
 		}
 		return output.toString();
 	}
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		try {
 			Scanner input = new Scanner(System.in);
 			String command = "";
@@ -55,8 +62,8 @@ public class eval {
 				//	System.out.println("Error");
 				//}
 
-				System.out.println(executeCommand("./hello.sh"));
-				//evalfile.main(args);
+				Process process = Runtime.getRuntime().exec("./hello.sh");
+				printResults(process);
 			}
 		} catch (Exception e) {
 			System.out.println(e);

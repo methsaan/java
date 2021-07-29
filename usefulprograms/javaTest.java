@@ -10,7 +10,7 @@ public class javaTest {
 		}
 	}
 	public static void main(String[] args) throws IOException {
-		Process process = Runtime.getRuntime().exec("ping 4.2.2.2");
+		Process process = Runtime.getRuntime().exec("./hello.sh");
 		printResults(process);
 	}
 }
