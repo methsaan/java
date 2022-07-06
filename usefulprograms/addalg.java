@@ -54,14 +54,14 @@ public class addalg {
 		for (int x = 0; x < numOfOperands; x++) {
 			System.out.print("    ");
 			for (int y = 0; y < maxDigits; y++) {
-				System.out.print((operands[x][y] == 0 ? " " : operands[x][y]) + " ");
+				System.out.print((operands[x][y] == 0 && y < maxDigits-tempNumList[x].length() ? " " : operands[x][y]) + " ");
 			}
 			System.out.println();
 		}
 		System.out.println("_\u00B1" + new String(new char[maxDigits*2+3]).replace("\0", "_"));
 		System.out.print("  ");
 		for (int x = 0; x < maxDigits+1; x++) {
-			System.out.print((sumDigits[x] == 0 ? " " : sumDigits[x]) + " ");
+			System.out.print((sumDigits[x] == 0 && x == 0 ? " " : sumDigits[x]) + " ");
 		}
 		System.out.println();
 	}
