@@ -36,6 +36,6 @@ public class moneyCoins {
 			tempDollars = Math.round(tempDollars);
 			tempDollars /= 100;
 		}
-		System.out.println("Bills and coins to make " + new money(dollars).stringVal() + ": " + billCoins);
+		System.out.println(new money(dollars).stringVal() + ": " + billCoins);
 	}
 }

@@ -17,7 +17,7 @@ public class chord {
 		int[] minorChord = {0, 3, 7};
 		int[] dimChord = {0, 3, 6};
 		int[] augChord = {0, 4, 8};
-		System.out.print("Enter scale or chord: ");
+		System.out.print("Enter scale or chord (ex. C-Melodic Minor Scale, D#-Diminished Chord): ");
 		String scaleChord = input.nextLine();
 		String note = scaleChord.split("-")[0];
 		String type = scaleChord.split("-")[1];

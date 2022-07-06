@@ -8,7 +8,7 @@ public class caesercipher {
 		Scanner input = new Scanner(System.in);
 		System.out.print("Enter word to encrypt: ");
 		String word = input.nextLine();
-		System.out.print("Enter the key: ");
+		System.out.print("Enter the key (#): ");
 		int key = input.nextInt();
 		char[] encryption = new char[word.length()];
 		for (int x = 0; x < encryption.length; x++) {
