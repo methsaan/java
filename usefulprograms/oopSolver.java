@@ -82,10 +82,35 @@ public class oopSolver {
 		}
 		return fmt(sumSimplified);
 	}
-	public static String multiplicativeSimplify(String product) {
+	public static void multiplicativeSimplify(String product) {
 		String tempNum = "";
+		int tempOpenCnt = 0;
+		int tempOpenCntHolder = 0;
+		int endIdx = 0;
+		int tempBeginIdx = 0;
+		int beginIdx = 0;
+		for (int x = 0; x < product.length(); x++) {
+			if (String.valueOf(product.charAt(x)).equals("(")) {
+				tempOpenCnt++;
+				tempBeginIdx = x;
+			} else if (String.valueOf(product.charAt(x)).equals(")")) {
+				if (tempOpenCnt > tempOpenCntHolder) {
+					endIdx = x;
+					beginIdx = tempBeginIdx;
+					tempOpenCntHolder = tempOpenCnt;
+					tempOpenCnt = 0;
+				} else {
+					;
+				}
+			} else {
+				;
+			}
+		}
 		// (2356)25/2
-		// (2356)/3(25)
+		// (2356)/3(25)*(3((4)/4))
+		System.out.println(beginIdx);
+		System.out.println(endIdx);
+		System.out.println(product.substring(beginIdx, endIdx+1));
 	}
 	// Return simplified polynomial after distributing 2 polynomials
 	// Example: "4 + 5 - 7", "5" -> "20 + 25 - 35"
@@ -142,5 +167,7 @@ public class oopSolver {
 		System.out.println("(\"24 + 35 - 36 - 356.25- 35\")");
 		System.out.println(additiveSimplify("24 + 35 - 36 - 356.25- 35"));
 		System.out.println(additiveSimplify(distribute("23.25 - -35 + 42", "-36 + 25.36 - 35")));
+		System.out.println("(2356)/3(25)*(3((4)/4))");
+		multiplicativeSimplify("(2356)/3(25)*(3((4)/4))");
 	}
 }
