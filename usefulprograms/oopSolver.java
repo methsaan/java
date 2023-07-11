@@ -3,8 +3,8 @@ import java.lang.*;
 import java.text.*;
 
 // Order Of Operation Solver
-//     Ask for expression
-//      Simplify and display steps for solution
+// Ask for expression
+// Simplify and display steps for solution
 
 // Example: 
 // (2 + 5)(4 -5)- 4 *5 / (6 ^ 3 - 7)+ 9(17 + 8)          Original
@@ -27,7 +27,7 @@ import java.text.*;
 
 // Global symbol identifiers
 class Symbols {
-	// Define operator charactors
+	// Define operator characters
 	public static final String []add = {"+"};
 	public static final String []sub = {"-"};
 	public static final String []mul = {"*", "x", "\u00D7", "\u22C5"};
@@ -37,6 +37,7 @@ class Symbols {
 
 	// Define digits
 	public static final String []digits = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."};
+	public static final String []digitsMul = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "-", "+"};
 }
 
 public class oopSolver {
@@ -82,35 +83,136 @@ public class oopSolver {
 		}
 		return fmt(sumSimplified);
 	}
-	public static void multiplicativeSimplify(String product) {
+	// Simplify group of multiplication and division operations not including brackets or bracket multiplication
+	// 6*2 / 5 *25 -> 60.0
+	public static String multiplicativeOpSimplify(String product) {
+		double tempFirst = 1;
+		double tempSecond = 1;
 		String tempNum = "";
-		int tempOpenCnt = 0;
-		int tempOpenCntHolder = 0;
-		int endIdx = 0;
-		int tempBeginIdx = 0;
-		int beginIdx = 0;
+		boolean prod = true;
+		boolean tempProd = true;
+		boolean nonNumericBetween = false;
+		boolean numeric = false;
+		boolean reset = false;
 		for (int x = 0; x < product.length(); x++) {
-			if (String.valueOf(product.charAt(x)).equals("(")) {
-				tempOpenCnt++;
-				tempBeginIdx = x;
-			} else if (String.valueOf(product.charAt(x)).equals(")")) {
-				if (tempOpenCnt > tempOpenCntHolder) {
-					endIdx = x;
-					beginIdx = tempBeginIdx;
-					tempOpenCntHolder = tempOpenCnt;
-					tempOpenCnt = 0;
+			if (Arrays.stream(Symbols.digitsMul).anyMatch(String.valueOf(product.charAt(x))::equals)) {
+				numeric = true;
+				if (!nonNumericBetween) {
+					tempNum += String.valueOf(product.charAt(x));
 				} else {
-					;
+					tempNum = "1";
 				}
+				reset = false;
+			} else if (Arrays.stream(Symbols.mul).anyMatch(String.valueOf(product.charAt(x))::equals)) {
+				tempSecond = Double.parseDouble(tempNum);
+				tempNum = "";
+				tempProd = prod;
+				prod = true;
+				nonNumericBetween = false;
+				numeric = false;
+				reset = true;
+			} else if (Arrays.stream(Symbols.div).anyMatch(String.valueOf(product.charAt(x))::equals)) {
+				tempSecond = Double.parseDouble(tempNum);
+				tempNum = "";
+				tempProd = prod;
+				prod = false;
+				nonNumericBetween = false;
+				numeric = false;
+				reset = true;
 			} else {
-				;
+				if (numeric) {
+					nonNumericBetween = true;
+				}
+				reset = false;
+			}
+			if (reset) {
+				if (tempProd) {
+					tempFirst = tempFirst * tempSecond;
+				} else {
+					tempFirst = tempFirst / tempSecond;
+				}
 			}
 		}
-		// (2356)25/2
-		// (2356)/3(25)*(3((4)/4))
-		System.out.println(beginIdx);
-		System.out.println(endIdx);
-		System.out.println(product.substring(beginIdx, endIdx+1));
+		tempSecond = Double.parseDouble(tempNum);
+		if (prod) {
+			tempFirst = tempFirst * tempSecond;
+		} else {
+			tempFirst = tempFirst / tempSecond;
+		}
+		return fmt(tempFirst);
+	}
+	// Simplify bracket multiplication
+	// (4)(-3)(3.5) -> -42
+	// (6)4(22) -> 528
+	// (6)(4)22 -> 528
+	// 6(4)22 -> 528
+	public static String multiplyBracketSimplify(String product) {
+		double total = 1;
+		String tempProduct = product;
+		int index = tempProduct.indexOf("(");
+		while (index != -1) {
+			String tempNumStr = "";
+			String tempStr = "";
+			int closeIdx = index;
+			for (int x = index; tempProduct.charAt(x) != ')'; x++) {
+				tempStr += String.valueOf(tempProduct.charAt(x));
+				if (Arrays.stream(Symbols.digitsMul).anyMatch(String.valueOf(tempProduct.charAt(x))::equals)) {
+					tempNumStr += String.valueOf(tempProduct.charAt(x));
+				}
+				closeIdx = x;
+			}
+			tempStr += ")";
+			closeIdx += 2;
+			double tempNum = Double.parseDouble(tempNumStr);
+			total *= tempNum;
+			StringBuilder tempNewStr = new StringBuilder(tempProduct);
+			tempNewStr = tempNewStr.delete(index, closeIdx);
+			tempNewStr.insert(index, 'x');
+			tempProduct = tempNewStr.toString();
+			index = tempProduct.indexOf("(");
+		}
+		String tempNumStr = "";
+		for (int x = 0; x < tempProduct.length(); x++) {
+			if (Arrays.stream(Symbols.digitsMul).anyMatch(String.valueOf(tempProduct.charAt(x))::equals)) {
+				tempNumStr += String.valueOf(tempProduct.charAt(x));
+			} else {
+				if (!tempNumStr.equals("")) {
+					total *= Double.parseDouble(tempNumStr);
+					tempNumStr = "";
+				}
+			}
+		}
+		if (!tempNumStr.equals("")) {
+			total *= Double.parseDouble(tempNumStr);
+			tempNumStr = "";
+		}
+		return fmt(total);
+	}
+	// Simplify multiplicative operations including bracket multiplication
+	// Example: "4(2)/ 42*0.7(-14) * 10" -> "-18.66666..."
+	public static String multiplicativeSimplify(String expression) {
+		String tempExpression = "1*" + expression;
+		int idxParen = tempExpression.indexOf("(");
+		while (idxParen != -1) {
+			int idxStart = 0;
+			int idxEnd = 0;
+			String[] mulDivOp = Arrays.copyOf(Symbols.mul, Symbols.mul.length + Symbols.div.length);
+			System.arraycopy(Symbols.div, 0, mulDivOp, Symbols.mul.length, Symbols.div.length);
+			for (int x = idxParen; !Arrays.stream(mulDivOp).anyMatch(String.valueOf(tempExpression.charAt(x))::equals) && x >= 0; x--) {
+				idxStart = x;
+			}
+			for (int x = idxParen; !Arrays.stream(mulDivOp).anyMatch(String.valueOf(tempExpression.charAt(x))::equals) && x <= tempExpression.length(); x++) {
+				idxEnd = x+1;
+			}
+			String evalBrackets = multiplyBracketSimplify(tempExpression.substring(idxStart, idxEnd));
+			StringBuilder tempNewStr = new StringBuilder(tempExpression);
+			tempNewStr = tempNewStr.delete(idxStart, idxEnd);
+			tempNewStr.insert(idxStart, evalBrackets);
+			tempExpression = tempNewStr.toString();
+			idxParen = tempExpression.indexOf("(");
+		}
+		String result = multiplicativeOpSimplify(tempExpression);
+		return result;
 	}
 	// Return simplified polynomial after distributing 2 polynomials
 	// Example: "4 + 5 - 7", "5" -> "20 + 25 - 35"
@@ -156,7 +258,84 @@ public class oopSolver {
 		distributed += (distributedTerms[cnt[0]*cnt[1]-1] >= 0 ? " + " : " - ") + fmt(Math.abs(distributedTerms[cnt[0]*cnt[1]-1]));
 		return distributed;
 	}
-
+	public static boolean containsExponent(String expression) {
+		for (int x = 0; x < expression.length(); x++) {
+			if (Arrays.stream(Symbols.pow).anyMatch(String.valueOf(expression.charAt(x))::equals)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public static boolean containsAddSub(String expression) {
+		String[] addSubOp = Arrays.copyOf(Symbols.add, Symbols.add.length + Symbols.sub.length);
+		System.arraycopy(Symbols.sub, 0, addSubOp, Symbols.add.length, Symbols.sub.length);
+		for (int x = 0; x < expression.length(); x++) {
+			if (Arrays.stream(addSubOp).anyMatch(String.valueOf(expression.charAt(x))::equals)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public static boolean containsMulDiv(String expression) {
+		String[] mulDivOp = Arrays.copyOf(Symbols.mul, Symbols.mul.length + Symbols.div.length);
+		System.arraycopy(Symbols.div, 0, mulDivOp, Symbols.mul.length, Symbols.div.length);
+		if (expression.indexOf("(") != -1) {
+			return true;
+		}
+		for (int x = 0; x < expression.length(); x++) {
+			if (Arrays.stream(mulDivOp).anyMatch(String.valueOf(expression.charAt(x))::equals)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public static String extractMulDiv(String expression, int idxRef) {
+		String[] allOp = Arrays.copyOf(Symbols.mul, Symbols.mul.length + Symbols.div.length + Symbols.digits.length + 3);
+		System.arraycopy(Symbols.div, 0, allOp, Symbols.mul.length, Symbols.div.length);
+		System.arraycopy(Symbols.digits, 0, allOp, Symbols.mul.length + Symbols.div.length, Symbols.digits.length);
+		allOp[allOp.length-3] = " ";
+		allOp[allOp.length-2] = "(";
+		allOp[allOp.length-1] = ")";
+		String[] mulDivOp = Arrays.copyOf(Symbols.mul, Symbols.mul.length + Symbols.div.length);
+		System.arraycopy(Symbols.div, 0, mulDivOp, Symbols.mul.length, Symbols.div.length);
+		int startIdx = 0;
+		int endIdx = 0;
+		boolean minus = false;
+		int idxMinus = 0;
+		// 4-(2)/ 42*3-0.7(-14) * 10
+		for (int x = idxRef; x >= 0; x--) {
+			System.out.println("->" + String.valueOf(expression.charAt(x)));
+			if (Arrays.stream(allOp).anyMatch(String.valueOf(expression.charAt(x))::equals)) {
+				System.out.println("Part of mul/div string.");
+				startIdx = x;
+			} else {
+				System.out.println("Not part of mul/div string.");
+				if (expression.charAt(x) == '-') {
+					System.out.println("Minus.");
+					minus = true;
+					idxMinus = x + 1;
+				} else {
+					System.out.println("Additive.");
+					break;
+				}
+			}
+			if (minus && !Arrays.stream(mulDivOp).anyMatch(String.valueOf(expression.charAt(x))::equals) && x + 1 < idxMinus) {
+				System.out.println("Minus is not a negative symbol.");
+				startIdx = idxMinus;
+				break;
+			}/* else {
+				minus = false;
+			}*/
+		}
+		System.out.println(startIdx);
+		return "";
+	}
+	// Simplify expression containing all operations except for brackets
+	//public static String simplifyAll(String expression) {
+	//	String tempExpression = expression;
+	//	while (tempExpression) {
+	//	}
+	//}
 	public static void main(String[] args) {
 		// Ask for expression
 		Scanner input = new Scanner(System.in);
@@ -167,7 +346,29 @@ public class oopSolver {
 		System.out.println("(\"24 + 35 - 36 - 356.25- 35\")");
 		System.out.println(additiveSimplify("24 + 35 - 36 - 356.25- 35"));
 		System.out.println(additiveSimplify(distribute("23.25 - -35 + 42", "-36 + 25.36 - 35")));
-		System.out.println("(2356)/3(25)*(3((4)/4))");
-		multiplicativeSimplify("(2356)/3(25)*(3((4)/4))");
+		System.out.println("6*2 / 5 *25");
+		System.out.println(multiplicativeOpSimplify("6*2 / 5 *25"));
+		System.out.println("6*-32033/ 5 *25");
+		System.out.println(multiplicativeOpSimplify("6*-32033/ 5 *25"));
+		// (4)(-3)(3.5) -> -42
+		// (6)4(22) -> 528
+		// (6)(4)22 -> 528
+		// 6(4)22 -> 528
+		// 6(4(22 -> 528
+		System.out.println("(4)(-3)(3.5)");
+		System.out.println(multiplyBracketSimplify("(4)(-3)(3.5)"));
+		System.out.println("6(4)");
+		System.out.println(multiplyBracketSimplify("6(4)"));
+		System.out.println("(6)232(4)22");
+		System.out.println(multiplyBracketSimplify("(6)232(4)22"));
+		System.out.println("4(2)/ 42*0.7(-14) * 10");
+		System.out.println(multiplicativeSimplify("4(2)/ 42*0.7(-14) * 10"));
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("4-(2)/ 42*0.7(-14) * 10");
+		System.out.println(extractMulDiv("4-(2)/ 42*0.7(-14) * 10", 9));
+		System.out.println("4-(2)/ 42*-0.7(-14) * 10");
+		System.out.println(extractMulDiv("4-(2)/ 42*-0.7(-14) * 10", 14));
+		System.out.println("4-(2)/ 42*3-0.7(-14) * 10");
+		System.out.println(extractMulDiv("4-(2)/ 42*3-0.7(-14) * 10", 15));
 	}
 }
